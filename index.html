@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dnmcs — Decision Intelligence for Founders</title>
+<meta name="description" content="Map how you actually make decisions under pressure. 25 validated psychological frameworks, 6 decision dimensions, and an AI companion that applies your profile in real time.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* ─── Tokens ─── */
+:root {
+  --bg: #08080C;
+  --surface: #12121A;
+  --border: #1E1E2E;
+  --text: #F0F0F5;
+  --muted: #7A7A8C;
+  --accent: #9B9FFF;
+  --accent2: #7B7FE0;
+  --serif: 'Instrument Serif', serif;
+  --sans: 'DM Sans', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Nav ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(8,8,12,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(30,30,46,0.5);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-links a {
+  font-size: 13px;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--bg) !important;
+  background: var(--accent);
+  padding: 8px 20px;
+  border-radius: 10px;
+  transition: opacity 0.15s;
+}
+.nav-cta:hover { opacity: 0.88; }
+.nav-mobile-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-mobile-btn svg { width: 24px; height: 24px; }
+
+/* ─── Hero ─── */
+.hero {
+  padding: 160px 0 100px;
+  text-align: center;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  max-width: 800px;
+  margin: 0 auto 24px;
+}
+.hero-sub {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 14px 32px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.btn-primary:hover { opacity: 0.88; }
+.btn-primary:active { transform: scale(0.98); }
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+  background: transparent;
+  padding: 14px 32px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+.hero-stats {
+  font-size: 12px;
+  color: rgba(122,122,140,0.6);
+  letter-spacing: 0.04em;
+}
+
+/* ─── Truth Section ─── */
+.truth {
+  padding: 80px 0 100px;
+}
+.truth-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.truth p {
+  font-size: clamp(16px, 2.2vw, 19px);
+  line-height: 1.75;
+  color: rgba(240,240,245,0.7);
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+.truth p:last-child { margin-bottom: 0; }
+.truth em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: rgba(240,240,245,0.9);
+  font-size: 1.05em;
+}
+
+/* ─── Section headings ─── */
+.section-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+/* ─── How It Works ─── */
+.how {
+  padding: 100px 0;
+}
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+.how-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px 28px;
+}
+.how-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(155,159,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.how-icon svg { width: 18px; height: 18px; }
+.how-card h3 {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.how-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* ─── Mockup ─── */
+.mockup-section {
+  padding: 100px 0;
+}
+.mockup-card {
+  max-width: 680px;
+  margin: 48px auto 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.mockup-header {
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.mockup-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.mockup-decision {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.5;
+}
+.mockup-blocks {
+  padding: 0 28px;
+}
+.mockup-block {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(30,30,46,0.6);
+}
+.mockup-block:last-child { border-bottom: none; }
+.mockup-block-label {
+  font-size: 9px;
+  font-family: var(--sans);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: 80px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.mockup-block-text {
+  font-size: 13px;
+  color: rgba(240,240,245,0.72);
+  line-height: 1.55;
+  font-weight: 300;
+}
+.mockup-reflection {
+  padding: 24px 28px 28px;
+  border-top: 1px solid rgba(28,28,46,0.8);
+}
+.mockup-reflection-label {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(160,160,176,0.6);
+  margin-bottom: 8px;
+}
+.mockup-reflection-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(240,240,245,0.75);
+}
+
+/* ─── Teams ─── */
+.teams {
+  padding: 100px 0;
+}
+.teams-body {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 640px;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 48px;
+}
+.teams-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.teams-col {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px 28px;
+}
+.teams-col h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.teams-col ul {
+  list-style: none;
+  padding: 0;
+}
+.teams-col li {
+  font-size: 13px;
+  color: var(--muted);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(30,30,46,0.4);
+  font-weight: 300;
+}
+.teams-col li:last-child { border-bottom: none; }
+.teams-col li::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.teams-col:first-child li::before { background: var(--accent); }
+.teams-col:last-child li::before { background: var(--accent2); }
+
+/* ─── Advisory ─── */
+.advisory {
+  padding: 100px 0;
+}
+.advisory-body {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 600px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ─── Closing CTA ─── */
+.closing {
+  padding: 120px 0;
+  text-align: center;
+}
+.closing h2 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(32px, 5vw, 52px);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.closing-sub {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 40px;
+}
+
+/* ─── Footer ─── */
+footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+footer p {
+  font-size: 12px;
+  color: rgba(122,122,140,0.5);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: rgba(8,8,12,0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 24px;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-mobile-btn { display: block; }
+  .hero { padding: 120px 0 72px; }
+  .how-grid { grid-template-columns: 1fr; }
+  .teams-grid { grid-template-columns: 1fr; }
+  .mockup-block { flex-direction: column; gap: 4px; }
+  .mockup-block-label { width: auto; }
+}
+
+/* ─── Fade-in animation ─── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- NAV                                                                     -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">Dnmcs</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#how-it-works">How it works</a>
+      <a href="#teams">For teams</a>
+      <a href="https://deep-web-theta.vercel.app/auth" class="nav-cta">Start your assessment</a>
+    </div>
+    <button class="nav-mobile-btn" id="navToggle" aria-label="Toggle menu">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- HERO                                                                    -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-eyebrow fade-in">Decision Intelligence for Founders</p>
+    <h1 class="fade-in">The athletes who understand themselves win more.</h1>
+    <p class="hero-sub fade-in">Most founders optimize everything except the one thing that determines all of it — how they make decisions under pressure.</p>
+    <div class="hero-ctas fade-in">
+      <a href="https://deep-web-theta.vercel.app/auth" class="btn-primary">Start your assessment</a>
+      <a href="#how-it-works" class="btn-ghost">See how it works</a>
+    </div>
+    <p class="hero-stats fade-in">25 validated psychological frameworks · 247 questions · 6 decision dimensions</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- TRUTH                                                                   -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="truth">
+  <div class="container">
+    <div class="truth-inner fade-in">
+      <p>You track burn rate to the dollar. You A/B test landing pages. You agonize over every hire. But <em>the single biggest variable in your startup's outcome</em> — how you make decisions under pressure — you've never measured once.</p>
+      <p>Every founder has patterns they can't see. How you process risk. How you handle conflict. Whether you move too fast on hires or too slow on firing. Whether you <em>over-deliberate on reversible decisions</em> and under-think irreversible ones.</p>
+      <p>Dnmcs maps all of it. 25 validated psychological frameworks, one integrated assessment, <em>6 dimensions of how you actually operate</em> — not how you think you do.</p>
+      <p>Then it doesn't just hand you a report and walk away. Dnmcs gives you an AI companion that knows your decision profile and applies it in real time. Weighing a co-founder split? Deciding whether to pivot? About to fire your first employee? <em>It meets you in the moment</em>, with context no generic AI has.</p>
+      <p>The best VCs already profile founders before writing checks. <em>Dnmcs gives you that intelligence about yourself</em> — before it costs you a company.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- HOW IT WORKS                                                            -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="how" id="how-it-works">
+  <div class="container">
+    <p class="section-eyebrow fade-in">How it works</p>
+    <h2 class="section-title fade-in">Three layers of decision intelligence</h2>
+    <div class="how-grid">
+      <div class="how-card fade-in">
+        <div class="how-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="#9B9FFF" stroke-width="1.5"><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <h3>The Assessment</h3>
+        <p>247 questions across 25 validated psychological frameworks. Takes 25-35 minutes. Measures how you actually process risk, conflict, uncertainty, and pressure — not how you think you do.</p>
+      </div>
+      <div class="how-card fade-in">
+        <div class="how-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="#9B9FFF" stroke-width="1.5"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="9" width="4" height="11" rx="1"/></svg>
+        </div>
+        <h3>Your Decision Profile</h3>
+        <p>6 dimensions mapped to how founders make decisions. Conflict orientation, risk processing, decision speed, loyalty vs performance, pressure response, delegation and control. Plus the psychological root patterns driving all of it.</p>
+      </div>
+      <div class="how-card fade-in">
+        <div class="how-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="#9B9FFF" stroke-width="1.5"><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>The AI Companion</h3>
+        <p>Not a generic chatbot. An AI that knows your profile and applies it to real decisions in real time. You describe a decision you're facing — it gives you pattern, risk, bias, two scenarios, and one action. Then something to sit with.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- DECISION ANALYSIS MOCKUP                                                -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="mockup-section">
+  <div class="container">
+    <p class="section-eyebrow fade-in">The product</p>
+    <h2 class="section-title fade-in">What it looks like in practice</h2>
+    <div class="mockup-card fade-in">
+      <div class="mockup-header">
+        <p class="mockup-label">Decision Analysis</p>
+        <p class="mockup-decision">"I've been avoiding firing my Head of Sales for 6 months."</p>
+      </div>
+      <div class="mockup-blocks">
+        <div class="mockup-block">
+          <span class="mockup-block-label" style="color:#9B9FFF">Pattern</span>
+          <span class="mockup-block-text">You're confusing loyalty with avoidance — keeping him isn't about fairness, it's about not wanting to be the person who ends a relationship that felt safe.</span>
+        </div>
+        <div class="mockup-block">
+          <span class="mockup-block-label" style="color:#F5A623">Risk</span>
+          <span class="mockup-block-text">Every month you wait, your top reps internalize that performance doesn't matter here — and the ones who care most leave first.</span>
+        </div>
+        <div class="mockup-block">
+          <span class="mockup-block-label" style="color:#6B8EFF">Bias</span>
+          <span class="mockup-block-text">Sunk cost fallacy anchored to two years of shared history — you're weighing what you've invested, not what you're getting back.</span>
+        </div>
+        <div class="mockup-block">
+          <span class="mockup-block-label" style="color:#E0845C">Scenario A</span>
+          <span class="mockup-block-text">You delay three more months, lose your best AE to a competitor, and fire him anyway — but now from a weaker position.</span>
+        </div>
+        <div class="mockup-block">
+          <span class="mockup-block-label" style="color:#E0845C">Scenario B</span>
+          <span class="mockup-block-text">You act impulsively without a transition plan, the team reads it as erratic, and you spend Q3 rebuilding trust instead of pipeline.</span>
+        </div>
+        <div class="mockup-block">
+          <span class="mockup-block-label" style="color:#4ECBA0">Action</span>
+          <span class="mockup-block-text">Write the separation conversation script today. Not to send — to see if you can. The clarity will tell you if you're ready.</span>
+        </div>
+      </div>
+      <div class="mockup-reflection">
+        <p class="mockup-reflection-label">Something to sit with —</p>
+        <p class="mockup-reflection-text">The team already knows. They're just waiting to see if you do too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- FOR TEAMS                                                               -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="teams" id="teams">
+  <div class="container">
+    <p class="section-eyebrow fade-in">For teams</p>
+    <h2 class="section-title fade-in">Built for how leadership teams actually work</h2>
+    <p class="teams-body fade-in">When your co-founder, CMO, and VP of Engineering all complete their profiles, Dnmcs maps how your team makes decisions together — where you're aligned, where there's structural friction, and what conversations you're all avoiding.</p>
+    <div class="teams-grid">
+      <div class="teams-col fade-in">
+        <h3>Individual</h3>
+        <ul>
+          <li>Decision intelligence profile</li>
+          <li>AI companion for real-time decisions</li>
+          <li>Structured decision analysis</li>
+        </ul>
+      </div>
+      <div class="teams-col fade-in">
+        <h3>Team</h3>
+        <ul>
+          <li>Compatibility mapping</li>
+          <li>Shared blind spots</li>
+          <li>Monthly team report</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- ADVISORY BOARD                                                          -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="advisory">
+  <div class="container">
+    <p class="section-eyebrow fade-in">Advisory Board</p>
+    <h2 class="section-title fade-in">Advisory Board</h2>
+    <p class="advisory-body fade-in">Dnmcs is designed at the intersection of behavioral science, neuroscience, and leadership decision-making. We are committed to working closely with leading researchers studying how humans think, decide, and operate under pressure.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- CLOSING CTA                                                             -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="closing">
+  <div class="container">
+    <h2 class="fade-in">You've optimized everything else.</h2>
+    <p class="closing-sub fade-in">Now understand the mind making all the decisions.</p>
+    <a href="https://deep-web-theta.vercel.app/auth" class="btn-primary fade-in">Start your assessment</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- FOOTER                                                                  -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Dnmcs. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// Mobile nav toggle
+document.getElementById('navToggle').addEventListener('click', function() {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+// Close mobile nav on link click
+document.querySelectorAll('#navLinks a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+// Fade-in on scroll
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(function(el) {
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
