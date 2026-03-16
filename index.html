@@ -98,7 +98,7 @@ nav {
 
 /* ─── Hero ─── */
 .hero {
-  padding: 160px 0 100px;
+  padding: 196px 0 100px;
   text-align: center;
 }
 .hero-eyebrow {
@@ -172,29 +172,6 @@ nav {
   font-size: 12px;
   color: rgba(122,122,140,0.6);
   letter-spacing: 0.04em;
-}
-
-/* ─── Truth Section ─── */
-.truth {
-  padding: 80px 0 100px;
-}
-.truth-inner {
-  max-width: 720px;
-  margin: 0 auto;
-}
-.truth p {
-  font-size: clamp(16px, 2.2vw, 19px);
-  line-height: 1.75;
-  color: rgba(240,240,245,0.7);
-  font-weight: 300;
-  margin-bottom: 28px;
-}
-.truth p:last-child { margin-bottom: 0; }
-.truth em {
-  font-family: var(--serif);
-  font-style: italic;
-  color: rgba(240,240,245,0.9);
-  font-size: 1.05em;
 }
 
 /* ─── Section headings ─── */
@@ -428,6 +405,36 @@ footer p {
   color: rgba(122,122,140,0.5);
 }
 
+/* ─── Announcement Bar ─── */
+.announcement-bar {
+  background: #0E0E14;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  padding: 10px 24px;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 101;
+}
+.announcement-bar p {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.typewriter-cursor {
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  background: var(--muted);
+  vertical-align: middle;
+  margin-left: 1px;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+nav { top: 36px; }
+
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
   .nav-links { display: none; }
@@ -435,7 +442,7 @@ footer p {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 64px; left: 0; right: 0;
+    top: 100px; left: 0; right: 0;
     background: rgba(8,8,12,0.97);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -444,7 +451,7 @@ footer p {
     border-bottom: 1px solid var(--border);
   }
   .nav-mobile-btn { display: block; }
-  .hero { padding: 120px 0 72px; }
+  .hero { padding: 156px 0 72px; }
   .how-grid { grid-template-columns: 1fr; }
   .teams-grid { grid-template-columns: 1fr; }
   .mockup-block { flex-direction: column; gap: 4px; }
@@ -464,6 +471,13 @@ footer p {
 </style>
 </head>
 <body>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- ANNOUNCEMENT BAR                                                        -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<div class="announcement-bar">
+  <p>Used by 120+ <span id="typewriter"></span><span class="typewriter-cursor"></span></p>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <!-- NAV                                                                     -->
@@ -490,28 +504,13 @@ footer p {
 <section class="hero">
   <div class="container">
     <p class="hero-eyebrow fade-in">Decision Intelligence for Founders</p>
-    <h1 class="fade-in">The athletes who understand themselves win more.</h1>
+    <h1 class="fade-in">Most companies don't fail because of the market. They fail because of the minds behind it.</h1>
     <p class="hero-sub fade-in">Most founders optimize everything except the one thing that determines all of it — how they make decisions under pressure.</p>
     <div class="hero-ctas fade-in">
       <a href="https://deep-web-theta.vercel.app/auth" class="btn-primary">Start your assessment</a>
       <a href="#how-it-works" class="btn-ghost">See how it works</a>
     </div>
-    <p class="hero-stats fade-in">25 validated psychological frameworks · 247 questions · 6 decision dimensions</p>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════════════ -->
-<!-- TRUTH                                                                   -->
-<!-- ═══════════════════════════════════════════════════════════════════════ -->
-<section class="truth">
-  <div class="container">
-    <div class="truth-inner fade-in">
-      <p>You track burn rate to the dollar. You A/B test landing pages. You agonize over every hire. But <em>the single biggest variable in your startup's outcome</em> — how you make decisions under pressure — you've never measured once.</p>
-      <p>Every founder has patterns they can't see. How you process risk. How you handle conflict. Whether you move too fast on hires or too slow on firing. Whether you <em>over-deliberate on reversible decisions</em> and under-think irreversible ones.</p>
-      <p>Dnmcs maps all of it. 25 validated psychological frameworks, one integrated assessment, <em>6 dimensions of how you actually operate</em> — not how you think you do.</p>
-      <p>Then it doesn't just hand you a report and walk away. Dnmcs gives you an AI companion that knows your decision profile and applies it in real time. Weighing a co-founder split? Deciding whether to pivot? About to fire your first employee? <em>It meets you in the moment</em>, with context no generic AI has.</p>
-      <p>The best VCs already profile founders before writing checks. <em>Dnmcs gives you that intelligence about yourself</em> — before it costs you a company.</p>
-    </div>
+    <p class="hero-stats fade-in">25 validated psychological frameworks · 6 decision dimensions</p>
   </div>
 </section>
 
@@ -528,7 +527,7 @@ footer p {
           <svg fill="none" viewBox="0 0 24 24" stroke="#9B9FFF" stroke-width="1.5"><circle cx="12" cy="12" r="9"/></svg>
         </div>
         <h3>The Assessment</h3>
-        <p>247 questions across 25 validated psychological frameworks. Takes 25-35 minutes. Measures how you actually process risk, conflict, uncertainty, and pressure — not how you think you do.</p>
+        <p>25 validated psychological frameworks. Takes 25-35 minutes. Measures how you actually process risk, conflict, uncertainty, and pressure — not how you think you do.</p>
       </div>
       <div class="how-card fade-in">
         <div class="how-icon">
@@ -679,6 +678,44 @@ var observer = new IntersectionObserver(function(entries) {
 document.querySelectorAll('.fade-in').forEach(function(el) {
   observer.observe(el);
 });
+
+// Typewriter effect
+(function() {
+  var words = ['founders', 'executives', 'management teams', 'investors', 'CEOs', 'leadership teams'];
+  var el = document.getElementById('typewriter');
+  var wordIndex = 0;
+  var charIndex = 0;
+  var isDeleting = false;
+  var typeSpeed = 80;
+  var deleteSpeed = 50;
+  var pauseAfterType = 2000;
+  var pauseAfterDelete = 300;
+
+  function tick() {
+    var currentWord = words[wordIndex];
+    if (!isDeleting) {
+      charIndex++;
+      el.textContent = currentWord.substring(0, charIndex);
+      if (charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(tick, pauseAfterType);
+      } else {
+        setTimeout(tick, typeSpeed);
+      }
+    } else {
+      charIndex--;
+      el.textContent = currentWord.substring(0, charIndex);
+      if (charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(tick, pauseAfterDelete);
+      } else {
+        setTimeout(tick, deleteSpeed);
+      }
+    }
+  }
+  tick();
+})();
 </script>
 
 </body>
