@@ -98,8 +98,30 @@ nav {
 
 /* ─── Hero ─── */
 .hero {
-  padding: 196px 0 100px;
+  padding: 160px 0 100px;
   text-align: center;
+}
+.hero-social-proof {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.hero-social-proof .typewriter-word {
+  color: var(--accent);
+}
+.typewriter-cursor {
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background: var(--accent);
+  vertical-align: middle;
+  margin-left: 1px;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 .hero-eyebrow {
   font-size: 11px;
@@ -191,6 +213,13 @@ nav {
   color: var(--muted);
   margin-bottom: 12px;
 }
+.section-subtitle {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 640px;
+  line-height: 1.7;
+  font-weight: 300;
+}
 
 /* ─── How It Works ─── */
 .how {
@@ -233,7 +262,132 @@ nav {
   font-weight: 300;
 }
 
-/* ─── Mockup ─── */
+/* ─── Profile Mockup ─── */
+.profile-section {
+  padding: 100px 0;
+}
+.profile-card {
+  max-width: 680px;
+  margin: 48px auto 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.profile-card-header {
+  padding: 28px 32px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.profile-card-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.profile-card-name {
+  font-size: 14px;
+  color: rgba(160,160,176,0.8);
+  margin-top: 4px;
+}
+.profile-card-date {
+  font-size: 11px;
+  color: rgba(122,122,140,0.5);
+  margin-top: 2px;
+}
+.profile-dims {
+  padding: 24px 32px;
+}
+.profile-dim {
+  margin-bottom: 24px;
+}
+.profile-dim:last-child { margin-bottom: 0; }
+.profile-dim-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.profile-dim-poles {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.profile-dim-pole {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(122,122,140,0.6);
+}
+.profile-dim-bar {
+  position: relative;
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
+}
+.profile-dim-fill {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  border-radius: 1px;
+  background: var(--accent);
+  opacity: 0.4;
+}
+.profile-dim-dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+  box-shadow: 0 0 8px rgba(155,159,255,0.3);
+}
+.profile-dim-score {
+  position: absolute;
+  top: -20px;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  font-family: var(--sans);
+}
+.profile-patterns {
+  padding: 24px 32px 28px;
+  border-top: 1px solid var(--border);
+}
+.profile-patterns-title {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.profile-pattern {
+  background: rgba(8,8,12,0.5);
+  border: 1px solid rgba(30,30,46,0.6);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+}
+.profile-pattern:last-child { margin-bottom: 0; }
+.profile-pattern-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.profile-pattern-text {
+  font-size: 12px;
+  color: rgba(160,160,176,0.7);
+  line-height: 1.55;
+  font-weight: 300;
+}
+
+/* ─── Analysis Mockup ─── */
 .mockup-section {
   padding: 100px 0;
 }
@@ -361,18 +515,6 @@ nav {
 .teams-col:first-child li::before { background: var(--accent); }
 .teams-col:last-child li::before { background: var(--accent2); }
 
-/* ─── Advisory ─── */
-.advisory {
-  padding: 100px 0;
-}
-.advisory-body {
-  font-size: 15px;
-  color: var(--muted);
-  max-width: 600px;
-  line-height: 1.7;
-  font-weight: 300;
-}
-
 /* ─── Closing CTA ─── */
 .closing {
   padding: 120px 0;
@@ -405,36 +547,6 @@ footer p {
   color: rgba(122,122,140,0.5);
 }
 
-/* ─── Announcement Bar ─── */
-.announcement-bar {
-  background: #0E0E14;
-  border-bottom: 1px solid var(--border);
-  text-align: center;
-  padding: 10px 24px;
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 101;
-}
-.announcement-bar p {
-  font-size: 12px;
-  color: var(--muted);
-  font-weight: 400;
-}
-.typewriter-cursor {
-  display: inline-block;
-  width: 1px;
-  height: 14px;
-  background: var(--muted);
-  vertical-align: middle;
-  margin-left: 1px;
-  animation: blink 0.7s infinite;
-}
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-nav { top: 36px; }
-
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
   .nav-links { display: none; }
@@ -442,7 +554,7 @@ nav { top: 36px; }
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 100px; left: 0; right: 0;
+    top: 64px; left: 0; right: 0;
     background: rgba(8,8,12,0.97);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -451,11 +563,14 @@ nav { top: 36px; }
     border-bottom: 1px solid var(--border);
   }
   .nav-mobile-btn { display: block; }
-  .hero { padding: 156px 0 72px; }
+  .hero { padding: 120px 0 72px; }
   .how-grid { grid-template-columns: 1fr; }
   .teams-grid { grid-template-columns: 1fr; }
   .mockup-block { flex-direction: column; gap: 4px; }
   .mockup-block-label { width: auto; }
+  .profile-dims { padding: 20px 24px; }
+  .profile-card-header { padding: 24px; }
+  .profile-patterns { padding: 20px 24px 24px; }
 }
 
 /* ─── Fade-in animation ─── */
@@ -471,13 +586,6 @@ nav { top: 36px; }
 </style>
 </head>
 <body>
-
-<!-- ═══════════════════════════════════════════════════════════════════════ -->
-<!-- ANNOUNCEMENT BAR                                                        -->
-<!-- ═══════════════════════════════════════════════════════════════════════ -->
-<div class="announcement-bar">
-  <p>Used by 120+ <span id="typewriter"></span><span class="typewriter-cursor"></span></p>
-</div>
 
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <!-- NAV                                                                     -->
@@ -503,6 +611,7 @@ nav { top: 36px; }
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="container">
+    <p class="hero-social-proof fade-in">Used by 120+ <span class="typewriter-word" id="typewriter"></span><span class="typewriter-cursor"></span></p>
     <p class="hero-eyebrow fade-in">Decision Intelligence for Founders</p>
     <h1 class="fade-in">Most companies don't fail because of the market. They fail because of the minds behind it.</h1>
     <p class="hero-sub fade-in">Most founders optimize everything except the one thing that determines all of it — how they make decisions under pressure.</p>
@@ -542,6 +651,115 @@ nav { top: 36px; }
         </div>
         <h3>The AI Companion</h3>
         <p>Not a generic chatbot. An AI that knows your profile and applies it to real decisions in real time. You describe a decision you're facing — it gives you pattern, risk, bias, two scenarios, and one action. Then something to sit with.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- YOUR DECISION PROFILE                                                   -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="profile-section">
+  <div class="container">
+    <p class="section-eyebrow fade-in">Your profile</p>
+    <h2 class="section-title fade-in">Know exactly how you operate</h2>
+    <p class="section-subtitle fade-in">After the assessment, you get a complete decision intelligence profile — not a personality test result, but a map of how you make decisions under pressure.</p>
+    <div class="profile-card fade-in">
+      <div class="profile-card-header">
+        <p class="profile-card-title">Decision Intelligence Profile</p>
+        <p class="profile-card-name">Diego Ibarra</p>
+        <p class="profile-card-date">Generated March 12, 2026</p>
+      </div>
+      <div class="profile-dims">
+        <!-- Conflict Orientation — 43 -->
+        <div class="profile-dim">
+          <p class="profile-dim-name">Conflict Orientation</p>
+          <div class="profile-dim-poles">
+            <span class="profile-dim-pole">Avoidant</span>
+            <span class="profile-dim-pole">Confrontational</span>
+          </div>
+          <div class="profile-dim-bar">
+            <div class="profile-dim-fill" style="width:43%"></div>
+            <div class="profile-dim-dot" style="left:43%"></div>
+            <span class="profile-dim-score" style="left:43%">43</span>
+          </div>
+        </div>
+        <!-- Decision Speed — 63 -->
+        <div class="profile-dim">
+          <p class="profile-dim-name">Decision Speed</p>
+          <div class="profile-dim-poles">
+            <span class="profile-dim-pole">Fast Decider</span>
+            <span class="profile-dim-pole">Analysis Paralysis</span>
+          </div>
+          <div class="profile-dim-bar">
+            <div class="profile-dim-fill" style="width:63%"></div>
+            <div class="profile-dim-dot" style="left:63%"></div>
+            <span class="profile-dim-score" style="left:63%">63</span>
+          </div>
+        </div>
+        <!-- Risk Processing — 67 -->
+        <div class="profile-dim">
+          <p class="profile-dim-name">Risk Processing</p>
+          <div class="profile-dim-poles">
+            <span class="profile-dim-pole">Risk Minimizer</span>
+            <span class="profile-dim-pole">Risk Amplifier</span>
+          </div>
+          <div class="profile-dim-bar">
+            <div class="profile-dim-fill" style="width:67%"></div>
+            <div class="profile-dim-dot" style="left:67%"></div>
+            <span class="profile-dim-score" style="left:67%">67</span>
+          </div>
+        </div>
+        <!-- Loyalty vs Performance — 48 -->
+        <div class="profile-dim">
+          <p class="profile-dim-name">Loyalty vs Performance</p>
+          <div class="profile-dim-poles">
+            <span class="profile-dim-pole">Loyalty Bias</span>
+            <span class="profile-dim-pole">Performance Bias</span>
+          </div>
+          <div class="profile-dim-bar">
+            <div class="profile-dim-fill" style="width:48%"></div>
+            <div class="profile-dim-dot" style="left:48%"></div>
+            <span class="profile-dim-score" style="left:48%">48</span>
+          </div>
+        </div>
+        <!-- Pressure Response — 46 -->
+        <div class="profile-dim">
+          <p class="profile-dim-name">Pressure Response</p>
+          <div class="profile-dim-poles">
+            <span class="profile-dim-pole">Narrowing</span>
+            <span class="profile-dim-pole">Overcomplication</span>
+          </div>
+          <div class="profile-dim-bar">
+            <div class="profile-dim-fill" style="width:46%"></div>
+            <div class="profile-dim-dot" style="left:46%"></div>
+            <span class="profile-dim-score" style="left:46%">46</span>
+          </div>
+        </div>
+        <!-- Delegation & Control — 42 -->
+        <div class="profile-dim">
+          <p class="profile-dim-name">Delegation &amp; Control</p>
+          <div class="profile-dim-poles">
+            <span class="profile-dim-pole">Control-Driven</span>
+            <span class="profile-dim-pole">High Trust</span>
+          </div>
+          <div class="profile-dim-bar">
+            <div class="profile-dim-fill" style="width:42%"></div>
+            <div class="profile-dim-dot" style="left:42%"></div>
+            <span class="profile-dim-score" style="left:42%">42</span>
+          </div>
+        </div>
+      </div>
+      <div class="profile-patterns">
+        <p class="profile-patterns-title">What drives your decisions</p>
+        <div class="profile-pattern">
+          <p class="profile-pattern-name">Perfectionism &amp; Delay</p>
+          <p class="profile-pattern-text">You tend to over-refine decisions before acting, not because you lack clarity, but because the cost of being wrong feels disproportionately high. This pattern shows up most in irreversible commitments — hires, partnerships, product bets.</p>
+        </div>
+        <div class="profile-pattern">
+          <p class="profile-pattern-name">Fear of Success</p>
+          <p class="profile-pattern-text">When things start working, a quiet part of you wonders if you deserve it — and begins subtly sabotaging the momentum. You create new problems to solve instead of riding the wave you built.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -619,17 +837,6 @@ nav { top: 36px; }
         </ul>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════════════ -->
-<!-- ADVISORY BOARD                                                          -->
-<!-- ═══════════════════════════════════════════════════════════════════════ -->
-<section class="advisory">
-  <div class="container">
-    <p class="section-eyebrow fade-in">Advisory Board</p>
-    <h2 class="section-title fade-in">Advisory Board</h2>
-    <p class="advisory-body fade-in">Dnmcs is designed at the intersection of behavioral science, neuroscience, and leadership decision-making. We are committed to working closely with leading researchers studying how humans think, decide, and operate under pressure.</p>
   </div>
 </section>
 
