@@ -86,6 +86,20 @@ nav {
   transition: opacity 0.15s;
 }
 .nav-cta:hover { opacity: 0.88; }
+.nav-lang-toggle {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+  font-family: var(--sans);
+  letter-spacing: 0.05em;
+}
+.nav-lang-toggle:hover { color: var(--text); border-color: var(--muted); }
 .nav-mobile-btn {
   display: none;
   background: none;
@@ -594,9 +608,10 @@ footer p {
   <div class="container nav-inner">
     <a href="#" class="nav-logo">Dnmcs</a>
     <div class="nav-links" id="navLinks">
-      <a href="#how-it-works">How it works</a>
-      <a href="#teams">For teams</a>
-      <a href="https://app.dnmcs.ai/auth" class="nav-cta">Start your assessment</a>
+      <a href="#how-it-works" data-en="How it works" data-es="Cómo funciona">How it works</a>
+      <a href="#teams" data-en="For teams" data-es="Para equipos">For teams</a>
+      <button class="nav-lang-toggle" id="langToggle">EN / ES</button>
+      <a href="https://app.dnmcs.ai/auth" class="nav-cta" data-en="Start your assessment" data-es="Comenzar evaluación">Start your assessment</a>
     </div>
     <button class="nav-mobile-btn" id="navToggle" aria-label="Toggle menu">
       <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -611,15 +626,15 @@ footer p {
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="container">
-    <p class="hero-social-proof fade-in">Used by 120+ <span class="typewriter-word" id="typewriter"></span><span class="typewriter-cursor"></span></p>
-    <p class="hero-eyebrow fade-in">Decision Intelligence for Founders</p>
-    <h1 class="fade-in">Most companies don't fail because of the market. They fail because of the minds behind it.</h1>
-    <p class="hero-sub fade-in">Most founders optimize everything except the one thing that determines all of it — how they make decisions under pressure.</p>
+    <p class="hero-social-proof fade-in" data-en="Used by 120+ " data-es="Usado por más de 120 ">Used by 120+ <span class="typewriter-word" id="typewriter"></span><span class="typewriter-cursor"></span></p>
+    <p class="hero-eyebrow fade-in" data-en="Decision Intelligence for Founders" data-es="Inteligencia de Decisiones para Founders">Decision Intelligence for Founders</p>
+    <h1 class="fade-in" data-en="Most companies don't fail because of the market. They fail because of the minds behind it." data-es="La mayoría de las empresas no fracasan por el mercado. Fracasan por las mentes que las dirigen.">Most companies don't fail because of the market. They fail because of the minds behind it.</h1>
+    <p class="hero-sub fade-in" data-en="Most founders optimize everything except the one thing that determines all of it — how they make decisions under pressure." data-es="La mayoría optimiza todo menos lo que determina todo: cómo toman decisiones bajo presión.">Most founders optimize everything except the one thing that determines all of it — how they make decisions under pressure.</p>
     <div class="hero-ctas fade-in">
-      <a href="https://app.dnmcs.ai/auth" class="btn-primary">Start your assessment</a>
-      <a href="#how-it-works" class="btn-ghost">See how it works</a>
+      <a href="https://app.dnmcs.ai/auth" class="btn-primary" data-en="Start your assessment" data-es="Comenzar evaluación">Start your assessment</a>
+      <a href="#how-it-works" class="btn-ghost" data-en="See how it works" data-es="Ver cómo funciona">See how it works</a>
     </div>
-    <p class="hero-stats fade-in">25 validated psychological frameworks · 6 decision dimensions</p>
+    <p class="hero-stats fade-in" data-en="25 validated psychological frameworks · 6 decision dimensions" data-es="25 marcos psicológicos validados · 6 dimensiones de decisión">25 validated psychological frameworks · 6 decision dimensions</p>
   </div>
 </section>
 
@@ -628,29 +643,29 @@ footer p {
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <section class="how" id="how-it-works">
   <div class="container">
-    <p class="section-eyebrow fade-in">How it works</p>
-    <h2 class="section-title fade-in">Three layers of decision intelligence</h2>
+    <p class="section-eyebrow fade-in" data-en="How it works" data-es="Cómo funciona">How it works</p>
+    <h2 class="section-title fade-in" data-en="Three layers of decision intelligence" data-es="Tres capas de inteligencia de decisiones">Three layers of decision intelligence</h2>
     <div class="how-grid">
       <div class="how-card fade-in">
         <div class="how-icon">
           <svg fill="none" viewBox="0 0 24 24" stroke="#9B9FFF" stroke-width="1.5"><circle cx="12" cy="12" r="9"/></svg>
         </div>
-        <h3>The Assessment</h3>
-        <p>25 validated psychological frameworks. Takes 25-35 minutes. Measures how you actually process risk, conflict, uncertainty, and pressure — not how you think you do.</p>
+        <h3 data-en="The Assessment" data-es="El Assessment">The Assessment</h3>
+        <p data-en="25 validated psychological frameworks. Takes 25-35 minutes. Measures how you actually process risk, conflict, uncertainty, and pressure — not how you think you do." data-es="25 marcos psicológicos validados. Toma 25-35 minutos. Mide cómo realmente procesas riesgo, conflicto, incertidumbre y presión — no cómo crees que lo haces.">25 validated psychological frameworks. Takes 25-35 minutes. Measures how you actually process risk, conflict, uncertainty, and pressure — not how you think you do.</p>
       </div>
       <div class="how-card fade-in">
         <div class="how-icon">
           <svg fill="none" viewBox="0 0 24 24" stroke="#9B9FFF" stroke-width="1.5"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="9" width="4" height="11" rx="1"/></svg>
         </div>
-        <h3>Your Decision Profile</h3>
-        <p>6 dimensions mapped to how founders make decisions. Conflict orientation, risk processing, decision speed, loyalty vs performance, pressure response, delegation and control. Plus the psychological root patterns driving all of it.</p>
+        <h3 data-en="Your Decision Profile" data-es="Tu Perfil de Decisión">Your Decision Profile</h3>
+        <p data-en="6 dimensions mapped to how founders make decisions. Conflict orientation, risk processing, decision speed, loyalty vs performance, pressure response, delegation and control. Plus the psychological root patterns driving all of it." data-es="6 dimensiones mapeadas a cómo los founders toman decisiones. Orientación al conflicto, procesamiento de riesgo, velocidad de decisión, lealtad vs rendimiento, respuesta a la presión, delegación y control. Más los patrones psicológicos raíz que impulsan todo.">6 dimensions mapped to how founders make decisions. Conflict orientation, risk processing, decision speed, loyalty vs performance, pressure response, delegation and control. Plus the psychological root patterns driving all of it.</p>
       </div>
       <div class="how-card fade-in">
         <div class="how-icon">
           <svg fill="none" viewBox="0 0 24 24" stroke="#9B9FFF" stroke-width="1.5"><circle cx="12" cy="12" r="3"/></svg>
         </div>
-        <h3>The AI Companion</h3>
-        <p>Not a generic chatbot. An AI that knows your profile and applies it to real decisions in real time. You describe a decision you're facing — it gives you pattern, risk, bias, two scenarios, and one action. Then something to sit with.</p>
+        <h3 data-en="The AI Companion" data-es="El Acompañante IA">The AI Companion</h3>
+        <p data-en="Not a generic chatbot. An AI that knows your profile and applies it to real decisions in real time. You describe a decision you're facing — it gives you pattern, risk, bias, two scenarios, and one action. Then something to sit with." data-es="No es un chatbot genérico. Una IA que conoce tu perfil y lo aplica a decisiones reales en tiempo real. Describes la decisión que enfrentas — te da patrón, riesgo, sesgo, dos escenarios y una acción. Y algo para reflexionar.">Not a generic chatbot. An AI that knows your profile and applies it to real decisions in real time. You describe a decision you're facing — it gives you pattern, risk, bias, two scenarios, and one action. Then something to sit with.</p>
       </div>
     </div>
   </div>
@@ -661,22 +676,22 @@ footer p {
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <section class="profile-section">
   <div class="container">
-    <p class="section-eyebrow fade-in">Your profile</p>
-    <h2 class="section-title fade-in">Know exactly how you operate</h2>
-    <p class="section-subtitle fade-in">After the assessment, you get a complete decision intelligence profile — not a personality test result, but a map of how you make decisions under pressure.</p>
+    <p class="section-eyebrow fade-in" data-en="Your profile" data-es="Tu perfil">Your profile</p>
+    <h2 class="section-title fade-in" data-en="Know exactly how you operate" data-es="Conoce exactamente cómo operas">Know exactly how you operate</h2>
+    <p class="section-subtitle fade-in" data-en="After the assessment, you get a complete decision intelligence profile — not a personality test result, but a map of how you make decisions under pressure." data-es="Después del assessment, recibes un perfil completo de inteligencia decisional — no un resultado de test de personalidad, sino un mapa de cómo tomas decisiones bajo presión.">After the assessment, you get a complete decision intelligence profile — not a personality test result, but a map of how you make decisions under pressure.</p>
     <div class="profile-card fade-in">
       <div class="profile-card-header">
-        <p class="profile-card-title">Decision Intelligence Profile</p>
+        <p class="profile-card-title" data-en="Decision Intelligence Profile" data-es="Perfil de Inteligencia Decisional">Decision Intelligence Profile</p>
         <p class="profile-card-name">Diego Ibarra</p>
-        <p class="profile-card-date">Generated March 12, 2026</p>
+        <p class="profile-card-date" data-en="Generated March 12, 2026" data-es="Generado el 12 de marzo de 2026">Generated March 12, 2026</p>
       </div>
       <div class="profile-dims">
         <!-- Conflict Orientation — 43 -->
         <div class="profile-dim">
-          <p class="profile-dim-name">Conflict Orientation</p>
+          <p class="profile-dim-name" data-en="Conflict Orientation" data-es="Orientación al Conflicto">Conflict Orientation</p>
           <div class="profile-dim-poles">
-            <span class="profile-dim-pole">Avoidant</span>
-            <span class="profile-dim-pole">Confrontational</span>
+            <span class="profile-dim-pole" data-en="Avoidant" data-es="Evitador">Avoidant</span>
+            <span class="profile-dim-pole" data-en="Confrontational" data-es="Confrontacional">Confrontational</span>
           </div>
           <div class="profile-dim-bar">
             <div class="profile-dim-fill" style="width:43%"></div>
@@ -686,10 +701,10 @@ footer p {
         </div>
         <!-- Decision Speed — 63 -->
         <div class="profile-dim">
-          <p class="profile-dim-name">Decision Speed</p>
+          <p class="profile-dim-name" data-en="Decision Speed" data-es="Velocidad de Decisión">Decision Speed</p>
           <div class="profile-dim-poles">
-            <span class="profile-dim-pole">Fast Decider</span>
-            <span class="profile-dim-pole">Analysis Paralysis</span>
+            <span class="profile-dim-pole" data-en="Fast Decider" data-es="Decide Rápido">Fast Decider</span>
+            <span class="profile-dim-pole" data-en="Analysis Paralysis" data-es="Parálisis de Análisis">Analysis Paralysis</span>
           </div>
           <div class="profile-dim-bar">
             <div class="profile-dim-fill" style="width:63%"></div>
@@ -699,10 +714,10 @@ footer p {
         </div>
         <!-- Risk Processing — 67 -->
         <div class="profile-dim">
-          <p class="profile-dim-name">Risk Processing</p>
+          <p class="profile-dim-name" data-en="Risk Processing" data-es="Procesamiento del Riesgo">Risk Processing</p>
           <div class="profile-dim-poles">
-            <span class="profile-dim-pole">Risk Minimizer</span>
-            <span class="profile-dim-pole">Risk Amplifier</span>
+            <span class="profile-dim-pole" data-en="Risk Minimizer" data-es="Minimizador de Riesgo">Risk Minimizer</span>
+            <span class="profile-dim-pole" data-en="Risk Amplifier" data-es="Amplificador de Riesgo">Risk Amplifier</span>
           </div>
           <div class="profile-dim-bar">
             <div class="profile-dim-fill" style="width:67%"></div>
@@ -712,10 +727,10 @@ footer p {
         </div>
         <!-- Loyalty vs Performance — 48 -->
         <div class="profile-dim">
-          <p class="profile-dim-name">Loyalty vs Performance</p>
+          <p class="profile-dim-name" data-en="Loyalty vs Performance" data-es="Lealtad vs Rendimiento">Loyalty vs Performance</p>
           <div class="profile-dim-poles">
-            <span class="profile-dim-pole">Loyalty Bias</span>
-            <span class="profile-dim-pole">Performance Bias</span>
+            <span class="profile-dim-pole" data-en="Loyalty Bias" data-es="Sesgo de Lealtad">Loyalty Bias</span>
+            <span class="profile-dim-pole" data-en="Performance Bias" data-es="Sesgo de Rendimiento">Performance Bias</span>
           </div>
           <div class="profile-dim-bar">
             <div class="profile-dim-fill" style="width:48%"></div>
@@ -725,10 +740,10 @@ footer p {
         </div>
         <!-- Pressure Response — 46 -->
         <div class="profile-dim">
-          <p class="profile-dim-name">Pressure Response</p>
+          <p class="profile-dim-name" data-en="Pressure Response" data-es="Respuesta a la Presión">Pressure Response</p>
           <div class="profile-dim-poles">
-            <span class="profile-dim-pole">Narrowing</span>
-            <span class="profile-dim-pole">Overcomplication</span>
+            <span class="profile-dim-pole" data-en="Narrowing" data-es="Se Cierra">Narrowing</span>
+            <span class="profile-dim-pole" data-en="Overcomplication" data-es="Sobre-complica">Overcomplication</span>
           </div>
           <div class="profile-dim-bar">
             <div class="profile-dim-fill" style="width:46%"></div>
@@ -738,10 +753,10 @@ footer p {
         </div>
         <!-- Delegation & Control — 42 -->
         <div class="profile-dim">
-          <p class="profile-dim-name">Delegation &amp; Control</p>
+          <p class="profile-dim-name" data-en="Delegation &amp; Control" data-es="Delegación y Control">Delegation &amp; Control</p>
           <div class="profile-dim-poles">
-            <span class="profile-dim-pole">Control-Driven</span>
-            <span class="profile-dim-pole">High Trust</span>
+            <span class="profile-dim-pole" data-en="Control-Driven" data-es="Orientado al Control">Control-Driven</span>
+            <span class="profile-dim-pole" data-en="High Trust" data-es="Alta Confianza">High Trust</span>
           </div>
           <div class="profile-dim-bar">
             <div class="profile-dim-fill" style="width:42%"></div>
@@ -751,14 +766,14 @@ footer p {
         </div>
       </div>
       <div class="profile-patterns">
-        <p class="profile-patterns-title">What drives your decisions</p>
+        <p class="profile-patterns-title" data-en="What drives your decisions" data-es="Lo que impulsa tus decisiones">What drives your decisions</p>
         <div class="profile-pattern">
-          <p class="profile-pattern-name">Perfectionism &amp; Delay</p>
-          <p class="profile-pattern-text">You tend to over-refine decisions before acting, not because you lack clarity, but because the cost of being wrong feels disproportionately high. This pattern shows up most in irreversible commitments — hires, partnerships, product bets.</p>
+          <p class="profile-pattern-name" data-en="Perfectionism &amp; Delay" data-es="Perfeccionismo y Postergación">Perfectionism &amp; Delay</p>
+          <p class="profile-pattern-text" data-en="You tend to over-refine decisions before acting, not because you lack clarity, but because the cost of being wrong feels disproportionately high. This pattern shows up most in irreversible commitments — hires, partnerships, product bets." data-es="Tiendes a sobre-refinar las decisiones antes de actuar, no porque te falte claridad, sino porque el costo de equivocarte se siente desproporcionadamente alto. Este patrón aparece más en compromisos irreversibles — contrataciones, alianzas, apuestas de producto.">You tend to over-refine decisions before acting, not because you lack clarity, but because the cost of being wrong feels disproportionately high. This pattern shows up most in irreversible commitments — hires, partnerships, product bets.</p>
         </div>
         <div class="profile-pattern">
-          <p class="profile-pattern-name">Fear of Success</p>
-          <p class="profile-pattern-text">When things start working, a quiet part of you wonders if you deserve it — and begins subtly sabotaging the momentum. You create new problems to solve instead of riding the wave you built.</p>
+          <p class="profile-pattern-name" data-en="Fear of Success" data-es="Miedo al Éxito">Fear of Success</p>
+          <p class="profile-pattern-text" data-en="When things start working, a quiet part of you wonders if you deserve it — and begins subtly sabotaging the momentum. You create new problems to solve instead of riding the wave you built." data-es="Cuando las cosas empiezan a funcionar, una parte silenciosa de ti se pregunta si lo mereces — y comienza a sabotear sutilmente el impulso. Creas nuevos problemas que resolver en vez de aprovechar la ola que construiste.">When things start working, a quiet part of you wonders if you deserve it — and begins subtly sabotaging the momentum. You create new problems to solve instead of riding the wave you built.</p>
         </div>
       </div>
     </div>
@@ -770,41 +785,41 @@ footer p {
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <section class="mockup-section">
   <div class="container">
-    <h2 class="section-title fade-in">Decide with clarity</h2>
+    <h2 class="section-title fade-in" data-en="Decide with clarity" data-es="Decide con claridad">Decide with clarity</h2>
     <div class="mockup-card fade-in">
       <div class="mockup-header">
-        <p class="mockup-label">Decision Analysis</p>
-        <p class="mockup-decision">"I've been avoiding firing my Head of Sales for 6 months."</p>
+        <p class="mockup-label" data-en="Decision Analysis" data-es="Análisis de Decisión">Decision Analysis</p>
+        <p class="mockup-decision" data-en="&ldquo;I've been avoiding firing my Head of Sales for 6 months.&rdquo;" data-es="&ldquo;Llevo 6 meses evitando despedir a mi Director de Ventas.&rdquo;">&ldquo;I've been avoiding firing my Head of Sales for 6 months.&rdquo;</p>
       </div>
       <div class="mockup-blocks">
         <div class="mockup-block">
-          <span class="mockup-block-label" style="color:#9B9FFF">Pattern</span>
-          <span class="mockup-block-text">You're confusing loyalty with avoidance — keeping him isn't about fairness, it's about not wanting to be the person who ends a relationship that felt safe.</span>
+          <span class="mockup-block-label" style="color:#9B9FFF" data-en="Pattern" data-es="Patrón">Pattern</span>
+          <span class="mockup-block-text" data-en="You're confusing loyalty with avoidance — keeping him isn't about fairness, it's about not wanting to be the person who ends a relationship that felt safe." data-es="Estás confundiendo lealtad con evasión — mantenerlo no se trata de justicia, sino de no querer ser la persona que termina una relación que se sentía segura.">You're confusing loyalty with avoidance — keeping him isn't about fairness, it's about not wanting to be the person who ends a relationship that felt safe.</span>
         </div>
         <div class="mockup-block">
-          <span class="mockup-block-label" style="color:#F5A623">Risk</span>
-          <span class="mockup-block-text">Every month you wait, your top reps internalize that performance doesn't matter here — and the ones who care most leave first.</span>
+          <span class="mockup-block-label" style="color:#F5A623" data-en="Risk" data-es="Riesgo">Risk</span>
+          <span class="mockup-block-text" data-en="Every month you wait, your top reps internalize that performance doesn't matter here — and the ones who care most leave first." data-es="Cada mes que esperas, tus mejores vendedores internalizan que el rendimiento no importa aquí — y los que más les importa se van primero.">Every month you wait, your top reps internalize that performance doesn't matter here — and the ones who care most leave first.</span>
         </div>
         <div class="mockup-block">
-          <span class="mockup-block-label" style="color:#6B8EFF">Bias</span>
-          <span class="mockup-block-text">Sunk cost fallacy anchored to two years of shared history — you're weighing what you've invested, not what you're getting back.</span>
+          <span class="mockup-block-label" style="color:#6B8EFF" data-en="Bias" data-es="Sesgo">Bias</span>
+          <span class="mockup-block-text" data-en="Sunk cost fallacy anchored to two years of shared history — you're weighing what you've invested, not what you're getting back." data-es="Falacia del costo hundido anclada a dos años de historia compartida — estás pesando lo que invertiste, no lo que estás recibiendo.">Sunk cost fallacy anchored to two years of shared history — you're weighing what you've invested, not what you're getting back.</span>
         </div>
         <div class="mockup-block">
-          <span class="mockup-block-label" style="color:#E0845C">Scenario A</span>
-          <span class="mockup-block-text">You delay three more months, lose your best AE to a competitor, and fire him anyway — but now from a weaker position.</span>
+          <span class="mockup-block-label" style="color:#E0845C" data-en="Scenario A" data-es="Escenario A">Scenario A</span>
+          <span class="mockup-block-text" data-en="You delay three more months, lose your best AE to a competitor, and fire him anyway — but now from a weaker position." data-es="Esperas tres meses más, pierdes a tu mejor AE con un competidor, y lo despides de todos modos — pero ahora desde una posición más débil.">You delay three more months, lose your best AE to a competitor, and fire him anyway — but now from a weaker position.</span>
         </div>
         <div class="mockup-block">
-          <span class="mockup-block-label" style="color:#E0845C">Scenario B</span>
-          <span class="mockup-block-text">You act impulsively without a transition plan, the team reads it as erratic, and you spend Q3 rebuilding trust instead of pipeline.</span>
+          <span class="mockup-block-label" style="color:#E0845C" data-en="Scenario B" data-es="Escenario B">Scenario B</span>
+          <span class="mockup-block-text" data-en="You act impulsively without a transition plan, the team reads it as erratic, and you spend Q3 rebuilding trust instead of pipeline." data-es="Actúas impulsivamente sin un plan de transición, el equipo lo lee como errático, y pasas el Q3 reconstruyendo confianza en vez de pipeline.">You act impulsively without a transition plan, the team reads it as erratic, and you spend Q3 rebuilding trust instead of pipeline.</span>
         </div>
         <div class="mockup-block">
-          <span class="mockup-block-label" style="color:#4ECBA0">Action</span>
-          <span class="mockup-block-text">Write the separation conversation script today. Not to send — to see if you can. The clarity will tell you if you're ready.</span>
+          <span class="mockup-block-label" style="color:#4ECBA0" data-en="Action" data-es="Acción">Action</span>
+          <span class="mockup-block-text" data-en="Write the separation conversation script today. Not to send — to see if you can. The clarity will tell you if you're ready." data-es="Escribe el guión de la conversación de separación hoy. No para enviarlo — para ver si puedes. La claridad te dirá si estás listo.">Write the separation conversation script today. Not to send — to see if you can. The clarity will tell you if you're ready.</span>
         </div>
       </div>
       <div class="mockup-reflection">
-        <p class="mockup-reflection-label">Something to sit with —</p>
-        <p class="mockup-reflection-text">The team already knows. They're just waiting to see if you do too.</p>
+        <p class="mockup-reflection-label" data-en="Something to sit with —" data-es="Para reflexionar —">Something to sit with —</p>
+        <p class="mockup-reflection-text" data-en="The team already knows. They're just waiting to see if you do too." data-es="El equipo ya lo sabe. Solo están esperando a ver si tú también.">The team already knows. They're just waiting to see if you do too.</p>
       </div>
     </div>
   </div>
@@ -815,24 +830,24 @@ footer p {
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <section class="teams" id="teams">
   <div class="container">
-    <p class="section-eyebrow fade-in">For teams</p>
-    <h2 class="section-title fade-in">Built for how leadership teams actually work</h2>
-    <p class="teams-body fade-in">When your co-founder, CMO, and VP of Engineering all complete their profiles, Dnmcs maps how your team makes decisions together — where you're aligned, where there's structural friction, and what conversations you're all avoiding.</p>
+    <p class="section-eyebrow fade-in" data-en="For teams" data-es="Para equipos">For teams</p>
+    <h2 class="section-title fade-in" data-en="Built for how leadership teams actually work" data-es="Diseñado para cómo trabajan los equipos de liderazgo realmente">Built for how leadership teams actually work</h2>
+    <p class="teams-body fade-in" data-en="When your co-founder, CMO, and VP of Engineering all complete their profiles, Dnmcs maps how your team makes decisions together — where you're aligned, where there's structural friction, and what conversations you're all avoiding." data-es="Cuando tu cofundador, CMO y VP de Ingeniería completan sus perfiles, Dnmcs mapea cómo tu equipo toma decisiones juntos — dónde están alineados, dónde hay fricción estructural y qué conversaciones están evitando.">When your co-founder, CMO, and VP of Engineering all complete their profiles, Dnmcs maps how your team makes decisions together — where you're aligned, where there's structural friction, and what conversations you're all avoiding.</p>
     <div class="teams-grid">
       <div class="teams-col fade-in">
-        <h3>Individual</h3>
+        <h3 data-en="Individual" data-es="Individual">Individual</h3>
         <ul>
-          <li>Decision intelligence profile</li>
-          <li>AI companion for real-time decisions</li>
-          <li>Structured decision analysis</li>
+          <li data-en="Decision intelligence profile" data-es="Perfil de inteligencia decisional">Decision intelligence profile</li>
+          <li data-en="AI companion for real-time decisions" data-es="Acompañante IA para decisiones en tiempo real">AI companion for real-time decisions</li>
+          <li data-en="Structured decision analysis" data-es="Análisis de decisiones estructurado">Structured decision analysis</li>
         </ul>
       </div>
       <div class="teams-col fade-in">
-        <h3>Team</h3>
+        <h3 data-en="Team" data-es="Equipo">Team</h3>
         <ul>
-          <li>Compatibility mapping</li>
-          <li>Shared blind spots</li>
-          <li>Monthly team report</li>
+          <li data-en="Compatibility mapping" data-es="Mapeo de compatibilidad">Compatibility mapping</li>
+          <li data-en="Shared blind spots" data-es="Puntos ciegos compartidos">Shared blind spots</li>
+          <li data-en="Monthly team report" data-es="Reporte mensual de equipo">Monthly team report</li>
         </ul>
       </div>
     </div>
@@ -844,9 +859,9 @@ footer p {
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <section class="closing">
   <div class="container">
-    <h2 class="fade-in">You've optimized everything else.</h2>
-    <p class="closing-sub fade-in">Now understand the mind making all the decisions.</p>
-    <a href="https://app.dnmcs.ai/auth" class="btn-primary fade-in">Start your assessment</a>
+    <h2 class="fade-in" data-en="You've optimized everything else." data-es="Ya optimizaste todo lo demás.">You've optimized everything else.</h2>
+    <p class="closing-sub fade-in" data-en="Now understand the mind making all the decisions." data-es="Ahora entiende la mente que toma todas las decisiones.">Now understand the mind making all the decisions.</p>
+    <a href="https://app.dnmcs.ai/auth" class="btn-primary fade-in" data-en="Start your assessment" data-es="Comenzar evaluación">Start your assessment</a>
   </div>
 </section>
 
@@ -855,12 +870,69 @@ footer p {
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <footer>
   <div class="container">
-    <p>&copy; 2025 Dnmcs. All rights reserved.</p>
+    <p data-en="&copy; 2025 Dnmcs. All rights reserved." data-es="&copy; 2025 Dnmcs. Todos los derechos reservados.">&copy; 2025 Dnmcs. All rights reserved.</p>
   </div>
 </footer>
 
 <script>
-// Mobile nav toggle
+// ─── i18n ─────────────────────────────────────────────────────────────────
+(function() {
+  var STORAGE_KEY = 'dnmcs_lang';
+
+  function detectLang() {
+    var stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === 'en' || stored === 'es') return stored;
+    var nav = (navigator.language || '').slice(0, 2);
+    return nav === 'es' ? 'es' : 'en';
+  }
+
+  function applyLang(lang) {
+    document.documentElement.lang = lang;
+    localStorage.setItem(STORAGE_KEY, lang);
+
+    // Swap text for all elements with data-en / data-es
+    document.querySelectorAll('[data-en][data-es]').forEach(function(el) {
+      // For the social proof line, preserve the typewriter span
+      if (el.classList.contains('hero-social-proof')) {
+        var typewriterSpan = el.querySelector('.typewriter-word');
+        var cursorSpan = el.querySelector('.typewriter-cursor');
+        el.innerHTML = el.getAttribute('data-' + lang);
+        if (typewriterSpan) el.appendChild(typewriterSpan);
+        if (cursorSpan) el.appendChild(cursorSpan);
+        return;
+      }
+      // For elements with child nodes that shouldn't be touched (like score spans)
+      if (el.children.length === 0) {
+        el.innerHTML = el.getAttribute('data-' + lang);
+      } else {
+        el.innerHTML = el.getAttribute('data-' + lang);
+      }
+    });
+
+    // Update toggle button label
+    var toggle = document.getElementById('langToggle');
+    if (toggle) {
+      toggle.textContent = lang === 'es' ? 'EN' : 'ES';
+    }
+
+    // Update page title
+    document.title = lang === 'es'
+      ? 'Dnmcs — Inteligencia de Decisiones para Founders'
+      : 'Dnmcs — Decision Intelligence for Founders';
+  }
+
+  // Initial apply
+  var currentLang = detectLang();
+  applyLang(currentLang);
+
+  // Toggle button
+  document.getElementById('langToggle').addEventListener('click', function() {
+    currentLang = currentLang === 'en' ? 'es' : 'en';
+    applyLang(currentLang);
+  });
+})();
+
+// ─── Mobile nav toggle ───────────────────────────────────────────────────
 document.getElementById('navToggle').addEventListener('click', function() {
   document.getElementById('navLinks').classList.toggle('open');
 });
@@ -872,7 +944,7 @@ document.querySelectorAll('#navLinks a').forEach(function(link) {
   });
 });
 
-// Fade-in on scroll
+// ─── Fade-in on scroll ──────────────────────────────────────────────────
 var observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) {
     if (entry.isIntersecting) {
@@ -885,9 +957,10 @@ document.querySelectorAll('.fade-in').forEach(function(el) {
   observer.observe(el);
 });
 
-// Typewriter effect
+// ─── Typewriter effect ──────────────────────────────────────────────────
 (function() {
-  var words = ['founders', 'executives', 'management teams', 'investors', 'CEOs', 'leadership teams'];
+  var wordsEn = ['founders', 'executives', 'management teams', 'investors', 'CEOs', 'leadership teams'];
+  var wordsEs = ['founders', 'ejecutivos', 'equipos directivos', 'inversionistas', 'CEOs', 'equipos de liderazgo'];
   var el = document.getElementById('typewriter');
   var wordIndex = 0;
   var charIndex = 0;
@@ -897,8 +970,13 @@ document.querySelectorAll('.fade-in').forEach(function(el) {
   var pauseAfterType = 2000;
   var pauseAfterDelete = 300;
 
+  function getWords() {
+    return (localStorage.getItem('dnmcs_lang') || 'en') === 'es' ? wordsEs : wordsEn;
+  }
+
   function tick() {
-    var currentWord = words[wordIndex];
+    var words = getWords();
+    var currentWord = words[wordIndex % words.length];
     if (!isDeleting) {
       charIndex++;
       el.textContent = currentWord.substring(0, charIndex);
