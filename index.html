@@ -7,7 +7,7 @@
 <meta name="description" content="Map how you actually make decisions under pressure. 25 validated psychological frameworks, 6 decision dimensions, and an AI companion that applies your profile in real time.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ─── Reset ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,14 +16,31 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-fo
 /* ─── Tokens ─── */
 :root {
   --bg: #08080C;
+  --bg-elevated: #0E0E16;
   --surface: #12121A;
   --border: #1E1E2E;
+  --border-subtle: rgba(30,30,46,0.4);
   --text: #F0F0F5;
   --muted: #7A7A8C;
   --accent: #9B9FFF;
   --accent2: #7B7FE0;
+  --warm: #1A1418;
   --serif: 'Instrument Serif', serif;
   --sans: 'DM Sans', sans-serif;
+  --display: 'Syne', sans-serif;
+}
+
+/* ─── Grain overlay ─── */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
 }
 
 body {
@@ -32,14 +49,25 @@ body {
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 a { color: inherit; text-decoration: none; }
 
 .container {
-  max-width: 1120px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 32px;
+}
+
+/* ─── Editorial rules ─── */
+.rule {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 0;
+}
+.rule--accent {
+  border-top-color: rgba(155,159,255,0.2);
 }
 
 /* ─── Nav ─── */
@@ -47,57 +75,66 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(8,8,12,0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(30,30,46,0.5);
+  background: rgba(8,8,12,0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 56px;
 }
 .nav-logo {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 22px;
+  font-size: 26px;
   color: var(--text);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 40px;
 }
 .nav-links a {
-  font-size: 13px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--muted);
-  transition: color 0.15s;
+  transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--text); }
 .nav-cta {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--bg) !important;
-  background: var(--accent);
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--accent) !important;
+  background: transparent !important;
   padding: 8px 20px;
-  border-radius: 10px;
-  transition: opacity 0.15s;
+  border: 1px solid rgba(155,159,255,0.3);
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
-.nav-cta:hover { opacity: 0.88; }
+.nav-cta:hover {
+  background: var(--accent) !important;
+  color: var(--bg) !important;
+  border-color: var(--accent);
+}
 .nav-lang-toggle {
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   color: var(--muted);
   background: none;
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 5px 12px;
+  border-radius: 4px;
+  padding: 4px 10px;
   cursor: pointer;
-  transition: color 0.15s, border-color 0.15s;
+  transition: color 0.2s, border-color 0.2s;
   font-family: var(--sans);
-  letter-spacing: 0.05em;
 }
 .nav-lang-toggle:hover { color: var(--text); border-color: var(--muted); }
 .nav-mobile-btn {
@@ -112,22 +149,37 @@ nav {
 
 /* ─── Hero ─── */
 .hero {
-  padding: 160px 0 100px;
-  text-align: center;
+  padding: 180px 0 120px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 60px; left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(155,159,255,0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  opacity: 0.6;
 }
 .hero-social-proof {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 400;
-  color: var(--text);
-  margin-bottom: 20px;
+  color: var(--muted);
+  margin-bottom: 40px;
+  letter-spacing: 0.02em;
 }
 .hero-social-proof .typewriter-word {
   color: var(--accent);
+  font-weight: 500;
 }
 .typewriter-cursor {
   display: inline-block;
   width: 1px;
-  height: 16px;
+  height: 13px;
   background: var(--accent);
   vertical-align: middle;
   margin-left: 1px;
@@ -138,37 +190,42 @@ nav {
   50% { opacity: 0; }
 }
 .hero-eyebrow {
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 10px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--muted);
-  margin-bottom: 24px;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-bottom: 28px;
 }
 .hero h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(42px, 7vw, 88px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  max-width: 900px;
+  margin-bottom: 32px;
+}
+.hero h1 em {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(36px, 6vw, 64px);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  max-width: 800px;
-  margin: 0 auto 24px;
+  font-weight: 400;
+  color: var(--accent);
 }
 .hero-sub {
-  font-size: clamp(15px, 2vw, 18px);
+  font-size: 15px;
   color: var(--muted);
-  max-width: 600px;
-  margin: 0 auto 40px;
-  line-height: 1.6;
+  max-width: 480px;
+  line-height: 1.7;
   font-weight: 300;
+  margin-bottom: 48px;
 }
 .hero-ctas {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
   flex-wrap: wrap;
 }
 .btn-primary {
@@ -176,12 +233,13 @@ nav {
   align-items: center;
   justify-content: center;
   font-family: var(--sans);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
+  letter-spacing: 0.02em;
   color: var(--bg);
   background: var(--accent);
-  padding: 14px 32px;
-  border-radius: 12px;
+  padding: 14px 36px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   transition: opacity 0.15s, transform 0.1s;
@@ -193,128 +251,210 @@ nav {
   align-items: center;
   justify-content: center;
   font-family: var(--sans);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--muted);
   background: transparent;
-  padding: 14px 32px;
-  border-radius: 12px;
+  padding: 14px 36px;
+  border-radius: 8px;
   border: 1px solid var(--border);
   cursor: pointer;
   transition: color 0.15s, border-color 0.15s;
 }
 .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
 .hero-stats {
-  font-size: 12px;
-  color: rgba(122,122,140,0.6);
-  letter-spacing: 0.04em;
+  font-size: 11px;
+  color: rgba(122,122,140,0.5);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 /* ─── Section headings ─── */
 .section-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 48px);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.section-title em {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(28px, 4vw, 42px);
-  letter-spacing: -0.02em;
-  color: var(--text);
-  margin-bottom: 16px;
+  font-weight: 400;
 }
 .section-eyebrow {
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 9px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--muted);
-  margin-bottom: 12px;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-bottom: 16px;
 }
 .section-subtitle {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--muted);
-  max-width: 640px;
+  max-width: 560px;
   line-height: 1.7;
   font-weight: 300;
 }
 
-/* ─── How It Works ─── */
-.how {
-  padding: 100px 0;
+/* ─── Why Section (Stats) ─── */
+.why {
+  padding: 100px 0 120px;
+  position: relative;
 }
-.how-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-top: 48px;
+.why::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, rgba(26,20,24,0.15), transparent);
+  pointer-events: none;
 }
-.how-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 36px 28px;
+.why-header {
+  margin-bottom: 80px;
 }
-.how-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: rgba(155,159,255,0.08);
+.why-stats {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
+  gap: 0;
+  position: relative;
 }
-.how-icon svg { width: 18px; height: 18px; }
-.how-card-number {
-  font-size: 11px;
-  font-weight: 600;
+.why-stat {
+  flex: 1;
+  padding: 0 32px;
+  border-left: 1px solid var(--border-subtle);
+  position: relative;
+}
+.why-stat:first-child { border-left: none; padding-left: 0; }
+.why-stat:last-child { padding-right: 0; }
+.why-stat-number {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(72px, 10vw, 120px);
   color: var(--accent);
-  letter-spacing: 0.05em;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+.why-stat-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
   margin-bottom: 8px;
 }
+.why-stat-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 280px;
+}
+
+/* ─── How It Works ─── */
+.how {
+  padding: 120px 0;
+}
+.how-header {
+  margin-bottom: 64px;
+}
+.how-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.how-card {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 32px;
+  padding: 40px 0;
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+  align-items: start;
+}
+.how-card:nth-child(even) {
+  padding-left: 80px;
+}
+.how-card-number {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 64px;
+  color: rgba(155,159,255,0.08);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.how-card-body {
+  max-width: 520px;
+}
+.how-icon {
+  display: none;
+}
 .how-card h3 {
-  font-family: var(--sans);
-  font-size: 16px;
+  font-family: var(--display);
+  font-size: 18px;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 12px;
+  letter-spacing: -0.01em;
 }
 .how-card p {
   font-size: 14px;
   color: var(--muted);
-  line-height: 1.65;
+  line-height: 1.7;
   font-weight: 300;
 }
 
 /* ─── Profile Mockup ─── */
 .profile-section {
-  padding: 100px 0;
+  padding: 120px 0;
+  position: relative;
+}
+.profile-section::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(155,159,255,0.06), transparent 70%);
+  pointer-events: none;
+}
+.profile-header {
+  margin-bottom: 48px;
 }
 .profile-card {
-  max-width: 680px;
-  margin: 48px auto 0;
+  max-width: 720px;
+  margin: 0 auto;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 80px rgba(155,159,255,0.04), 0 0 0 1px rgba(155,159,255,0.02);
 }
 .profile-card-header {
   padding: 28px 32px 24px;
   border-bottom: 1px solid var(--border);
 }
 .profile-card-title {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 22px;
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 600;
   color: var(--text);
   letter-spacing: -0.02em;
 }
 .profile-card-name {
-  font-size: 14px;
-  color: rgba(160,160,176,0.8);
+  font-size: 13px;
+  color: var(--muted);
   margin-top: 4px;
 }
 .profile-card-date {
-  font-size: 11px;
-  color: rgba(122,122,140,0.5);
+  font-size: 10px;
+  color: rgba(122,122,140,0.4);
   margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 .profile-dims {
   padding: 24px 32px;
@@ -324,10 +464,11 @@ nav {
 }
 .profile-dim:last-child { margin-bottom: 0; }
 .profile-dim-name {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--text);
   margin-bottom: 8px;
+  letter-spacing: 0.02em;
 }
 .profile-dim-poles {
   display: flex;
@@ -335,101 +476,112 @@ nav {
   margin-bottom: 6px;
 }
 .profile-dim-pole {
-  font-size: 10px;
+  font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: rgba(122,122,140,0.6);
+  color: rgba(122,122,140,0.5);
 }
 .profile-dim-bar {
   position: relative;
-  height: 2px;
+  height: 1px;
   background: var(--border);
-  border-radius: 1px;
 }
 .profile-dim-fill {
   position: absolute;
   top: 0; left: 0;
   height: 100%;
-  border-radius: 1px;
   background: var(--accent);
-  opacity: 0.4;
+  opacity: 0.3;
 }
 .profile-dim-dot {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--accent);
   border: 2px solid var(--surface);
-  box-shadow: 0 0 8px rgba(155,159,255,0.3);
+  box-shadow: 0 0 12px rgba(155,159,255,0.3);
 }
 .profile-dim-score {
   position: absolute;
-  top: -20px;
+  top: -18px;
   transform: translateX(-50%);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   color: var(--accent);
-  font-family: var(--sans);
+  font-family: var(--display);
 }
 .profile-patterns {
   padding: 24px 32px 28px;
   border-top: 1px solid var(--border);
 }
 .profile-patterns-title {
-  font-size: 10px;
+  font-size: 9px;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.25em;
   color: var(--muted);
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 16px;
 }
 .profile-pattern {
   background: rgba(8,8,12,0.5);
-  border: 1px solid rgba(30,30,46,0.6);
-  border-left: 3px solid var(--accent);
-  border-radius: 12px;
+  border: 1px solid rgba(30,30,46,0.5);
+  border-left: 2px solid var(--accent);
+  border-radius: 8px;
   padding: 16px 20px;
   margin-bottom: 10px;
 }
 .profile-pattern:last-child { margin-bottom: 0; }
 .profile-pattern-name {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
   color: var(--text);
   margin-bottom: 6px;
+  letter-spacing: 0.01em;
 }
 .profile-pattern-text {
   font-size: 12px;
-  color: rgba(160,160,176,0.7);
-  line-height: 1.55;
+  color: rgba(160,160,176,0.65);
+  line-height: 1.6;
   font-weight: 300;
 }
 
 /* ─── Analysis Mockup ─── */
 .mockup-section {
-  padding: 100px 0;
+  padding: 120px 0;
+  position: relative;
+}
+.mockup-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, rgba(26,20,24,0.1), transparent);
+  pointer-events: none;
+}
+.mockup-header-area {
+  margin-bottom: 48px;
 }
 .mockup-card {
-  max-width: 680px;
-  margin: 48px auto 0;
+  max-width: 720px;
+  margin: 0 auto;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 0 80px rgba(155,159,255,0.03);
 }
 .mockup-header {
   padding: 24px 28px 20px;
   border-bottom: 1px solid var(--border);
 }
 .mockup-label {
-  font-size: 10px;
+  font-size: 9px;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.25em;
   color: var(--muted);
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 8px;
 }
 .mockup-decision {
@@ -444,80 +596,85 @@ nav {
 }
 .mockup-block {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   padding: 16px 0;
-  border-bottom: 1px solid rgba(30,30,46,0.6);
+  border-bottom: 1px solid rgba(30,30,46,0.4);
 }
 .mockup-block:last-child { border-bottom: none; }
 .mockup-block-label {
   font-size: 9px;
-  font-family: var(--sans);
-  font-weight: 600;
+  font-family: var(--display);
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  width: 80px;
+  letter-spacing: 0.12em;
+  width: 88px;
   flex-shrink: 0;
   padding-top: 2px;
 }
 .mockup-block-text {
   font-size: 13px;
-  color: rgba(240,240,245,0.72);
-  line-height: 1.55;
+  color: rgba(240,240,245,0.68);
+  line-height: 1.6;
   font-weight: 300;
 }
 .mockup-reflection {
   padding: 24px 28px 28px;
-  border-top: 1px solid rgba(28,28,46,0.8);
+  border-top: 1px solid rgba(28,28,46,0.6);
 }
 .mockup-reflection-label {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 300;
-  color: rgba(160,160,176,0.6);
+  color: rgba(160,160,176,0.5);
   margin-bottom: 8px;
+  letter-spacing: 0.04em;
 }
 .mockup-reflection-text {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.6;
-  color: rgba(240,240,245,0.75);
+  color: rgba(240,240,245,0.7);
 }
 
 /* ─── Team Profile Mockup ─── */
 .team-profile-section {
-  padding: 100px 0;
+  padding: 120px 0;
+}
+.team-profile-header-area {
+  margin-bottom: 48px;
 }
 .team-profile-card {
-  max-width: 680px;
-  margin: 48px auto 0;
+  max-width: 720px;
+  margin: 0 auto;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 0 80px rgba(155,159,255,0.03);
 }
 .team-profile-header {
   padding: 28px 32px 24px;
   border-bottom: 1px solid var(--border);
 }
 .team-profile-name {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 22px;
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 600;
   color: var(--text);
   letter-spacing: -0.02em;
 }
 .team-profile-role {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--muted);
   margin-top: 2px;
 }
 .team-profile-label {
-  font-size: 10px;
+  font-size: 9px;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.25em;
   color: var(--accent);
-  font-weight: 500;
-  margin-top: 8px;
+  font-weight: 600;
+  margin-top: 10px;
 }
 .team-profile-tabs {
   display: flex;
@@ -527,13 +684,14 @@ nav {
   flex: 1;
   padding: 14px 16px;
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
+  letter-spacing: 0.02em;
   color: var(--muted);
   background: none;
   border: none;
   cursor: pointer;
-  transition: color 0.2s, box-shadow 0.2s;
+  transition: color 0.2s;
   text-align: center;
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
@@ -560,8 +718,8 @@ nav {
   padding: 10px 0;
 }
 .team-profile-bullet-dot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--accent);
   flex-shrink: 0;
@@ -569,61 +727,84 @@ nav {
 }
 .team-profile-bullet-text {
   font-size: 13px;
-  color: rgba(240,240,245,0.72);
-  line-height: 1.55;
+  color: rgba(240,240,245,0.68);
+  line-height: 1.6;
   font-weight: 300;
 }
 .team-profile-scenario {
   background: rgba(8,8,12,0.5);
-  border: 1px solid rgba(30,30,46,0.6);
-  border-radius: 12px;
+  border: 1px solid rgba(30,30,46,0.5);
+  border-left: 2px solid var(--accent);
+  border-radius: 8px;
   padding: 16px 20px;
   margin-bottom: 12px;
 }
 .team-profile-scenario:last-child { margin-bottom: 0; }
 .team-profile-scenario-label {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   margin-bottom: 6px;
 }
 .team-profile-scenario-text {
   font-size: 13px;
-  color: rgba(240,240,245,0.72);
-  line-height: 1.55;
+  color: rgba(240,240,245,0.68);
+  line-height: 1.6;
   font-weight: 300;
 }
 
 /* ─── Teams ─── */
 .teams {
-  padding: 100px 0;
+  padding: 120px 0;
+  background: var(--bg-elevated);
+  position: relative;
+}
+.teams::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+.teams::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+.teams-header {
+  margin-bottom: 64px;
 }
 .teams-body {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--muted);
-  max-width: 640px;
+  max-width: 560px;
   line-height: 1.7;
   font-weight: 300;
-  margin-bottom: 48px;
+  margin-top: 20px;
 }
 .teams-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 24px;
 }
 .teams-col {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
   padding: 32px 28px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(8,8,12,0.3);
 }
 .teams-col h3 {
+  font-family: var(--display);
   font-size: 14px;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 .teams-col ul {
   list-style: none;
@@ -632,18 +813,18 @@ nav {
 .teams-col li {
   font-size: 13px;
   color: var(--muted);
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(30,30,46,0.4);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(30,30,46,0.3);
   font-weight: 300;
 }
 .teams-col li:last-child { border-bottom: none; }
 .teams-col li::before {
   content: '';
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 12px;
   vertical-align: middle;
 }
 .teams-col:first-child li::before { background: var(--accent); }
@@ -651,57 +832,98 @@ nav {
 
 /* ─── Closing CTA ─── */
 .closing {
-  padding: 120px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  padding: 80px 32px;
+  position: relative;
+}
+.closing::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(155,159,255,0.15), transparent);
+}
+.closing-inner {
+  max-width: 800px;
 }
 .closing h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(36px, 6vw, 72px);
+  letter-spacing: -0.04em;
+  color: var(--text);
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.closing h2 em {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(32px, 5vw, 52px);
-  letter-spacing: -0.02em;
-  color: var(--text);
-  line-height: 1.15;
-  margin-bottom: 16px;
+  font-weight: 400;
+  color: var(--accent);
 }
 .closing-sub {
-  font-size: clamp(15px, 2vw, 18px);
+  font-size: 15px;
   color: var(--muted);
   font-weight: 300;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
+  letter-spacing: 0.01em;
 }
 
 /* ─── Footer ─── */
 footer {
-  padding: 40px 0;
-  border-top: 1px solid var(--border);
+  padding: 32px 0;
+  border-top: 1px solid var(--border-subtle);
   text-align: center;
 }
 footer p {
-  font-size: 12px;
-  color: rgba(122,122,140,0.5);
+  font-size: 11px;
+  color: rgba(122,122,140,0.4);
+  letter-spacing: 0.04em;
+}
+
+/* ─── Fade-in animation ─── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .how-card:nth-child(even) { padding-left: 0; }
+}
 @media (max-width: 768px) {
+  .container { padding: 0 24px; }
   .nav-links { display: none; }
   .nav-links.open {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 64px; left: 0; right: 0;
+    top: 56px; left: 0; right: 0;
     background: rgba(8,8,12,0.97);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 24px;
     gap: 20px;
     border-bottom: 1px solid var(--border);
   }
   .nav-mobile-btn { display: block; }
-  .hero { padding: 120px 0 72px; }
-  .how-grid { grid-template-columns: 1fr 1fr; }
-  .team-profile-tab { font-size: 11px; padding: 12px 8px; }
-  .team-profile-panel { padding: 20px 24px 24px; }
-  .why-grid { grid-template-columns: 1fr; }
+  .hero { padding: 140px 0 80px; }
+  .hero h1 { font-size: clamp(36px, 10vw, 56px); }
+  .why-stats { flex-direction: column; gap: 48px; }
+  .why-stat { border-left: none; padding: 0; border-top: 1px solid var(--border-subtle); padding-top: 32px; }
+  .why-stat:first-child { border-top: none; padding-top: 0; }
+  .why-stat-number { font-size: 72px; }
+  .how-card { grid-template-columns: 60px 1fr; gap: 16px; }
+  .how-card-number { font-size: 40px; }
   .teams-grid { grid-template-columns: 1fr; }
   .mockup-block { flex-direction: column; gap: 4px; }
   .mockup-block-label { width: auto; }
@@ -709,59 +931,13 @@ footer p {
   .profile-card-header { padding: 24px; }
   .profile-patterns { padding: 20px 24px 24px; }
   .team-profile-header { padding: 24px; }
+  .team-profile-tab { font-size: 10px; padding: 12px 8px; }
+  .team-profile-panel { padding: 20px 24px 24px; }
+  .closing { min-height: auto; padding: 120px 24px; }
 }
 @media (max-width: 480px) {
-  .how-grid { grid-template-columns: 1fr; }
-}
-
-/* ─── Why Section (Stats) ─── */
-.why {
-  padding: 80px 0 100px;
-}
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 48px;
-}
-.why-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 36px 28px;
-  text-align: center;
-}
-.why-card-number {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(40px, 5vw, 56px);
-  color: var(--accent);
-  letter-spacing: -0.03em;
-  line-height: 1;
-  margin-bottom: 12px;
-}
-.why-card-label {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-.why-card-desc {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.55;
-  font-weight: 300;
-}
-
-/* ─── Fade-in animation ─── */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+  .how-card { grid-template-columns: 1fr; }
+  .how-card-number { position: absolute; top: 40px; right: 0; font-size: 48px; }
 }
 </style>
 </head>
@@ -794,7 +970,7 @@ footer p {
   <div class="container">
     <p class="hero-social-proof fade-in" data-en="Used by 120+ " data-es="Usado por más de 120 ">Used by 120+ <span class="typewriter-word" id="typewriter"></span><span class="typewriter-cursor"></span></p>
     <p class="hero-eyebrow fade-in" data-en="Decision Intelligence for Founders" data-es="Inteligencia de Decisiones para Founders">Decision Intelligence for Founders</p>
-    <h1 class="fade-in" data-en="The most important variable in your company isn't on any dashboard." data-es="La variable más importante de tu empresa no está en ningún dashboard.">The most important variable in your company isn't on any dashboard.</h1>
+    <h1 class="fade-in" data-en="The most important variable in your company isn't on any <em>dashboard.</em>" data-es="La variable más importante de tu empresa no está en ningún <em>dashboard.</em>">The most important variable in your company isn't on any <em>dashboard.</em></h1>
     <p class="hero-sub fade-in" data-en="Most founders optimize everything except the one thing that determines all of it — how they make decisions under pressure." data-es="La mayoría optimiza todo menos lo que determina todo: cómo toman decisiones bajo presión.">Most founders optimize everything except the one thing that determines all of it — how they make decisions under pressure.</p>
     <div class="hero-ctas fade-in">
       <a href="https://app.dnmcs.ai/auth" class="btn-primary" data-en="Start your assessment" data-es="Comenzar evaluación">Start your assessment</a>
@@ -809,24 +985,26 @@ footer p {
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <section class="why">
   <div class="container">
-    <p class="section-eyebrow fade-in" data-en="Why Dnmcs exists" data-es="Por qué existe Dnmcs">Why Dnmcs exists</p>
-    <h2 class="section-title fade-in" data-en="The gap no one is closing" data-es="La brecha que nadie está cerrando">The gap no one is closing</h2>
-    <p class="section-subtitle fade-in" data-en="Founders have more data, more tools, and more advisors than ever — yet the quality of decisions hasn't improved." data-es="Los founders tienen más datos, más herramientas y más asesores que nunca — pero la calidad de sus decisiones no ha mejorado.">Founders have more data, more tools, and more advisors than ever — yet the quality of decisions hasn't improved.</p>
-    <div class="why-grid">
-      <div class="why-card fade-in">
-        <p class="why-card-number">72%</p>
-        <p class="why-card-label" data-en="of startup failures" data-es="de los fracasos de startups">of startup failures</p>
-        <p class="why-card-desc" data-en="are linked to poor strategic decisions by the founding team — not market conditions." data-es="están vinculados a malas decisiones estratégicas del equipo fundador — no a condiciones de mercado.">are linked to poor strategic decisions by the founding team — not market conditions.</p>
+    <div class="why-header">
+      <p class="section-eyebrow fade-in" data-en="Why Dnmcs exists" data-es="Por qué existe Dnmcs">Why Dnmcs exists</p>
+      <h2 class="section-title fade-in" data-en="The gap no one is closing" data-es="La brecha que nadie está cerrando">The gap no one is closing</h2>
+      <p class="section-subtitle fade-in" data-en="Founders have more data, more tools, and more advisors than ever — yet the quality of decisions hasn't improved." data-es="Los founders tienen más datos, más herramientas y más asesores que nunca — pero la calidad de sus decisiones no ha mejorado.">Founders have more data, more tools, and more advisors than ever — yet the quality of decisions hasn't improved.</p>
+    </div>
+    <div class="why-stats">
+      <div class="why-stat fade-in">
+        <p class="why-stat-number">72%</p>
+        <p class="why-stat-label" data-en="of startup failures" data-es="de los fracasos de startups">of startup failures</p>
+        <p class="why-stat-desc" data-en="are linked to poor strategic decisions by the founding team — not market conditions." data-es="están vinculados a malas decisiones estratégicas del equipo fundador — no a condiciones de mercado.">are linked to poor strategic decisions by the founding team — not market conditions.</p>
       </div>
-      <div class="why-card fade-in">
-        <p class="why-card-number">3x</p>
-        <p class="why-card-label" data-en="more likely to fail" data-es="más probabilidad de fracasar">more likely to fail</p>
-        <p class="why-card-desc" data-en="when founders lack self-awareness about their decision-making patterns under pressure." data-es="cuando los founders carecen de autoconocimiento sobre sus patrones de decisión bajo presión.">when founders lack self-awareness about their decision-making patterns under pressure.</p>
+      <div class="why-stat fade-in">
+        <p class="why-stat-number">3x</p>
+        <p class="why-stat-label" data-en="more likely to fail" data-es="más probabilidad de fracasar">more likely to fail</p>
+        <p class="why-stat-desc" data-en="when founders lack self-awareness about their decision-making patterns under pressure." data-es="cuando los founders carecen de autoconocimiento sobre sus patrones de decisión bajo presión.">when founders lack self-awareness about their decision-making patterns under pressure.</p>
       </div>
-      <div class="why-card fade-in">
-        <p class="why-card-number">6</p>
-        <p class="why-card-label" data-en="decision dimensions" data-es="dimensiones de decisión">decision dimensions</p>
-        <p class="why-card-desc" data-en="mapped from 25 validated frameworks — the first system built specifically for how founders decide." data-es="mapeadas de 25 marcos validados — el primer sistema construido específicamente para cómo deciden los founders.">mapped from 25 validated frameworks — the first system built specifically for how founders decide.</p>
+      <div class="why-stat fade-in">
+        <p class="why-stat-number">6</p>
+        <p class="why-stat-label" data-en="decision dimensions" data-es="dimensiones de decisión">decision dimensions</p>
+        <p class="why-stat-desc" data-en="mapped from 25 validated frameworks — the first system built specifically for how founders decide." data-es="mapeadas de 25 marcos validados — el primer sistema construido específicamente para cómo deciden los founders.">mapped from 25 validated frameworks — the first system built specifically for how founders decide.</p>
       </div>
     </div>
   </div>
@@ -837,40 +1015,50 @@ footer p {
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <section class="how" id="how-it-works">
   <div class="container">
-    <p class="section-eyebrow fade-in" data-en="How it works" data-es="Cómo funciona">How it works</p>
-    <h2 class="section-title fade-in" data-en="Four layers of decision intelligence" data-es="Cuatro capas de inteligencia de decisiones">Four layers of decision intelligence</h2>
+    <div class="how-header">
+      <p class="section-eyebrow fade-in" data-en="How it works" data-es="Cómo funciona">How it works</p>
+      <h2 class="section-title fade-in" data-en="Four layers of decision intelligence" data-es="Cuatro capas de inteligencia de decisiones">Four layers of decision intelligence</h2>
+    </div>
     <div class="how-grid">
       <div class="how-card fade-in">
         <div class="how-icon">
           <svg fill="none" viewBox="0 0 24 24" stroke="#9B9FFF" stroke-width="1.5"><circle cx="12" cy="12" r="9"/></svg>
         </div>
         <p class="how-card-number">01</p>
-        <h3 data-en="The Assessment" data-es="El Assessment">The Assessment</h3>
-        <p data-en="25 validated psychological frameworks. Takes 25-35 minutes. Measures how you actually process risk, conflict, uncertainty, and pressure — not how you think you do." data-es="25 marcos psicológicos validados. Toma 25-35 minutos. Mide cómo realmente procesas riesgo, conflicto, incertidumbre y presión — no cómo crees que lo haces.">25 validated psychological frameworks. Takes 25-35 minutes. Measures how you actually process risk, conflict, uncertainty, and pressure — not how you think you do.</p>
+        <div class="how-card-body">
+          <h3 data-en="The Assessment" data-es="El Assessment">The Assessment</h3>
+          <p data-en="25 validated psychological frameworks. Takes 25-35 minutes. Measures how you actually process risk, conflict, uncertainty, and pressure — not how you think you do." data-es="25 marcos psicológicos validados. Toma 25-35 minutos. Mide cómo realmente procesas riesgo, conflicto, incertidumbre y presión — no cómo crees que lo haces.">25 validated psychological frameworks. Takes 25-35 minutes. Measures how you actually process risk, conflict, uncertainty, and pressure — not how you think you do.</p>
+        </div>
       </div>
       <div class="how-card fade-in">
         <div class="how-icon">
           <svg fill="none" viewBox="0 0 24 24" stroke="#9B9FFF" stroke-width="1.5"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="9" width="4" height="11" rx="1"/></svg>
         </div>
         <p class="how-card-number">02</p>
-        <h3 data-en="Your Decision Profile" data-es="Tu Perfil de Decisión">Your Decision Profile</h3>
-        <p data-en="6 dimensions mapped to how founders make decisions. Conflict orientation, risk processing, decision speed, loyalty vs performance, pressure response, delegation and control. Plus the psychological root patterns driving all of it." data-es="6 dimensiones mapeadas a cómo los founders toman decisiones. Orientación al conflicto, procesamiento de riesgo, velocidad de decisión, lealtad vs rendimiento, respuesta a la presión, delegación y control. Más los patrones psicológicos raíz que impulsan todo.">6 dimensions mapped to how founders make decisions. Conflict orientation, risk processing, decision speed, loyalty vs performance, pressure response, delegation and control. Plus the psychological root patterns driving all of it.</p>
+        <div class="how-card-body">
+          <h3 data-en="Your Decision Profile" data-es="Tu Perfil de Decisión">Your Decision Profile</h3>
+          <p data-en="6 dimensions mapped to how founders make decisions. Conflict orientation, risk processing, decision speed, loyalty vs performance, pressure response, delegation and control. Plus the psychological root patterns driving all of it." data-es="6 dimensiones mapeadas a cómo los founders toman decisiones. Orientación al conflicto, procesamiento de riesgo, velocidad de decisión, lealtad vs rendimiento, respuesta a la presión, delegación y control. Más los patrones psicológicos raíz que impulsan todo.">6 dimensions mapped to how founders make decisions. Conflict orientation, risk processing, decision speed, loyalty vs performance, pressure response, delegation and control. Plus the psychological root patterns driving all of it.</p>
+        </div>
       </div>
       <div class="how-card fade-in">
         <div class="how-icon">
           <svg fill="none" viewBox="0 0 24 24" stroke="#9B9FFF" stroke-width="1.5"><circle cx="12" cy="12" r="3"/></svg>
         </div>
         <p class="how-card-number">03</p>
-        <h3 data-en="The AI Companion" data-es="El Acompañante IA">The AI Companion</h3>
-        <p data-en="Not a generic chatbot. An AI that knows your profile and applies it to real decisions in real time. You describe a decision you're facing — it gives you pattern, risk, bias, two scenarios, and one action. Then something to sit with." data-es="No es un chatbot genérico. Una IA que conoce tu perfil y lo aplica a decisiones reales en tiempo real. Describes la decisión que enfrentas — te da patrón, riesgo, sesgo, dos escenarios y una acción. Y algo para reflexionar.">Not a generic chatbot. An AI that knows your profile and applies it to real decisions in real time. You describe a decision you're facing — it gives you pattern, risk, bias, two scenarios, and one action. Then something to sit with.</p>
+        <div class="how-card-body">
+          <h3 data-en="The AI Companion" data-es="El Acompañante IA">The AI Companion</h3>
+          <p data-en="Not a generic chatbot. An AI that knows your profile and applies it to real decisions in real time. You describe a decision you're facing — it gives you pattern, risk, bias, two scenarios, and one action. Then something to sit with." data-es="No es un chatbot genérico. Una IA que conoce tu perfil y lo aplica a decisiones reales en tiempo real. Describes la decisión que enfrentas — te da patrón, riesgo, sesgo, dos escenarios y una acción. Y algo para reflexionar.">Not a generic chatbot. An AI that knows your profile and applies it to real decisions in real time. You describe a decision you're facing — it gives you pattern, risk, bias, two scenarios, and one action. Then something to sit with.</p>
+        </div>
       </div>
       <div class="how-card fade-in">
         <div class="how-icon">
           <svg fill="none" viewBox="0 0 24 24" stroke="#9B9FFF" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         </div>
         <p class="how-card-number">04</p>
-        <h3 data-en="Team Intelligence" data-es="Inteligencia de Equipo">Team Intelligence</h3>
-        <p data-en="Every member of your leadership team gets a 'Working with me' guide — a clear map of how they think, decide, and collaborate. No assumptions, no guesswork." data-es="Cada miembro de tu equipo directivo obtiene una guía 'Cómo trabajar conmigo' — un mapa claro de cómo piensan, deciden y colaboran. Sin suposiciones.">Every member of your leadership team gets a 'Working with me' guide — a clear map of how they think, decide, and collaborate. No assumptions, no guesswork.</p>
+        <div class="how-card-body">
+          <h3 data-en="Team Intelligence" data-es="Inteligencia de Equipo">Team Intelligence</h3>
+          <p data-en="Every member of your leadership team gets a 'Working with me' guide — a clear map of how they think, decide, and collaborate. No assumptions, no guesswork." data-es="Cada miembro de tu equipo directivo obtiene una guía 'Cómo trabajar conmigo' — un mapa claro de cómo piensan, deciden y colaboran. Sin suposiciones.">Every member of your leadership team gets a 'Working with me' guide — a clear map of how they think, decide, and collaborate. No assumptions, no guesswork.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -881,9 +1069,11 @@ footer p {
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <section class="profile-section">
   <div class="container">
-    <p class="section-eyebrow fade-in" data-en="Your profile" data-es="Tu perfil">Your profile</p>
-    <h2 class="section-title fade-in" data-en="Know exactly how you operate" data-es="Conoce exactamente cómo operas">Know exactly how you operate</h2>
-    <p class="section-subtitle fade-in" data-en="After the assessment, you get a complete decision intelligence profile — not a personality test result, but a map of how you make decisions under pressure." data-es="Después del assessment, recibes un perfil completo de inteligencia decisional — no un resultado de test de personalidad, sino un mapa de cómo tomas decisiones bajo presión.">After the assessment, you get a complete decision intelligence profile — not a personality test result, but a map of how you make decisions under pressure.</p>
+    <div class="profile-header">
+      <p class="section-eyebrow fade-in" data-en="Your profile" data-es="Tu perfil">Your profile</p>
+      <h2 class="section-title fade-in" data-en="Know exactly how you operate" data-es="Conoce exactamente cómo operas">Know exactly how you operate</h2>
+      <p class="section-subtitle fade-in" data-en="After the assessment, you get a complete decision intelligence profile — not a personality test result, but a map of how you make decisions under pressure." data-es="Después del assessment, recibes un perfil completo de inteligencia decisional — no un resultado de test de personalidad, sino un mapa de cómo tomas decisiones bajo presión.">After the assessment, you get a complete decision intelligence profile — not a personality test result, but a map of how you make decisions under pressure.</p>
+    </div>
     <div class="profile-card fade-in">
       <div class="profile-card-header">
         <p class="profile-card-title" data-en="Decision Intelligence Profile" data-es="Perfil de Inteligencia Decisional">Decision Intelligence Profile</p>
@@ -891,7 +1081,6 @@ footer p {
         <p class="profile-card-date" data-en="Generated March 12, 2026" data-es="Generado el 12 de marzo de 2026">Generated March 12, 2026</p>
       </div>
       <div class="profile-dims">
-        <!-- Conflict Orientation — 43 -->
         <div class="profile-dim">
           <p class="profile-dim-name" data-en="Conflict Orientation" data-es="Orientación al Conflicto">Conflict Orientation</p>
           <div class="profile-dim-poles">
@@ -904,7 +1093,6 @@ footer p {
             <span class="profile-dim-score" style="left:43%">43</span>
           </div>
         </div>
-        <!-- Decision Speed — 63 -->
         <div class="profile-dim">
           <p class="profile-dim-name" data-en="Decision Speed" data-es="Velocidad de Decisión">Decision Speed</p>
           <div class="profile-dim-poles">
@@ -917,7 +1105,6 @@ footer p {
             <span class="profile-dim-score" style="left:63%">63</span>
           </div>
         </div>
-        <!-- Risk Processing — 67 -->
         <div class="profile-dim">
           <p class="profile-dim-name" data-en="Risk Processing" data-es="Procesamiento del Riesgo">Risk Processing</p>
           <div class="profile-dim-poles">
@@ -930,7 +1117,6 @@ footer p {
             <span class="profile-dim-score" style="left:67%">67</span>
           </div>
         </div>
-        <!-- Loyalty vs Performance — 48 -->
         <div class="profile-dim">
           <p class="profile-dim-name" data-en="Loyalty vs Performance" data-es="Lealtad vs Rendimiento">Loyalty vs Performance</p>
           <div class="profile-dim-poles">
@@ -943,7 +1129,6 @@ footer p {
             <span class="profile-dim-score" style="left:48%">48</span>
           </div>
         </div>
-        <!-- Pressure Response — 46 -->
         <div class="profile-dim">
           <p class="profile-dim-name" data-en="Pressure Response" data-es="Respuesta a la Presión">Pressure Response</p>
           <div class="profile-dim-poles">
@@ -956,7 +1141,6 @@ footer p {
             <span class="profile-dim-score" style="left:46%">46</span>
           </div>
         </div>
-        <!-- Delegation & Control — 42 -->
         <div class="profile-dim">
           <p class="profile-dim-name" data-en="Delegation &amp; Control" data-es="Delegación y Control">Delegation &amp; Control</p>
           <div class="profile-dim-poles">
@@ -990,7 +1174,10 @@ footer p {
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <section class="mockup-section">
   <div class="container">
-    <h2 class="section-title fade-in" data-en="Decide with clarity" data-es="Decide con claridad">Decide with clarity</h2>
+    <div class="mockup-header-area">
+      <p class="section-eyebrow fade-in" data-en="AI Companion" data-es="Acompañante IA">AI Companion</p>
+      <h2 class="section-title fade-in" data-en="Decide with clarity" data-es="Decide con claridad">Decide with clarity</h2>
+    </div>
     <div class="mockup-card fade-in">
       <div class="mockup-header">
         <p class="mockup-label" data-en="Decision Analysis" data-es="Análisis de Decisión">Decision Analysis</p>
@@ -1035,9 +1222,11 @@ footer p {
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <section class="team-profile-section">
   <div class="container">
-    <p class="section-eyebrow fade-in" data-en="Team profiles" data-es="Perfiles de equipo">Team profiles</p>
-    <h2 class="section-title fade-in" data-en="Know who you're building with" data-es="Conoce con quién estás construyendo">Know who you're building with</h2>
-    <p class="section-subtitle fade-in" data-en="Every team member gets a 'Working with me' guide — a clear, honest map of how they think, decide, and show up under pressure." data-es="Cada miembro del equipo recibe una guía 'Cómo trabajar conmigo' — un mapa claro y honesto de cómo piensan, deciden y se comportan bajo presión.">Every team member gets a 'Working with me' guide — a clear, honest map of how they think, decide, and show up under pressure.</p>
+    <div class="team-profile-header-area">
+      <p class="section-eyebrow fade-in" data-en="Team profiles" data-es="Perfiles de equipo">Team profiles</p>
+      <h2 class="section-title fade-in" data-en="Know who you're building with" data-es="Conoce con quién estás construyendo">Know who you're building with</h2>
+      <p class="section-subtitle fade-in" data-en="Every team member gets a 'Working with me' guide — a clear, honest map of how they think, decide, and show up under pressure." data-es="Cada miembro del equipo recibe una guía 'Cómo trabajar conmigo' — un mapa claro y honesto de cómo piensan, deciden y se comportan bajo presión.">Every team member gets a 'Working with me' guide — a clear, honest map of how they think, decide, and show up under pressure.</p>
+    </div>
 
     <div class="team-profile-card fade-in">
       <div class="team-profile-header">
@@ -1052,7 +1241,6 @@ footer p {
         <button class="team-profile-tab" data-tab="watch" data-en="Watch out for" data-es="Ten en cuenta">Watch out for</button>
       </div>
 
-      <!-- Panel: How they decide -->
       <div class="team-profile-panel active" data-panel="decide">
         <div class="team-profile-bullet">
           <div class="team-profile-bullet-dot"></div>
@@ -1068,7 +1256,6 @@ footer p {
         </div>
       </div>
 
-      <!-- Panel: How to work with them -->
       <div class="team-profile-panel" data-panel="work">
         <div class="team-profile-scenario">
           <p class="team-profile-scenario-label" data-en="When presenting an idea" data-es="Al presentar una idea">When presenting an idea</p>
@@ -1080,7 +1267,6 @@ footer p {
         </div>
       </div>
 
-      <!-- Panel: Watch out for -->
       <div class="team-profile-panel" data-panel="watch">
         <div class="team-profile-bullet">
           <div class="team-profile-bullet-dot"></div>
@@ -1100,9 +1286,11 @@ footer p {
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <section class="teams" id="teams">
   <div class="container">
-    <p class="section-eyebrow fade-in" data-en="For teams" data-es="Para equipos">For teams</p>
-    <h2 class="section-title fade-in" data-en="Built for how leadership teams actually work" data-es="Diseñado para cómo trabajan los equipos de liderazgo realmente">Built for how leadership teams actually work</h2>
-    <p class="teams-body fade-in" data-en="When your co-founder, CMO, and VP of Engineering all complete their profiles, Dnmcs maps how your team makes decisions together — where you're aligned, where there's structural friction, and what conversations you're all avoiding." data-es="Cuando tu cofundador, CMO y VP de Ingeniería completan sus perfiles, Dnmcs mapea cómo tu equipo toma decisiones juntos — dónde están alineados, dónde hay fricción estructural y qué conversaciones están evitando.">When your co-founder, CMO, and VP of Engineering all complete their profiles, Dnmcs maps how your team makes decisions together — where you're aligned, where there's structural friction, and what conversations you're all avoiding.</p>
+    <div class="teams-header">
+      <p class="section-eyebrow fade-in" data-en="For teams" data-es="Para equipos">For teams</p>
+      <h2 class="section-title fade-in" data-en="Built for how leadership teams actually work" data-es="Diseñado para cómo trabajan los equipos de liderazgo realmente">Built for how leadership teams actually work</h2>
+      <p class="teams-body fade-in" data-en="When your co-founder, CMO, and VP of Engineering all complete their profiles, Dnmcs maps how your team makes decisions together — where you're aligned, where there's structural friction, and what conversations you're all avoiding." data-es="Cuando tu cofundador, CMO y VP de Ingeniería completan sus perfiles, Dnmcs mapea cómo tu equipo toma decisiones juntos — dónde están alineados, dónde hay fricción estructural y qué conversaciones están evitando.">When your co-founder, CMO, and VP of Engineering all complete their profiles, Dnmcs maps how your team makes decisions together — where you're aligned, where there's structural friction, and what conversations you're all avoiding.</p>
+    </div>
     <div class="teams-grid">
       <div class="teams-col fade-in">
         <h3 data-en="Individual" data-es="Individual">Individual</h3>
@@ -1128,7 +1316,7 @@ footer p {
 <!-- CLOSING CTA                                                             -->
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <section class="closing">
-  <div class="container">
+  <div class="closing-inner">
     <h2 class="fade-in" data-en="Decisions shape companies. Psychology shapes <em>decisions.</em>" data-es="Las decisiones dan forma a las empresas. La psicología da forma a las <em>decisiones.</em>">Decisions shape companies. Psychology shapes <em>decisions.</em></h2>
     <p class="closing-sub fade-in" data-en="The founders who understand how they decide — win more." data-es="Los founders que entienden cómo deciden — ganan más.">The founders who understand how they decide — win more.</p>
     <a href="https://app.dnmcs.ai/auth" class="btn-primary fade-in" data-en="Start your assessment" data-es="Comenzar evaluación">Start your assessment</a>
