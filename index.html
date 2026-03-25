@@ -675,12 +675,19 @@ nav {
 footer {
   padding: 40px 0;
   border-top: 1px solid var(--border);
-  text-align: center;
 }
-footer p {
+footer .footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p, footer a {
   font-size: 12px;
   color: rgba(122,122,140,0.5);
 }
+footer a { text-decoration: none; }
+footer a:hover { color: var(--muted); }
+footer .footer-links { display: flex; gap: 20px; }
 
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
@@ -1140,8 +1147,12 @@ footer p {
 <!-- FOOTER                                                                  -->
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
 <footer>
-  <div class="container">
-    <p data-en="&copy; 2025 Dnmcs. All rights reserved." data-es="&copy; 2025 Dnmcs. Todos los derechos reservados.">&copy; 2025 Dnmcs. All rights reserved.</p>
+  <div class="container footer-inner">
+    <p>&copy; 2026 Dnmcs</p>
+    <div class="footer-links">
+      <a href="https://app.dnmcs.ai/terms" data-en="Terms" data-es="Términos">Terms</a>
+      <a href="https://app.dnmcs.ai/privacy" data-en="Privacy" data-es="Privacidad">Privacy</a>
+    </div>
   </div>
 </footer>
 
