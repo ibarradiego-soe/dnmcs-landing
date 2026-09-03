@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dnmcs: Know how your executive team decides</title>
-<meta name="description" content="A one-time assessment for an executive team. Working With Me cards, pair reports, and a team dynamics map. $999 a year. Raw answers stay private.">
+<title>Dnmcs: See how your executive team will decide when it gets hard</title>
+<meta name="description" content="Each person takes a private assessment. You get a Working With Me card, a report for each pair that matters, and a map of the room.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://dnmcs.ai/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dnmcs.ai/">
-<meta property="og:title" content="Dnmcs: Know how your executive team decides">
-<meta property="og:description" content="Working With Me cards, pair reports, and a team map for an executive team. $999 a year. Raw answers stay private.">
+<meta property="og:title" content="Dnmcs: See how your executive team will decide when it gets hard">
+<meta property="og:description" content="A Working With Me card, pair reports, and a map of the room for an executive team.">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dnmcs: Know how your executive team decides">
-<meta name="twitter:description" content="A one-time assessment for executive teams. $999 a year. Raw answers stay private.">
+<meta name="twitter:title" content="Dnmcs: See how your executive team will decide when it gets hard">
+<meta name="twitter:description" content="A one-time assessment for executive teams. Cards, pair reports, and a map of the room.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -237,11 +237,6 @@ h3 { font-size: 1.35rem; }
   gap: 2.5rem;
   align-items: end;
 }
-.price-line {
-  margin-top: 1.2rem;
-  font-size: 0.95rem;
-  color: var(--quiet);
-}
 .hero-aside {
   background: var(--card);
   border: 1px solid var(--line);
@@ -333,41 +328,7 @@ h3 { font-size: 1.35rem; }
   color: rgba(244,242,237,0.48);
 }
 
-/* ── Metric + reveal grids ── */
-.metrics {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.85rem;
-}
-.metric {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.15rem 1.15rem 1.2rem;
-  box-shadow: var(--shadow);
-}
-.metric .label {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--quiet);
-  margin-bottom: 0.45rem;
-}
-.metric strong {
-  display: block;
-  font-family: var(--display);
-  font-size: 1.35rem;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  margin-bottom: 0.35rem;
-}
-.metric p { font-size: 0.88rem; color: var(--muted); }
-
+/* ── Reveal grids ── */
 .reveal-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -435,17 +396,37 @@ h3 { font-size: 1.35rem; }
   background: var(--bg-deep);
   color: var(--ink);
 }
-.chip-maya { background: var(--accent-soft); color: var(--accent-hover); }
-.chip-jordan { background: var(--teal-soft); color: var(--teal); }
-.chip-priya { background: var(--navy-soft); color: var(--navy); }
-.chip-sam { background: var(--clay-soft); color: var(--clay); }
 
 .ui-visual {
-  padding: 1.15rem 1.4rem 1.05rem;
+  padding: 1.25rem 1.4rem 1.2rem;
   background: #FBF9F5;
   border-bottom: 1px solid var(--line);
 }
 .ui-body { padding: 1.15rem 1.4rem 1.45rem; }
+
+.role-brief {
+  padding: 1.2rem 1.4rem 1.15rem;
+  background: #FBF9F5;
+  border-bottom: 1px solid var(--line);
+}
+.role-brief .role-kicker {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+.role-brief p {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+.role-brief p + p {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
 
 .seg {
   display: flex;
@@ -524,93 +505,15 @@ h3 { font-size: 1.35rem; }
   margin-bottom: 0.3rem;
 }
 
-/* Graphics */
-.ticks {
-  display: grid;
-  gap: 0.7rem;
-}
-.tick {
-  display: grid;
-  grid-template-columns: 7.2rem 1fr auto;
-  gap: 0.7rem;
-  align-items: center;
-}
-.tick span { font-size: 0.78rem; font-weight: 600; color: var(--ink); }
-.tick em {
-  font-style: normal;
-  font-size: 0.72rem;
-  color: var(--quiet);
-  min-width: 5.5rem;
-  text-align: right;
-}
-.track {
-  position: relative;
-  height: 8px;
-  background: #E7E2D8;
-  border-radius: 99px;
-}
-.track i {
-  position: absolute;
-  top: 50%;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: 2px solid #fff;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 0 1px rgba(194,65,12,0.25);
-}
-
-.radar-wrap {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 1.1rem;
-  align-items: center;
-}
-.radar-legend { display: grid; gap: 0.4rem; font-size: 0.8rem; color: var(--muted); }
-.radar-legend b { color: var(--ink); font-weight: 600; }
-
-.compare {
-  display: grid;
-  gap: 0.85rem;
-}
-.compare-head {
-  display: grid;
-  grid-template-columns: 7.5rem 1fr 1fr;
-  gap: 0.6rem;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--quiet);
-}
-.axis {
-  display: grid;
-  grid-template-columns: 7.5rem 1fr 1fr;
-  gap: 0.6rem;
-  align-items: center;
-}
-.axis .name { font-size: 0.8rem; font-weight: 600; }
-.bar {
-  height: 10px;
-  background: #E7E2D8;
-  border-radius: 99px;
-  overflow: hidden;
-}
-.bar > i { display: block; height: 100%; border-radius: 99px; }
-.bar-maya > i { background: var(--maya); }
-.bar-jordan > i { background: var(--jordan); }
-
 .pair-people {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
-  margin-bottom: 1rem;
 }
 .person-card {
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 0.9rem 1rem;
+  padding: 0.95rem 1.05rem;
   background: var(--card);
 }
 .person-card .role {
@@ -622,7 +525,7 @@ h3 { font-size: 1.35rem; }
 .person-card .name {
   font-family: var(--display);
   font-size: 1.25rem;
-  margin: 0.1rem 0 0.3rem;
+  margin: 0.1rem 0 0.35rem;
 }
 .person-card p { font-size: 0.88rem; color: var(--muted); }
 
@@ -648,77 +551,82 @@ h3 { font-size: 1.35rem; }
 .rights td { color: var(--muted); }
 .rights td:first-child { color: var(--ink); font-weight: 600; }
 
-/* Room map */
-.room {
+/* Room map: four seats around an open table */
+.table-stage {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 1.1rem;
+  grid-template-columns: minmax(8.8rem, 1fr) minmax(10.5rem, 1.2fr) minmax(8.8rem, 1fr);
+  grid-template-rows: auto minmax(11rem, 1fr) auto;
+  gap: 0.9rem 0.7rem;
   align-items: center;
+  justify-items: center;
+  padding: 1.35rem 0.9rem 1.2rem;
+  background:
+    radial-gradient(ellipse at 50% 48%, #F8F3E8 0%, #EFE6D8 58%, #E6DCCE 100%);
+  border-radius: 14px;
+  border: 1px solid #E0D6C8;
+  min-height: 22.5rem;
 }
-.table-wrap { display: grid; place-items: center; }
-.table {
-  width: 200px;
-  height: 200px;
-  position: relative;
-}
-.table-core {
-  position: absolute;
-  inset: 48px;
-  border-radius: 18px;
-  background: #EFE8DC;
-  border: 1px solid var(--line-strong);
+.table-oval {
+  grid-column: 2;
+  grid-row: 2;
+  width: min(100%, 12.5rem);
+  aspect-ratio: 1.28;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 38% 30%, #F6EFE2 0%, #E3D4BE 68%, #CDBBA3 100%);
+  border: 1px solid #C4B49D;
+  box-shadow:
+    inset 0 0 0 9px rgba(255,252,246,0.28),
+    0 12px 28px rgba(18,17,14,0.08);
   display: grid;
   place-items: center;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+}
+.table-mark {
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 50%;
+  border: 1px solid #C2B6A4;
+  background: #FFFCF6;
   color: var(--quiet);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  display: grid;
+  place-items: center;
 }
 .seat {
-  position: absolute;
   appearance: none;
   border: 2px solid var(--line-strong);
   background: var(--card);
   border-radius: 12px;
-  padding: 0.35rem 0.45rem;
+  padding: 0.55rem 0.7rem;
   cursor: pointer;
   font-family: var(--sans);
-  min-width: 78px;
+  min-width: 9.2rem;
+  max-width: 12.5rem;
+  width: 100%;
   text-align: center;
-  line-height: 1.15;
+  line-height: 1.2;
+  box-shadow: 0 1px 2px rgba(18,17,14,0.04);
 }
-.seat strong { display: block; font-size: 0.78rem; }
-.seat span { display: block; font-size: 0.65rem; color: var(--quiet); }
-.seat[aria-selected="true"] { border-color: var(--ink); box-shadow: 0 0 0 3px rgba(18,17,14,0.08); }
-.seat-maya { top: 0; left: 50%; transform: translateX(-50%); }
-.seat-jordan { right: 0; top: 50%; transform: translateY(-50%); }
-.seat-sam { bottom: 0; left: 50%; transform: translateX(-50%); }
-.seat-priya { left: 0; top: 50%; transform: translateY(-50%); }
+.seat strong { display: block; font-size: 0.88rem; color: var(--ink); }
+.seat span { display: block; font-size: 0.72rem; color: var(--muted); margin-top: 0.12rem; }
+.seat[aria-selected="true"] { box-shadow: 0 0 0 3px rgba(18,17,14,0.08); }
+.seat-maya { grid-column: 2; grid-row: 1; }
+.seat-priya { grid-column: 1; grid-row: 2; }
+.seat-jordan { grid-column: 3; grid-row: 2; }
+.seat-sam { grid-column: 2; grid-row: 3; }
 .seat-maya[aria-selected="true"] { border-color: var(--maya); background: var(--accent-soft); }
 .seat-jordan[aria-selected="true"] { border-color: var(--jordan); background: var(--teal-soft); }
 .seat-priya[aria-selected="true"] { border-color: var(--priya); background: var(--navy-soft); }
 .seat-sam[aria-selected="true"] { border-color: var(--sam); background: var(--clay-soft); }
 
-.room-read { display: grid; gap: 0.55rem; }
-.strip {
-  display: grid;
-  grid-template-columns: 6.2rem 1fr;
-  gap: 0.55rem;
-  align-items: center;
+.room-read {
+  margin: 0 0 1.05rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+  max-width: 44rem;
 }
-.strip .k { font-size: 0.75rem; font-weight: 700; color: var(--ink); }
-.pills { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-.pill {
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0.22rem 0.5rem;
-  border-radius: 999px;
-  background: var(--bg-deep);
-}
-.pill-fast { background: var(--accent-soft); color: var(--accent-hover); }
-.pill-slow { background: var(--navy-soft); color: var(--navy); }
-.pill-mid { background: var(--teal-soft); color: var(--teal); }
 
 .seat-switch {
   display: flex;
@@ -806,37 +714,15 @@ h3 { font-size: 1.35rem; }
 }
 .fact a { color: var(--teal); }
 .fact.wide { grid-column: 1 / -1; }
-.fact-quote {
-  margin-top: 0.9rem;
-  padding: 0.85rem 0.95rem;
-  background: #1C1A17;
-  color: #F4F2ED;
-  border-radius: 10px;
-}
-.fact-quote p {
-  font-family: var(--display);
-  font-size: 1.05rem;
-  line-height: 1.35;
-  color: #F4F2ED;
-}
-.fact-quote .who {
-  margin-top: 0.55rem;
-  font-size: 0.72rem;
-  color: rgba(244,242,237,0.62);
-  line-height: 1.45;
-}
-.fact-quote a { color: #E8B39A; }
 
-/* ── Quoted voices (problem, not endorsement) ── */
+/* ── Quoted voices ── */
 .quotes-band {
   background: #12110E;
   color: #F4F2ED;
   padding: 5.25rem 0;
   border-top: 1px solid #2A2622;
 }
-.quotes-band .kicker { color: #E8B39A; }
 .quotes-band h2 { color: #F4F2ED; }
-.quotes-band .lede { color: rgba(244,242,237,0.68); }
 .quotes-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -854,28 +740,14 @@ h3 { font-size: 1.35rem; }
   line-height: 1.3;
   letter-spacing: -0.02em;
 }
-.pull .aside {
-  margin-top: 0.75rem;
-  font-size: 0.9rem;
-  color: rgba(244,242,237,0.72);
-  line-height: 1.5;
-}
 .pull figcaption {
   padding: 1rem 0 0;
   margin-top: 1rem;
   border-top: 1px solid rgba(244,242,237,0.1);
-  font-size: 0.78rem;
-  color: rgba(244,242,237,0.58);
-  line-height: 1.45;
-}
-.pull strong {
-  display: block;
-  color: #F4F2ED;
   font-size: 0.88rem;
+  color: rgba(244,242,237,0.72);
   font-weight: 650;
-  margin-bottom: 0.15rem;
 }
-.pull a { color: #E8B39A; text-underline-offset: 2px; }
 
 /* ── Complement ── */
 .echo {
@@ -1223,15 +1095,18 @@ footer {
 .footer-note { margin-top: 1rem; max-width: 36rem; }
 
 @media (max-width: 900px) {
-  .hero-grid, .metrics, .reveal-grid, .facts, .echo, .check-grid,
+  .hero-grid, .reveal-grid, .facts, .echo, .check-grid,
   .privacy-grid, .split, .pricing-layout, .two-col, .pair-people,
-  .radar-wrap, .room, .quotes-grid, .ask-layout {
+  .quotes-grid, .ask-layout {
     grid-template-columns: 1fr;
   }
-  .metrics { grid-template-columns: 1fr 1fr; }
   .fact.wide { grid-column: auto; }
-  .room { justify-items: center; }
   .chip-row { justify-content: flex-start; }
+  .table-stage {
+    grid-template-columns: minmax(7.2rem, 1fr) minmax(8.5rem, 1.1fr) minmax(7.2rem, 1fr);
+    min-height: 20rem;
+    padding: 1rem 0.55rem;
+  }
 }
 
 @media (max-width: 800px) {
@@ -1272,11 +1147,21 @@ footer {
 }
 
 @media (max-width: 560px) {
-  .metrics { grid-template-columns: 1fr; }
-  .tick { grid-template-columns: 1fr; }
-  .tick em { text-align: left; }
-  .compare-head, .axis { grid-template-columns: 1fr; }
-  .table { transform: scale(0.92); }
+  .table-stage {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    min-height: 0;
+    gap: 0.55rem;
+  }
+  .seat-maya, .seat-priya, .table-oval, .seat-jordan, .seat-sam {
+    grid-column: 1;
+  }
+  .seat-maya { grid-row: 1; }
+  .seat-jordan { grid-row: 2; }
+  .table-oval { grid-row: 3; width: 8.5rem; }
+  .seat-priya { grid-row: 4; }
+  .seat-sam { grid-row: 5; }
+  .seat { max-width: 16rem; }
 }
 </style>
 </head>
@@ -1288,11 +1173,8 @@ footer {
     <a class="logo" href="#top">Dnmcs</a>
     <button class="nav-toggle" type="button" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#samples">Samples</a></li>
-      <li><a href="#ask">Ask your AI</a></li>
-      <li><a href="#quotes">Quotes</a></li>
-      <li><a href="#why">Why</a></li>
-      <li><a href="#plan">The plan</a></li>
+      <li><a href="#samples">Sample</a></li>
+      <li><a href="#how-it-works">How it works</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a class="nav-cta" href="https://app.dnmcs.ai">Start the team plan</a></li>
@@ -1305,40 +1187,38 @@ footer {
     <div class="wrap hero-grid">
       <div>
         <p class="kicker">Dnmcs Teams</p>
-        <h1>Know how your executive team decides before the next difficult call.</h1>
-        <p class="lede">Each person consents, then completes a private assessment. You get three things you can open later: how each person works, where a pair collides, and what to do before the next fight, raise, or hire. $999 a year for the team. English only.</p>
+        <h1>See how your executive team will decide when it gets hard.</h1>
+        <p class="lede">Each person takes a private assessment. You get a Working With Me card, a report for each pair that matters, and a map of the room. Open them before the next fight, raise, or hire.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://app.dnmcs.ai">Start the team plan</a>
-          <a class="btn btn-secondary" href="#samples">See the sample cards</a>
         </div>
-        <p class="price-line">$999 a year for the team. English only.</p>
       </div>
       <aside class="hero-aside" aria-label="Sample team overview">
         <h2>Sample team overview · Northwind</h2>
         <dl class="stat-row">
           <div class="stat">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h16M16 6l6 6-6 6"/></svg>
-            <dt>Decision pace</dt><dd>Fast once a customer is named. Stalls on people-risk.</dd>
+            <dt>Maya · CEO</dt><dd>Owns the close and the raise narrative. Measured on revenue and a dated board story.</dd>
           </div>
           <div class="stat">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg>
-            <dt>Conflict</dt><dd>Uneven. Two enter. Two wait and reopen later.</dd>
+            <dt>Jordan · CMO</dt><dd>Owns whether a buyer would repeat the sentence. Measured on a market-true story.</dd>
           </div>
           <div class="stat">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 19V5h4l2 4 2-4h8v14H4z"/></svg>
-            <dt>Evidence</dt><dd>Split: conviction versus model. Neither side has said so.</dd>
+            <dt>Priya · CTO</dt><dd>Owns the build. Speaks in the architecture when the date is already set.</dd>
           </div>
           <div class="stat">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
-            <dt>Control</dt><dd>Concentrated at the CEO seat. Second chair is unassigned.</dd>
+            <dt>Sam · CFO</dt><dd>Owns the cost. The room hears him after Maya has already closed.</dd>
           </div>
           <div class="stat">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="8" cy="10" r="3"/><circle cx="16" cy="10" r="3"/></svg>
-            <dt>Complement</dt><dd>Strong on close versus market-true. Thin on people-risk.</dd>
+            <dt>Control</dt><dd>Sits with the CEO. Second chair is unassigned.</dd>
           </div>
           <div class="stat">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
-            <dt>Room gap</dt><dd>Who is second when Maya is on the raise.</dd>
+            <dt>Open call</dt><dd>Who is second when Maya is on the raise.</dd>
           </div>
         </dl>
       </aside>
@@ -1353,7 +1233,7 @@ footer {
             <svg width="22" height="22" viewBox="0 0 24 24" fill="#F4F2ED"><path d="M8 5.5v13l11-6.5L8 5.5z"/></svg>
           </div>
           <p class="demo-label" id="demo-title">Product walkthrough coming soon</p>
-          <p class="demo-sub">A short look at inviting the team, consent, and the reports. No video is embedded on this page yet.</p>
+          <p class="demo-sub">A short look at inviting the team and opening the reports. No video is embedded on this page yet.</p>
           <p class="demo-note">16:9 placeholder · not a live demo</p>
         </div>
       </div>
@@ -1364,8 +1244,8 @@ footer {
     <div class="wrap">
       <div class="section-head">
         <p class="kicker">The product</p>
-        <h2 id="shows-title">What you get back</h2>
-        <p class="lede">This is a read of how this team decides, where pairs complement or collide, and what to open before the next difficult date. It is not a personality type and not a daily feed.</p>
+        <h2 id="shows-title">What you get</h2>
+        <p class="lede">A read of how this team decides, grounded in the seat each person holds: the work they own, how they are measured, and what to open before the next difficult date.</p>
       </div>
       <div class="reveal-grid">
         <article class="reveal">
@@ -1373,21 +1253,21 @@ footer {
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3"/><path d="M5 19c.8-3 3.2-5 7-5s6.2 2 7 5"/></svg>
           </div>
           <h3>How each person decides</h3>
-          <p>Pace, evidence habit, and whether they enter conflict. Written so a colleague can use it on Monday.</p>
+          <p>Written from the job they actually do. How to brief them, how they close, and what wastes the seat. A colleague can use it on Monday.</p>
         </article>
         <article class="reveal">
           <div class="icon-box" aria-hidden="true">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="10" r="3"/><circle cx="16" cy="10" r="3"/><path d="M4 19c.6-2.4 2.4-4 5-4M15 15c2.6 0 4.4 1.6 5 4"/></svg>
           </div>
           <h3>Where a pair complements</h3>
-          <p>Who closes, who keeps the story honest, and the move the pair only makes together.</p>
+          <p>Two seats with different jobs. Who closes, who keeps the story honest, and the move the pair only makes together.</p>
         </article>
         <article class="reveal">
           <div class="icon-box" aria-hidden="true">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 4v16M5 9l7-5 7 5M5 15l7 5 7-5"/></svg>
           </div>
           <h3>Where the same pair breaks</h3>
-          <p>The loop you are already in: date versus story, model versus conviction. Named without a personality lecture.</p>
+          <p>The unowned call: pricing, a launch date, a raise narrative. Named as work, not as a personality clash.</p>
         </article>
         <article class="reveal">
           <div class="icon-box" aria-hidden="true">
@@ -1401,7 +1281,7 @@ footer {
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2"/></svg>
           </div>
           <h3>Where control sits</h3>
-          <p>Who is fast, who waits, who actually holds the close, and whether a second chair exists.</p>
+          <p>Which seat holds the close, which seat holds the cost, and whether a second chair exists.</p>
         </article>
         <article class="reveal">
           <div class="icon-box" aria-hidden="true">
@@ -1419,7 +1299,7 @@ footer {
       <div class="section-head">
         <p class="kicker">Northwind sample</p>
         <h2>Sample reports</h2>
-        <p class="lede">How the team decides. Where pairs collide. What to do before a fight, a raise, or a hire. Click the cards. They are working documents, not printouts. Northwind is a sample team.</p>
+        <p class="lede">The assessment collects the seat, not only how someone thinks: title, the functions they own, what a normal week looks like, and how their objectives are measured. Click the cards. Northwind is a sample team.</p>
       </div>
 
       <article class="artifact-block" aria-labelledby="wwm-heading" style="margin-bottom:3.25rem">
@@ -1432,46 +1312,23 @@ footer {
               <p class="who-name">Maya Chen</p>
               <p class="who-meta">CEO · Northwind · sample team</p>
             </div>
-            <div class="chip-row">
-              <span class="chip chip-maya">Fast closer</span>
-              <span class="chip">Customer over model</span>
-              <span class="chip">Enters late, then hard</span>
-            </div>
           </div>
 
-          <div class="ui-visual">
-            <div class="radar-wrap">
-              <svg viewBox="0 0 160 140" width="160" height="140" role="img" aria-label="Maya's operating ticks: fast pace, low model-evidence, mid conflict entry">
-                <polygon points="80,18 138,118 22,118" fill="none" stroke="#D8D2C7" stroke-width="1.5"/>
-                <polygon points="80,36 118,108 42,108" fill="#F8E6DC" stroke="#C2410C" stroke-width="1.8"/>
-                <circle cx="80" cy="36" r="4" fill="#C2410C"/>
-                <circle cx="118" cy="108" r="4" fill="#C2410C"/>
-                <circle cx="42" cy="108" r="4" fill="#C2410C"/>
-                <text x="80" y="12" text-anchor="middle" font-size="10" font-family="DM Sans, sans-serif" fill="#12110E" font-weight="600">Pace</text>
-                <text x="142" y="132" text-anchor="middle" font-size="10" font-family="DM Sans, sans-serif" fill="#12110E" font-weight="600">Conflict</text>
-                <text x="18" y="132" text-anchor="middle" font-size="10" font-family="DM Sans, sans-serif" fill="#12110E" font-weight="600">Evidence</text>
-              </svg>
-              <div>
-                <div class="ticks" aria-hidden="true">
-                  <div class="tick"><span>Pace</span><div class="track"><i style="left:86%"></i></div><em>Closes fast</em></div>
-                  <div class="tick"><span>Evidence</span><div class="track"><i style="left:28%"></i></div><em>Customer, not model</em></div>
-                  <div class="tick"><span>Conflict</span><div class="track"><i style="left:62%"></i></div><em>Late, then hard</em></div>
-                </div>
-              </div>
-            </div>
+          <div class="role-brief">
+            <p class="role-kicker">The seat</p>
+            <p>CEO. She owns the close and the raise narrative. In a normal week she sits with the enterprise pipeline, the two dates that can slip, and the board pack. Measured on revenue and a dated story the board can repeat.</p>
           </div>
 
           <div class="ui-body">
             <div class="seg" role="tablist" aria-label="Working With Me panes">
               <button type="button" role="tab" id="tab-decide" aria-controls="pane-decide" aria-selected="true" tabindex="0">Decide</button>
-              <button type="button" role="tab" id="tab-pressure" aria-controls="pane-pressure" aria-selected="false" tabindex="-1">Pressure</button>
               <button type="button" role="tab" id="tab-brief" aria-controls="pane-brief" aria-selected="false" tabindex="-1">Brief me</button>
               <button type="button" role="tab" id="tab-dont" aria-controls="pane-dont" aria-selected="false" tabindex="-1">Don’t do this</button>
             </div>
 
             <div class="panel" id="pane-decide" role="tabpanel" aria-labelledby="tab-decide">
               <p class="panel-title">How Maya actually closes</p>
-              <p>A named customer is a green light. Once she can point at a person who will pay, she wants a date, an owner, and a sentence the board can repeat. Market risk she will take. People-risk she will rename as timing and park.</p>
+              <p>A named customer is a green light. Once she can point at a person who will pay, she wants a date, an owner, and a sentence the board can repeat. She will take market risk to keep the raise on the calendar. A people-decision she will rename as timing and park.</p>
               <p>Do not bring a tour of options. Bring one recommendation, the cost of being wrong, and who is on the hook. Three equal paths and she will pick the fastest one. Then you will spend a month unsaying it.</p>
               <ul>
                 <li>She hears extra research as delay unless it is attached to a customer name.</li>
@@ -1481,22 +1338,6 @@ footer {
               <p class="quote-use"><span>Say this Monday</span>“Maya, I need a no on the enterprise SKU this week. Recommendation: kill it. Cost of being wrong: two design-partner conversations. Owner: me. Date: Friday.”</p>
             </div>
 
-            <div class="panel" id="pane-pressure" role="tabpanel" aria-labelledby="tab-pressure" hidden>
-              <p class="panel-title">When the room tightens</p>
-              <p>Under pressure she narrows. Three options become one. The whiteboard gets a date. That is how Northwind ships. It is also how Priya’s model and Jordan’s “the story isn’t true yet” get treated as friction instead of signal.</p>
-              <div class="two-col">
-                <div class="callout">
-                  <strong>Watch for</strong>
-                  <p>She skips the person who needed another day. She treats silence as agreement. She takes the people-decision last, then makes it in one sitting.</p>
-                </div>
-                <div class="callout">
-                  <strong>What works</strong>
-                  <p>Name the people-risk in a sentence she can refuse. She will engage with a written cost. She will not engage with a vibe.</p>
-                </div>
-              </div>
-              <p class="quote-use"><span>Say this Monday</span>“We’re about to close because you’re uncomfortable, not because the customer is named. Give the room until Thursday. I’ll come back with one recommendation.”</p>
-            </div>
-
             <div class="panel" id="pane-brief" role="tabpanel" aria-labelledby="tab-brief" hidden>
               <p class="panel-title">How to put work in front of her</p>
               <p>First sentence is the ask. Second is the recommendation. Third is the date. Do not lead with context. Do not send a long memo the night before a board meeting and expect a careful no.</p>
@@ -1504,7 +1345,7 @@ footer {
               <ul>
                 <li>Ask → recommendation → what we lose if we’re wrong → who owns the next step.</li>
                 <li>Name the one thing you need her to stop doing.</li>
-                <li>Do not ask her to “weigh in” without a recommendation. Do not soften people-risk into “alignment.”</li>
+                <li>Do not ask her to “weigh in” without a recommendation. Do not soften a people-risk into “alignment.”</li>
               </ul>
               <p class="quote-use"><span>Say this Monday</span>“Ask: approve Jordan’s pause on the launch narrative. Recommendation: yes, until he can name two customers who would repeat it. I need you not to lock the date in Tuesday’s staff meeting.”</p>
             </div>
@@ -1513,7 +1354,7 @@ footer {
               <p class="panel-title">The moves that waste this seat</p>
               <ul>
                 <li>Do not surprise her with a people-problem in a group setting. She will close it to end the discomfort, and you will own the wreckage.</li>
-                <li>Do not treat her speed as a quirk. It is how she reduces risk she can see. If you need time, buy it with a customer name or a written cost of being wrong.</li>
+                <li>Do not treat her speed as a quirk. It is how she protects the close and the raise date. If you need time, buy it with a customer name or a written cost of being wrong.</li>
                 <li>Do not send “thoughts?” She will reply with a date.</li>
                 <li>Do not let Sam and Priya build a model she never asked for, then drop it the morning of the raise. Bring the model while the bet is still a bet.</li>
                 <li>Do not assume she knows she is skipping you. Write the sentence.</li>
@@ -1526,7 +1367,7 @@ footer {
 
       <article class="artifact-block" aria-labelledby="pair-heading" style="margin-bottom:3.25rem">
         <h2 class="artifact-title" id="pair-heading">Strategic pair report</h2>
-        <p class="lede" style="margin:0 0 1.35rem">Two people, one operating loop. Complement, friction, who owns the call, and the sentence to say next.</p>
+        <p class="lede" style="margin:0 0 1.35rem">Two seats, two jobs. Complement, the call nobody owns, who has the right to close, and the sentence to say next.</p>
 
         <div class="ui-card" data-tabs>
           <div class="ui-head">
@@ -1534,32 +1375,20 @@ footer {
               <p class="who-name">CEO × CMO</p>
               <p class="who-meta">Maya Chen and Jordan Hale · how this pair decides together</p>
             </div>
-            <div class="chip-row">
-              <span class="chip chip-maya">Maya · close</span>
-              <span class="chip chip-jordan">Jordan · market-true</span>
-              <span class="chip">Pricing is the stress point</span>
-            </div>
           </div>
 
           <div class="ui-visual">
             <div class="pair-people">
               <div class="person-card">
-                <p class="role" style="color:var(--maya)">CEO</p>
+                <p class="role" style="color:var(--maya)">CEO · the close</p>
                 <p class="name">Maya Chen</p>
-                <p>Wants a date and an owner. Hears extra market work as delay.</p>
+                <p>Owns the quarter and the raise narrative. Measured on revenue and a dated board story. Wants a launch date and an owner on pricing.</p>
               </div>
               <div class="person-card">
-                <p class="role" style="color:var(--jordan)">CMO</p>
+                <p class="role" style="color:var(--jordan)">CMO · market-true</p>
                 <p class="name">Jordan Hale</p>
-                <p>Wants the story true in the market. Hears a locked date as being overruled.</p>
+                <p>Owns whether a buyer would repeat the sentence. Measured on a true story, not on the close. Wants two named customers before Friday.</p>
               </div>
-            </div>
-            <div class="compare" aria-label="Two-person comparison of operating habits">
-              <div class="compare-head"><span></span><span>Maya</span><span>Jordan</span></div>
-              <div class="axis"><span class="name">Closes the date</span><div class="bar bar-maya"><i style="width:92%"></i></div><div class="bar bar-jordan"><i style="width:34%"></i></div></div>
-              <div class="axis"><span class="name">Needs market-true</span><div class="bar bar-maya"><i style="width:38%"></i></div><div class="bar bar-jordan"><i style="width:90%"></i></div></div>
-              <div class="axis"><span class="name">Enters in the room</span><div class="bar bar-maya"><i style="width:70%"></i></div><div class="bar bar-jordan"><i style="width:32%"></i></div></div>
-              <div class="axis"><span class="name">Reopens in writing</span><div class="bar bar-maya"><i style="width:18%"></i></div><div class="bar bar-jordan"><i style="width:86%"></i></div></div>
             </div>
           </div>
 
@@ -1573,23 +1402,23 @@ footer {
 
             <div class="panel" id="pane-comp" role="tabpanel" aria-labelledby="tab-comp">
               <p class="panel-title">What this pair only does together</p>
-              <p>Maya closes. Jordan keeps the story honest in the market. Together they are fast once a customer is named. He walks in with the sentence a buyer would actually say. She puts a date on it so the launch does not stay a debate.</p>
+              <p>Maya dates the bet. Jordan keeps the story honest in the market. Together they can lock pricing and a launch once a customer is named. He walks in with the sentence a buyer would actually say. She puts a date on it so the raise narrative does not stay a draft.</p>
               <div class="two-col">
                 <div class="callout"><strong>Use them for</strong><p>Naming the next beachhead. Killing a feature nobody would pay to keep. Drafting a raise narrative a partner can retell.</p></div>
-                <div class="callout"><strong>The gift</strong><p>Conviction plus a market that can repeat it. Neither person does that alone without drifting. Maya locks a fiction. Jordan stays in an endless draft.</p></div>
+                <div class="callout"><strong>The gift</strong><p>A close plus a market that can repeat it. Alone, Maya locks a fiction. Alone, Jordan stays in an endless draft.</p></div>
               </div>
             </div>
 
             <div class="panel" id="pane-fric" role="tabpanel" aria-labelledby="tab-fric" hidden>
-              <p class="panel-title">Pricing and positioning</p>
-              <p>Maya hears “I need another week on the story” as avoidance. Jordan hears “lock it Friday” as a sentence the company will have to unsay in six months. Neither is wrong. Neither has said the decision-rights sentence out loud.</p>
+              <p class="panel-title">The unowned call: pricing and the launch date</p>
+              <p>Maya hears “I need another week on the story” as a slip in the raise. Jordan hears “lock it Friday” as a sentence the company will have to unsay in the partner meeting. Neither is wrong. Nobody has written who owns the call.</p>
               <ul>
-                <li>Jordan brings market doubt.</li>
-                <li>Maya hears delay and sets a date.</li>
+                <li>Jordan brings market doubt on the price and the launch sentence.</li>
+                <li>Maya hears delay and sets a date so the board pack can close.</li>
                 <li>Jordan complies in the room and reopens it in Slack.</li>
                 <li>The team learns that “decided” means “until Jordan writes again.”</li>
               </ul>
-              <p>The problem is not chemistry. Nobody owns the call.</p>
+              <p>The problem is not chemistry. The pricing floor and the launch date have no owner.</p>
             </div>
 
             <div class="panel" id="pane-rights" role="tabpanel" aria-labelledby="tab-rights" hidden>
@@ -1599,7 +1428,7 @@ footer {
                   <tr><th>Call</th><th>Owner</th><th>Maya</th><th>Jordan</th><th>Date rule</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>Positioning</td><td>Jordan</td><td>Can refuse once, in writing</td><td>Must name two customers</td><td>Before the narrative is drafted</td></tr>
+                  <tr><td>Positioning</td><td>Jordan</td><td>Can refuse once, in writing</td><td>Must name two customers</td><td>Before the raise narrative is drafted</td></tr>
                   <tr><td>Launch date</td><td>Maya</td><td>Sets the date</td><td>Can move it with a named customer</td><td>Not during the partner meeting</td></tr>
                   <tr><td>Pricing floor</td><td>Shared · Sam holds the model</td><td>Closes if a customer is named</td><td>Blocks if the story is untrue</td><td>Five days before the raise</td></tr>
                 </tbody>
@@ -1621,7 +1450,7 @@ footer {
 
       <article class="artifact-block" aria-labelledby="map-heading">
         <h2 class="artifact-title" id="map-heading">Team dynamics map</h2>
-        <p class="lede" style="margin:0 0 1.35rem">The room on one page: who is fast, who enters conflict, where control sits, and the conversation nobody has put on a calendar.</p>
+        <p class="lede" style="margin:0 0 1.35rem">Four seats, who holds which job, where control sits, and the conversation nobody has put on a calendar.</p>
 
         <div class="ui-card" data-tabs>
           <div class="ui-head">
@@ -1630,32 +1459,25 @@ footer {
               <p class="who-meta">Executive team · sample</p>
             </div>
             <div class="chip-row">
-              <span class="chip">Control at CEO</span>
+              <span class="chip">Close at CEO</span>
+              <span class="chip">Market-true at CMO</span>
               <span class="chip">Second chair open</span>
-              <span class="chip">Split evidence habit</span>
             </div>
           </div>
 
           <div class="ui-visual">
-            <div class="room">
-              <div class="table-wrap">
-                <div class="table" aria-hidden="true">
-                  <div class="table-core">The room</div>
-                  <button type="button" class="seat seat-maya" tabindex="-1" data-jump="tab-room-maya"><strong>Maya</strong><span>CEO · fast</span></button>
-                  <button type="button" class="seat seat-jordan" tabindex="-1" data-jump="tab-room-jordan"><strong>Jordan</strong><span>CMO · market</span></button>
-                  <button type="button" class="seat seat-priya" tabindex="-1" data-jump="tab-room-priya"><strong>Priya</strong><span>CTO · model</span></button>
-                  <button type="button" class="seat seat-sam" tabindex="-1" data-jump="tab-room-sam"><strong>Sam</strong><span>CFO · brake</span></button>
-                </div>
-              </div>
-              <div class="room-read">
-                <div class="strip"><span class="k">Pace</span><div class="pills"><span class="pill pill-fast">Maya fast</span><span class="pill pill-mid">Jordan once true</span><span class="pill pill-slow">Priya model-first</span><span class="pill pill-slow">Sam after the date</span></div></div>
-                <div class="strip"><span class="k">Conflict</span><div class="pills"><span class="pill pill-fast">Maya late, then hard</span><span class="pill pill-mid">Jordan in writing</span><span class="pill">Priya in the architecture</span><span class="pill">Sam in the numbers</span></div></div>
-                <div class="strip"><span class="k">Control</span><div class="pills"><span class="pill pill-fast">Close sits with Maya</span><span class="pill">No named second</span></div></div>
-              </div>
+            <div class="table-stage" role="group" aria-label="Northwind table. Four seats around an open table.">
+              <button type="button" class="seat seat-maya" data-jump="tab-room-maya"><strong>Maya Chen</strong><span>CEO · close and raise</span></button>
+              <button type="button" class="seat seat-priya" data-jump="tab-room-priya"><strong>Priya Shah</strong><span>CTO · the build</span></button>
+              <div class="table-oval" aria-hidden="true"><span class="table-mark">NW</span></div>
+              <button type="button" class="seat seat-jordan" data-jump="tab-room-jordan"><strong>Jordan Hale</strong><span>CMO · market-true</span></button>
+              <button type="button" class="seat seat-sam" data-jump="tab-room-sam"><strong>Sam Okonkwo</strong><span>CFO · cost</span></button>
             </div>
           </div>
 
           <div class="ui-body">
+            <p class="room-read">Maya holds the close and the raise. Jordan holds whether the market would repeat the sentence. Priya holds the build. Sam holds the cost. Control sits with Maya. Nobody has named a second chair. The conversation they keep avoiding is who runs the room when she is on the raise.</p>
+
             <div class="seat-switch" role="tablist" aria-label="Team seats">
               <button type="button" role="tab" id="tab-room-all" aria-controls="pane-room-all" aria-selected="true" tabindex="0">The room</button>
               <button type="button" role="tab" id="tab-room-maya" aria-controls="pane-room-maya" aria-selected="false" tabindex="-1">Maya</button>
@@ -1666,55 +1488,55 @@ footer {
 
             <div class="panel" id="pane-room-all" role="tabpanel" aria-labelledby="tab-room-all">
               <p class="panel-title">How this room actually moves</p>
-              <p>Once a customer is named, Maya and Jordan accelerate. Priya and Sam want a model first. Nobody has said this out loud, so every pricing review feels like a personality clash. It is a pace split plus an unowned close.</p>
+              <p>Once a customer is named, Maya and Jordan can lock a price and a launch. Priya and Sam want the model on the page first. Nobody has said this out loud, so every pricing review feels personal. It is two jobs arriving at different times, plus an unowned close when Maya is out.</p>
               <div class="two-col">
-                <div class="callout"><strong>Aligned</strong><p>Nobody here is waiting for a perfect plan once a buyer is real. That shared pace is the company’s advantage. It is also the blind spot on people-risk.</p></div>
-                <div class="callout"><strong>Structural friction</strong><p>Conviction seats (Maya, Jordan) versus model seats (Priya, Sam). The model arrives after the date is already set, so it reads as resistance.</p></div>
+                <div class="callout"><strong>What the seats cover</strong><p>Close, market-true, build, and cost are all in the room. That is the company’s advantage, once someone writes who owns the date.</p></div>
+                <div class="callout"><strong>Where it breaks</strong><p>The model arrives after the date is already in the board pack, so Priya and Sam read as resistance. The second chair is still a blank.</p></div>
               </div>
-              <p style="margin-top:0.85rem"><strong style="color:var(--ink)">The conversation this room is avoiding:</strong> who is actually second when Maya is on the raise. The org chart does not answer it. The pair reports will not either, until someone puts the question on a calendar.</p>
+              <p style="margin-top:0.85rem"><strong style="color:var(--ink)">The conversation this room is avoiding:</strong> who is actually second when Maya is on the raise. The org chart does not answer it.</p>
               <div class="use-before"><span>Use this before</span>Drafting the raise narrative. Hiring a C-level onto this team. Locking pricing. The fight you already had once and scheduled again.</div>
             </div>
 
             <div class="panel" id="pane-room-maya" role="tabpanel" aria-labelledby="tab-room-maya" hidden>
-              <p class="panel-title">Maya · CEO · the close</p>
-              <p>Fast once a customer is named. Control seat. Treats people-risk as timing. Enters conflict late, then ends it.</p>
+              <p class="panel-title">Maya · CEO · close and raise</p>
+              <p>Owns revenue and a dated board story. Control seat. Treats a people-decision as timing. Has not named who runs the room when she is on the raise.</p>
               <ul>
-                <li>Pace: customer name = green light.</li>
-                <li>Conflict: silence reads as yes.</li>
-                <li>Control: holds the close. Has not named a second chair.</li>
+                <li>Job: close the quarter and lock the raise narrative.</li>
+                <li>Measured on: revenue, and a story a partner can retell.</li>
+                <li>Gap: second chair is still unassigned.</li>
               </ul>
               <p class="quote-use"><span>Ask her</span>“Who decides if you are on the raise, and by which Friday is that written down?”</p>
             </div>
 
             <div class="panel" id="pane-room-jordan" role="tabpanel" aria-labelledby="tab-room-jordan" hidden>
               <p class="panel-title">Jordan · CMO · market-true</p>
-              <p>Fast once the story is true in the market. Slow if it is not. Writes the dissent he does not say in the meeting.</p>
+              <p>Owns whether a buyer would repeat the sentence. Will not lock a launch story he cannot defend in the market. Writes the dissent he does not say in the meeting.</p>
               <ul>
-                <li>Pace: story-true first, date second.</li>
-                <li>Conflict: in Slack and in drafts, rarely in the room.</li>
-                <li>Control: owns positioning only if someone writes that down. Today, nobody has.</li>
+                <li>Job: keep pricing and positioning true in the market.</li>
+                <li>Measured on: a sentence a customer would repeat.</li>
+                <li>Gap: owns positioning only if someone writes that down. Today, nobody has.</li>
               </ul>
               <p class="quote-use"><span>Ask him</span>“Name two customers who would repeat this sentence. If you cannot, say so before Maya locks Friday.”</p>
             </div>
 
             <div class="panel" id="pane-room-priya" role="tabpanel" aria-labelledby="tab-room-priya" hidden>
-              <p class="panel-title">Priya · CTO · the model</p>
-              <p>Will stall the build rather than argue. The room reads her silence as agreement. It is not.</p>
+              <p class="panel-title">Priya · CTO · the build</p>
+              <p>Owns the system. Will stall the build rather than argue in the staff meeting. The room reads her silence as agreement. It is not.</p>
               <ul>
-                <li>Pace: slow until the model holds.</li>
-                <li>Conflict: enters in the architecture, not in the meeting.</li>
-                <li>Control: owns the system, not the date.</li>
+                <li>Job: make the product hold at the date Maya wants to lock.</li>
+                <li>Measured on: whether the model is true, not whether the board pack closed.</li>
+                <li>Gap: the constraint arrives in a pull request, after the date is set.</li>
               </ul>
               <p class="quote-use"><span>Ask her</span>“What would have to be true in the model for you to ship Friday? Say it in the meeting, not in the pull request.”</p>
             </div>
 
             <div class="panel" id="pane-room-sam" role="tabpanel" aria-labelledby="tab-room-sam" hidden>
-              <p class="panel-title">Sam · CFO · the brake</p>
-              <p>Holds the cost. Rarely first voice. The room uses him as a veto after Maya has already closed. That is too late.</p>
+              <p class="panel-title">Sam · CFO · the cost</p>
+              <p>Owns the cost of locking Friday. Rarely first voice. The room uses him as a veto after Maya has already closed. That is too late for a raise.</p>
               <ul>
-                <li>Pace: speaks after the date is set.</li>
-                <li>Conflict: in the numbers.</li>
-                <li>Control: holds cost, not the call.</li>
+                <li>Job: put the cost of the date on one page before the staff meeting.</li>
+                <li>Measured on: cash, burn, and whether the raise story survives the model.</li>
+                <li>Gap: speaks after the date is set, so he is decorating a decision.</li>
               </ul>
               <p class="quote-use"><span>Ask him</span>“Put the cost of locking Friday on one page before the staff meeting. If you wait until after, you are decorating a decision.”</p>
             </div>
@@ -1729,7 +1551,7 @@ footer {
       <div class="section-head">
         <p class="kicker">Your AI · private MCP</p>
         <h2 id="ask-title">Ask your own AI about this team. Dnmcs is the source of truth it is allowed to see.</h2>
-        <p class="lede">Connect Claude, ChatGPT, or Grok through a private MCP. The model reasons on your credits. Dnmcs only serves authorized Working With Me cards, pair reports, and the team map. Raw answers stay private. OAuth-style connect. Granular scopes. Consent before anything is read.</p>
+        <p class="lede">Connect Claude, ChatGPT, or Grok through a private MCP. The model reasons on your credits. Dnmcs only serves authorized Working With Me cards, pair reports, and the team map. Raw answers stay private. OAuth-style connect. Granular scopes. A connected model only sees cards and reports you have already previewed and shared.</p>
       </div>
       <div class="ask-layout">
         <div class="ask-points">
@@ -1773,12 +1595,12 @@ footer {
       <div class="section-head">
         <p class="kicker">Complement versus echo</p>
         <h2>Does this table cover the missing move, or does it repeat itself?</h2>
-        <p class="lede">Dnmcs does not assign personality badges. It shows decision pace, appetite for conflict, evidence habit, and where control sits. That is enough to see whether the group covers itself.</p>
+        <p class="lede">Dnmcs does not assign personality badges. It shows the seat each person holds, how they decide, and where control sits. That is enough to see whether the group covers itself.</p>
       </div>
       <div class="echo">
         <article>
           <h3>Complement</h3>
-          <p>People move at different speeds, enter conflict differently, and trust different kinds of evidence. One person dates the bet. Another keeps the story honest. A third wants the model before the date. The tension is usable once you name it.</p>
+          <p>People hold different jobs, move at different speeds, and trust different kinds of evidence. One person dates the bet. Another keeps the story honest. A third wants the model before the date. The tension is usable once you name it.</p>
           <ul>
             <li>The close and the market-true check sit in different seats.</li>
             <li>Someone will enter the fight. Someone else will hold the cost.</li>
@@ -1801,56 +1623,32 @@ footer {
   <section class="quotes-band" id="quotes" aria-labelledby="quotes-title">
     <div class="wrap">
       <div class="section-head">
-        <p class="kicker">On the problem, not an endorsement</p>
         <h2 id="quotes-title">People who have seen a lot of teams keep naming the same failure.</h2>
-        <p class="lede">Public remarks about founding-team blowups and shared command. These people are describing the problem. They are not Dnmcs customers, and this is not a testimonial.</p>
       </div>
       <div class="quotes-grid">
         <figure class="pull">
           <blockquote>
             <p>“Cofounder relationships are among the most important in the entire company.”</p>
           </blockquote>
-          <p class="aside">Same lecture: talk about tension early. He says “don’t let it sit there and fester.”</p>
-          <figcaption>
-            <strong>Sam Altman · Y Combinator · 2014</strong>
-            How to Start a Startup, Stanford lecture 2, 25 Sep 2014.
-            <a href="https://genius.com/Sam-altman-lecture-2-ideas-products-teams-and-execution-part-ii-annotated">Transcript</a>
-            ·
-            <a href="https://www.youtube.com/watch?v=CVfnkM44Urs">Video</a>
-          </figcaption>
+          <figcaption>Sam Altman</figcaption>
         </figure>
         <figure class="pull">
           <blockquote>
             <p>“This relationship has to be built of top quality materials and carefully maintained. It’s the basis of everything.”</p>
           </blockquote>
-          <p class="aside">Graham’s own line, after surveying YC founders. Cofounder relationship was the #1 surprise.</p>
-          <figcaption>
-            <strong>Paul Graham · Y Combinator · 2009</strong>
-            “What Startups Are Really Like,” Oct 2009.
-            <a href="https://paulgraham.com/really.html">Essay</a>
-          </figcaption>
+          <figcaption>Paul Graham</figcaption>
         </figure>
         <figure class="pull">
           <blockquote>
             <p>“You haven’t seen someone’s true colors unless you’ve worked with them on a startup.”</p>
           </blockquote>
-          <p class="aside">A YC founder in Graham’s survey. This is not Graham’s own line.</p>
-          <figcaption>
-            <strong>A YC founder · via Paul Graham · 2009</strong>
-            Quoted in “What Startups Are Really Like.”
-            <a href="https://paulgraham.com/really.html">Essay</a>
-          </figcaption>
+          <figcaption>A YC founder via Paul Graham</figcaption>
         </figure>
         <figure class="pull">
           <blockquote>
             <p>“If two people are in charge, this variance will cause conflict and delay.”</p>
           </blockquote>
-          <p class="aside">Same essay: “Often any decision, even the wrong decision, is better than no decision.”</p>
-          <figcaption>
-            <strong>Ben Horowitz · Andreessen Horowitz · 2013</strong>
-            “Shared Command,” 3 Jul 2013.
-            <a href="https://a16z.com/shared-command/">Essay</a>
-          </figcaption>
+          <figcaption>Ben Horowitz</figcaption>
         </figure>
       </div>
     </div>
@@ -1861,30 +1659,21 @@ footer {
       <div class="section-head">
         <p class="kicker">Why this matters</p>
         <h2>People problems on the founding team are an operating risk.</h2>
-        <p class="lede">These numbers come from research on founders. They are not Dnmcs conversion math, and they are not someone else’s M&amp;A scorecard. Use them to decide whether the team you already have can take the next difficult call.</p>
       </div>
       <div class="facts">
         <article class="fact">
           <p class="fact-num">~65%</p>
           <h3>High-potential startups fail on people problems</h3>
           <p>About 65% of high-potential startups fail because of people problems on the founding team, not because the market simply vanished.</p>
-          <p class="impl">The operating risk is the team you already have. See how they decide before the next fight, raise, or hire. Do not wait until the room has already split.</p>
-          <blockquote class="fact-quote">
-            <p>“In YC’s case, the number one cause of early death for startups is cofounder blowups.”</p>
-            <p class="who">Sam Altman, How to Start a Startup, Stanford lecture 2, 2014. <a href="https://genius.com/Sam-altman-lecture-2-ideas-products-teams-and-execution-part-ii-annotated">Transcript</a></p>
-          </blockquote>
-          <p class="src">Finding: Noam Wasserman, <cite>The Founder’s Dilemmas</cite> (Princeton University Press, 2012). Research on ~10,000 founders, Harvard Business School. Founder-team and people problems. This is not a recycled “#1 cause is co-founder conflict” chart. Altman is a spoken observation from YC, not that paper.</p>
+          <p class="impl">The operating risk is the team you already have. See how they decide before the next fight, raise, or hire.</p>
+          <p class="src">Finding: Noam Wasserman, <cite>The Founder’s Dilemmas</cite> (Princeton University Press, 2012). Research on ~10,000 founders, Harvard Business School. Founder-team and people problems.</p>
         </article>
         <article class="fact">
           <p class="fact-num">1st $</p>
           <h3>Turnover risk rises at first outside financing</h3>
           <p>Founding-team turnover risk rises when the first outside money arrives. The raise is when unspoken decision rights get stress-tested.</p>
-          <p class="impl">Know who closes, who waits, and who owns the call before that process starts. Do not discover it in the partner meeting.</p>
-          <blockquote class="fact-quote">
-            <p>When two people cannot decide who runs the company, “every single decision that the company makes from this day forward will be slower.”</p>
-            <p class="who">Ben Horowitz, “Shared Command,” Andreessen Horowitz, 3 Jul 2013. Context in the essay: the people in charge cannot decide who should run the company, so they compromise. <a href="https://a16z.com/shared-command/">Essay</a></p>
-          </blockquote>
-          <p class="src">Finding: Wasserman, <cite>The Founder’s Dilemmas</cite> (2012). Horowitz is about shared command, not Wasserman’s financing data.</p>
+          <p class="impl">Know who closes, who waits, and who owns the call before that process starts.</p>
+          <p class="src">Finding: Wasserman, <cite>The Founder’s Dilemmas</cite> (2012).</p>
         </article>
         <article class="fact">
           <p class="fact-num">~73%</p>
@@ -1918,17 +1707,17 @@ footer {
         <p class="lede">There are no seat tiers and no daily product. You buy the team plan once and use the cards, the pair reports, and the map when the next difficult conversation arrives.</p>
       </div>
       <ul class="check-grid">
+        <li>For up to 12 executive members</li>
         <li>One-time assessment per person, completed in private</li>
-        <li>Explicit consent before anything derived is shared</li>
+        <li>Assessment collects the seat: title, functions owned, a normal week, and how objectives are measured</li>
         <li>Working With Me card for every seat on the team</li>
         <li>Strategic pair reports for CEO and CMO, co-founders, and other pairs that matter</li>
         <li>Team dynamics map of the room</li>
-        <li>Read of decision pace, conflict, evidence habit, and control</li>
+        <li>Read of how each seat decides, where pairs collide, and where control sits</li>
         <li>Complement versus echo-chamber read of the group</li>
         <li>“Use this before” prompts on the reports</li>
         <li>Onboarding of later members on the same annual plan</li>
         <li>Raw answers stay private. They are not shown to the CEO and they do not appear in a pair report.</li>
-        <li>English only</li>
         <li>Ask your own AI about authorized cards through a private MCP</li>
       </ul>
     </div>
@@ -1939,7 +1728,7 @@ footer {
       <div class="section-head narrow">
         <p class="kicker">How it works</p>
         <h2>Invite the people who already sit there.</h2>
-        <p class="lede">There is no daily product to log into. One sitting per person, then the reports. Open them before the next difficult conversation. Do not browse them like a feed.</p>
+        <p class="lede">There is no daily product to log into. One sitting per person, then the reports. Open them before the next difficult conversation.</p>
       </div>
       <ol class="steps">
         <li class="step">
@@ -1952,8 +1741,8 @@ footer {
         <li class="step">
           <span class="step-num" aria-hidden="true">02</span>
           <div>
-            <h3>Each person consents, then completes</h3>
-            <p>Nobody is assessed by surprise. After an explicit yes, they complete the assessment in private. Raw answers stay private. They are never part of a teammate’s view.</p>
+            <h3>Each person completes a private assessment</h3>
+            <p>They name the seat they hold: job title, the functions they actually own, what they do in a normal week, how their objectives are measured, and whether those objectives are about revenue, product, people, or cost. Raw answers stay private.</p>
           </div>
         </li>
         <li class="step">
@@ -2014,6 +1803,7 @@ footer {
           <p class="kicker">The team plan</p>
           <p class="price-amount">$999 <span>/ year</span></p>
           <ul>
+            <li>For up to 12 executive members</li>
             <li>Assessments for the people already on the executive team</li>
             <li>A Working With Me card for each person</li>
             <li>Strategic pair reports for CEO and CMO, co-founders, and other pairs that matter</li>
@@ -2066,6 +1856,10 @@ footer {
           <p>Each person completes one assessment in a single sitting. There is nothing to do every day after that. The value is the Working With Me card, the pair reports, and the map, opened when the next difficult conversation arrives.</p>
         </details>
         <details>
+          <summary>What does the assessment ask?</summary>
+          <p>It collects the seat as well as how the person decides: job title, the functions they actually own, what they do in a normal week, how their objectives are measured, and whether those objectives are about revenue, product, people, or cost.</p>
+        </details>
+        <details>
           <summary>Will my CEO see my raw answers?</summary>
           <p>No. Raw answers are never shared. The CEO, and anyone else, sees only the derived cards and reports you have previewed and authorized.</p>
         </details>
@@ -2079,7 +1873,7 @@ footer {
         </details>
         <details>
           <summary>Who can see my card?</summary>
-          <p>Only the teammates you authorize. You preview what will be shared. If the audience or the scope changes, you will be asked to consent again.</p>
+          <p>Only the teammates you authorize. You preview what will be shared. If the audience or the scope changes, you will be asked again.</p>
         </details>
         <details>
           <summary>Is this used to hire or fire people?</summary>
@@ -2087,11 +1881,11 @@ footer {
         </details>
         <details>
           <summary>What about people we hire later?</summary>
-          <p>New members can be onboarded on the same annual plan. They consent, complete the assessment, and their card and reports update the map.</p>
+          <p>New members can be onboarded on the same annual plan. They complete the assessment, and their card and reports update the map.</p>
         </details>
         <details>
           <summary>What language is the product in?</summary>
-          <p>English only. Every customer-facing string is written in English.</p>
+          <p>English. Every customer-facing string is written in English.</p>
         </details>
       </div>
     </div>
@@ -2105,7 +1899,6 @@ footer {
         <a class="btn btn-primary" href="https://app.dnmcs.ai">Start the team plan</a>
         <a class="btn btn-secondary" href="#pricing">See pricing</a>
       </div>
-      <p class="price-line">$999 a year.</p>
     </div>
   </section>
 </main>
@@ -2222,7 +2015,7 @@ footer {
     },
     {
       role: "assistant",
-      html: "<p>Use Maya’s Working With Me card and the CEO × CMO pair report. The pair already names the loop.</p><p>Maya closes when a customer is named. She wants a date and an owner. You want a sentence a buyer would repeat. She hears extra market work as delay. You hear a locked Friday as being overruled.</p><p>Decision-rights sentence for Tuesday: Jordan owns positioning. Maya owns the date. If they conflict, Sam puts the cost on one page and they decide by Thursday, not in the partner meeting.</p><p>Twenty-four hours: today you name two customers who would repeat the sentence, or you say you cannot. Tomorrow by 16:00 Maya sets the date or gives you the week. After Thursday, do not reopen it in Slack.</p>",
+      html: "<p>Use Maya’s Working With Me card and the CEO × CMO pair report. The pair already names the loop.</p><p>Maya owns the close and the raise narrative. She wants a date and an owner. You own whether a buyer would repeat the sentence. She hears extra market work as delay. You hear a locked Friday as being overruled.</p><p>Decision-rights sentence for Tuesday: Jordan owns positioning. Maya owns the date. If they conflict, Sam puts the cost on one page and they decide by Thursday, not in the partner meeting.</p><p>Twenty-four hours: today you name two customers who would repeat the sentence, or you say you cannot. Tomorrow by 16:00 Maya sets the date or gives you the week. After Thursday, do not reopen it in Slack.</p>",
       chips: ["Maya Chen · Working With Me", "CEO × CMO pair"]
     },
     {
@@ -2232,7 +2025,7 @@ footer {
     },
     {
       role: "assistant",
-      html: "<p>Priya does not enter the fight in the meeting. She stalls the build. The room treats silence as agreement. Her card says that is wrong.</p><p>What moves her is craft: a model she owns, not a Friday she inherited. She will slip a date when the system is true. She will not move when the date is a box someone else drew.</p><p>Three lines Maya can say in the room:</p><ol><li>What would have to be true in the model for you to ship Friday? Say it here, not in the pull request.</li><li>You own the architecture. I own the date. If the model does not hold, put the slip on one page by Thursday and I will take the board.</li><li>I am not asking you to agree in silence. I am asking you to name the constraint I am not seeing.</li></ol>",
+      html: "<p>Priya owns the build. She does not enter the fight in the meeting. She stalls the work. The room treats silence as agreement. Her card says that is wrong.</p><p>What moves her is craft: a model she owns, not a Friday she inherited. She will slip a date when the system is true. She will not move when the date is a box someone else drew.</p><p>Three lines Maya can say in the room:</p><ol><li>What would have to be true in the model for you to ship Friday? Say it here, not in the pull request.</li><li>You own the architecture. I own the date. If the model does not hold, put the slip on one page by Thursday and I will take the board.</li><li>I am not asking you to agree in silence. I am asking you to name the constraint I am not seeing.</li></ol>",
       chips: ["Priya Shah · Working With Me", "Team dynamics map"]
     }
   ];
