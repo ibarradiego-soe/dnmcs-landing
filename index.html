@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dnmcs — Walk in knowing how the room decides</title>
-<meta name="description" content="A one-time assessment for the founding or executive team already at the table. Working With Me cards, pair reports, and a team dynamics map. $999 a year. Raw answers never shared.">
+<meta name="description" content="A one-time assessment for the executive team already at the table. Working With Me cards, pair reports, and a team dynamics map. $999 a year. Raw answers never shared.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://dnmcs.ai/">
 <meta property="og:type" content="website">
@@ -14,7 +14,7 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dnmcs — Walk in knowing how the room decides">
-<meta name="twitter:description" content="A one-time assessment for founding and executive teams. $999 a year. Raw answers never shared.">
+<meta name="twitter:description" content="A one-time assessment for executive teams. $999 a year. Raw answers never shared.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -894,6 +894,200 @@ h3 { font-size: 1.35rem; }
 .echo ul { margin-top: 0.75rem; padding-left: 1.1rem; }
 .echo li + li { margin-top: 0.4rem; }
 
+/* ── Ask your AI / MCP chat ── */
+.ask-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 1.4rem;
+  align-items: start;
+}
+.ask-points { display: grid; gap: 0.75rem; }
+.ask-point {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+}
+.ask-point h3 {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 650;
+  margin-bottom: 0.3rem;
+}
+.ask-point p { font-size: 0.88rem; color: var(--muted); }
+
+.chat {
+  --chat-bg: #F7F3EC;
+  --chat-ink: #1A1612;
+  --chat-muted: #6A6258;
+  --chat-line: #E4D9CC;
+  --chat-user: #EDE6DB;
+  --chat-accent: #D97757;
+  --chat-bar: #FFFCF7;
+  border: 1px solid #D7CBBE;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--chat-bg);
+  color: var(--chat-ink);
+  min-height: 34rem;
+  display: flex;
+  flex-direction: column;
+}
+.chat[data-provider="chatgpt"] {
+  --chat-bg: #F7F7F8;
+  --chat-ink: #0D0D0D;
+  --chat-muted: #6B6B6B;
+  --chat-line: #E5E5E5;
+  --chat-user: #ECECEC;
+  --chat-accent: #10A37F;
+  --chat-bar: #FFFFFF;
+  border-color: #D8D8D8;
+}
+.chat[data-provider="grok"] {
+  --chat-bg: #111111;
+  --chat-ink: #F4F4F5;
+  --chat-muted: #A1A1AA;
+  --chat-line: #2A2A2A;
+  --chat-user: #1C1C1C;
+  --chat-accent: #F4F4F5;
+  --chat-bar: #0A0A0A;
+  border-color: #2A2A2A;
+}
+.chat-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.75rem 0.85rem;
+  background: var(--chat-bar);
+  border-bottom: 1px solid var(--chat-line);
+}
+.chat-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+.chat-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--chat-accent);
+}
+.chat-providers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.chat-providers button {
+  appearance: none;
+  border: 1px solid var(--chat-line);
+  background: transparent;
+  color: var(--chat-muted);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 650;
+  padding: 0.32rem 0.55rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chat-providers button[aria-selected="true"] {
+  background: var(--chat-ink);
+  color: var(--chat-bg);
+  border-color: var(--chat-ink);
+}
+.chat[data-provider="grok"] .chat-providers button[aria-selected="true"] {
+  color: #111;
+}
+.chat-thread {
+  flex: 1;
+  padding: 1rem 1.05rem 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  min-height: 22rem;
+  max-height: 32rem;
+  overflow-y: auto;
+}
+.chat-msg { max-width: 92%; }
+.chat-msg.user { align-self: flex-end; }
+.chat-msg .who {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--chat-muted);
+  margin-bottom: 0.3rem;
+}
+.chat-bubble {
+  padding: 0.75rem 0.85rem;
+  border-radius: 14px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.chat-msg.user .chat-bubble { background: var(--chat-user); }
+.chat-msg.assistant .chat-bubble { background: transparent; padding-left: 0; }
+.chat-bubble p + p { margin-top: 0.65rem; }
+.chat-bubble ol { margin: 0.55rem 0 0 1.1rem; }
+.chat-bubble li + li { margin-top: 0.35rem; }
+.src-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+}
+.src-chip {
+  font-size: 0.68rem;
+  font-weight: 650;
+  padding: 0.22rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--chat-line);
+  color: var(--chat-muted);
+}
+.chat-composer {
+  margin: 0.5rem 0.85rem 0.85rem;
+  border: 1px solid var(--chat-line);
+  background: var(--chat-bar);
+  border-radius: 14px;
+  padding: 0.7rem 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--chat-muted);
+  font-size: 0.85rem;
+}
+.chat-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.chat-controls button {
+  appearance: none;
+  border: 1px solid var(--chat-line);
+  background: var(--chat-bg);
+  color: var(--chat-ink);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 650;
+  padding: 0.4rem 0.65rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 0.9em;
+  background: var(--chat-accent);
+  margin-left: 1px;
+  vertical-align: text-bottom;
+}
+@media (prefers-reduced-motion: reduce) {
+  .caret { display: none; }
+}
+
 /* ── Checklist / how / privacy / pricing ── */
 .check-grid {
   display: grid;
@@ -958,8 +1152,7 @@ h3 { font-size: 1.35rem; }
 
 .pricing-layout {
   display: grid;
-  grid-template-columns: 1.35fr 1fr;
-  gap: 0.9rem;
+  grid-template-columns: minmax(0, 36rem);
 }
 .price-card {
   background: var(--card);
@@ -968,7 +1161,6 @@ h3 { font-size: 1.35rem; }
   padding: 1.7rem 1.55rem;
   box-shadow: var(--shadow);
 }
-.price-card.addon { background: transparent; box-shadow: none; }
 .price-amount {
   font-family: var(--display);
   font-size: 3.1rem;
@@ -1033,7 +1225,7 @@ footer {
 @media (max-width: 900px) {
   .hero-grid, .metrics, .reveal-grid, .facts, .echo, .check-grid,
   .privacy-grid, .split, .pricing-layout, .two-col, .pair-people,
-  .radar-wrap, .room, .quotes-grid {
+  .radar-wrap, .room, .quotes-grid, .ask-layout {
     grid-template-columns: 1fr;
   }
   .metrics { grid-template-columns: 1fr 1fr; }
@@ -1097,6 +1289,7 @@ footer {
     <button class="nav-toggle" type="button" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#samples">Samples</a></li>
+      <li><a href="#ask">Ask your AI</a></li>
       <li><a href="#quotes">Quotes</a></li>
       <li><a href="#why">Why</a></li>
       <li><a href="#plan">The plan</a></li>
@@ -1113,12 +1306,12 @@ footer {
       <div>
         <p class="kicker">Dnmcs Teams</p>
         <h1>Walk into the next hard call already knowing how the room decides.</h1>
-        <p class="lede">A one-time assessment for the founding or executive team that already sits at the table. Each person consents, completes it in private, and the team gets three live working surfaces: how each person operates, where pairs collide, and what to do before the next fight, raise, or hire.</p>
+        <p class="lede">A one-time assessment for the executive team that already sits at the table. Each person consents, completes it in private, and the team gets three live working surfaces: how each person operates, where pairs collide, and what to do before the next fight, raise, or hire.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://app.dnmcs.ai">Start the team plan</a>
           <a class="btn btn-secondary" href="#samples">See the sample cards</a>
         </div>
-        <p class="price-line">$999 a year for the team. Optional 60-minute coach debrief, $499. English only.</p>
+        <p class="price-line">$999 a year for the team. English only.</p>
       </div>
       <aside class="hero-aside" aria-label="Sample team overview">
         <h2>Sample team overview · Northwind</h2>
@@ -1434,7 +1627,7 @@ footer {
           <div class="ui-head">
             <div>
               <p class="who-name">Northwind · four seats</p>
-              <p class="who-meta">Founding and executive table · sample team</p>
+              <p class="who-meta">Executive table · sample team</p>
             </div>
             <div class="chip-row">
               <span class="chip">Control at CEO</span>
@@ -1528,6 +1721,50 @@ footer {
           </div>
         </div>
       </article>
+    </div>
+  </section>
+
+  <section class="section" id="ask" aria-labelledby="ask-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Your AI · private MCP</p>
+        <h2 id="ask-title">Ask your own AI about this team. Dnmcs is the source of truth it is allowed to see.</h2>
+        <p class="lede">Connect Claude, ChatGPT, or Grok through a private MCP. The model reasons on your credits. Dnmcs only serves authorized Working With Me cards, pair reports, and the team map — never raw answers. OAuth-style connect. Granular scopes. Consent before anything is read.</p>
+      </div>
+      <div class="ask-layout">
+        <div class="ask-points">
+          <article class="ask-point">
+            <h3>Your model. Your credits.</h3>
+            <p>Dnmcs does not host Claude, ChatGPT, or Grok, and it does not bill tokens. The customer’s AI does the reasoning.</p>
+          </article>
+          <article class="ask-point">
+            <h3>Authorized context only</h3>
+            <p>Scopes are per artifact. A connected model can read a card or a pair report you have already previewed and shared. Raw answers stay private.</p>
+          </article>
+          <article class="ask-point">
+            <h3>OAuth-style connect</h3>
+            <p>Grant, narrow, or revoke. A new audience or a wider scope needs a new yes. The mock below is the product’s AI layer on this page — same Northwind sample, not a customer testimonial.</p>
+          </article>
+        </div>
+
+        <div class="chat" id="mcpChat" data-provider="claude">
+          <div class="chat-top">
+            <div class="chat-brand"><span class="chat-dot" aria-hidden="true"></span><span id="mcpBrand">Claude</span></div>
+            <div class="chat-providers" role="tablist" aria-label="Connected model">
+              <button type="button" role="tab" aria-selected="true" data-provider="claude">Claude</button>
+              <button type="button" role="tab" aria-selected="false" data-provider="chatgpt">ChatGPT</button>
+              <button type="button" role="tab" aria-selected="false" data-provider="grok">Grok</button>
+            </div>
+          </div>
+          <div class="chat-thread" id="mcpThread" aria-live="polite"></div>
+          <div class="chat-composer">
+            <span>Ask about this team — Dnmcs context only</span>
+            <div class="chat-controls">
+              <button type="button" id="mcpPlay" aria-pressed="true">Pause</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1692,7 +1929,7 @@ footer {
         <li>Onboarding of later members on the same annual plan</li>
         <li>Raw answers never shared — not with the CEO, not in a pair report</li>
         <li>English only</li>
-        <li>Optional 60-minute coach debrief, $499</li>
+        <li>Ask your own AI about authorized cards through a private MCP</li>
       </ul>
     </div>
   </section>
@@ -1785,12 +2022,6 @@ footer {
           </ul>
           <a class="btn btn-primary" href="https://app.dnmcs.ai">Start the team plan</a>
         </article>
-        <article class="price-card addon">
-          <p class="kicker">Optional add-on</p>
-          <p class="price-amount">$499</p>
-          <p class="lede" style="margin-top:0.7rem">A 60-minute coach debrief over the working surfaces. Useful if you want a third person in the room. Not required to use Dnmcs.</p>
-          <p class="fine">Buy the team plan first. Add the debrief if you want it.</p>
-        </article>
       </div>
     </div>
   </section>
@@ -1805,7 +2036,7 @@ footer {
         <article>
           <h3>This is for</h3>
           <ul>
-            <li>A founder or CEO who just had a fight with a co-founder and needs the working relationship in writing, not in lore</li>
+            <li>A CEO who just had a fight with a co-founder and needs the working relationship in writing, not in lore</li>
             <li>An executive team hiring a C-level and wanting the table to be honest on day one</li>
             <li>A digital-first startup or SME heading into a raise, a pivot, or a call the room keeps postponing</li>
           </ul>
@@ -1843,8 +2074,8 @@ footer {
           <p>No. Dnmcs does not assign you a type. It shows how this specific team decides under pressure: how you work, how a pair collides, and how the room is put together.</p>
         </details>
         <details>
-          <summary>Do we need a coach?</summary>
-          <p>No. The $999 team plan stands on its own. A 60-minute debrief is available for $499 if you want someone to walk the surfaces with you.</p>
+          <summary>Does Dnmcs run Claude or ChatGPT?</summary>
+          <p>No. You connect the model you already use. It reasons on your credits. Dnmcs only serves the cards, pair reports, and map you have authorized — never raw answers.</p>
         </details>
         <details>
           <summary>Who can see my card?</summary>
@@ -1874,7 +2105,7 @@ footer {
         <a class="btn btn-primary" href="https://app.dnmcs.ai">Start the team plan</a>
         <a class="btn btn-secondary" href="#pricing">See pricing</a>
       </div>
-      <p class="price-line">$999 a year. Optional debrief, $499.</p>
+      <p class="price-line">$999 a year.</p>
     </div>
   </section>
 </main>
@@ -1889,7 +2120,7 @@ footer {
         <a href="https://app.dnmcs.ai">App</a>
       </nav>
     </div>
-    <p class="footer-note">A later chapter will open an API and MCP connection for teams that want this in their own tools.</p>
+    <p class="footer-note">Connect the model you already use through MCP when you want Dnmcs in your own tools. Dnmcs does not host the model or bill tokens.</p>
   </div>
 </footer>
 
@@ -1968,6 +2199,219 @@ footer {
       });
     });
   });
+})();
+
+(function () {
+  var chat = document.getElementById("mcpChat");
+  var thread = document.getElementById("mcpThread");
+  var playBtn = document.getElementById("mcpPlay");
+  var brand = document.getElementById("mcpBrand");
+  if (!chat || !thread || !playBtn) return;
+
+  var names = { claude: "Claude", chatgpt: "ChatGPT", grok: "Grok" };
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var playing = !reduced;
+  var timers = [];
+  var run = 0;
+
+  var SCRIPT = [
+    {
+      role: "user",
+      who: "Jordan Hale · CMO",
+      text: "I need to lock pricing and positioning with Maya this week. How do we take that decision together — without the same fight? She wants a date. I want the story true in the market."
+    },
+    {
+      role: "assistant",
+      html: "<p>Use Maya’s Working With Me card and the CEO × CMO pair report. Not a type. The pair already names the loop.</p><p>Maya closes when a customer is named. She wants a date and an owner. You want a sentence a buyer would repeat. She hears extra market work as delay. You hear a locked Friday as being overruled.</p><p>Decision-rights sentence for Tuesday: Jordan owns positioning. Maya owns the date. If they conflict, Sam puts the cost on one page and they decide by Thursday — not in the partner meeting.</p><p>Twenty-four hours: today you name two customers who would repeat the sentence, or you say you cannot. Tomorrow by 16:00 Maya sets the date or gives you the week. After Thursday, do not reopen it in Slack.</p>",
+      chips: ["Maya Chen · Working With Me", "CEO × CMO pair"]
+    },
+    {
+      role: "user",
+      who: "Jordan Hale · CMO",
+      text: "What actually motivates Priya when we need her to slip a date — and how do I use that to get an agreement instead of a standoff?"
+    },
+    {
+      role: "assistant",
+      html: "<p>Priya does not enter the fight at the table. She stalls the build. The room treats silence as agreement. Her card says it is not.</p><p>What moves her is craft — a model she owns — not a Friday she inherited. She will slip a date when the system is true. She will not move when the date is a box someone else drew.</p><p>Three lines Maya can say in the room:</p><ol><li>What would have to be true in the model for you to ship Friday — say it here, not in the pull request.</li><li>You own the architecture. I own the date. If the model does not hold, put the slip on one page by Thursday and I will take the board.</li><li>I am not asking you to agree in silence. I am asking you to name the constraint I am not seeing.</li></ol>",
+      chips: ["Priya Shah · Working With Me", "Team dynamics map"]
+    }
+  ];
+
+  function later(fn, ms) {
+    var id = setTimeout(fn, ms);
+    timers.push(id);
+    return id;
+  }
+
+  function stopTimers() {
+    timers.forEach(clearTimeout);
+    timers = [];
+  }
+
+  function chipsHtml(chips) {
+    if (!chips || !chips.length) return "";
+    return "<div class=\"src-chips\">" + chips.map(function (c) {
+      return "<span class=\"src-chip\">" + c + "</span>";
+    }).join("") + "</div>";
+  }
+
+  function addUser(who, text, caret) {
+    var wrap = document.createElement("div");
+    wrap.className = "chat-msg user";
+    wrap.innerHTML = "<p class=\"who\">" + who + "</p><div class=\"chat-bubble\"><span class=\"body\"></span>" + (caret ? "<span class=\"caret\" aria-hidden=\"true\"></span>" : "") + "</div>";
+    if (!caret) wrap.querySelector(".body").textContent = text;
+    thread.appendChild(wrap);
+    wrap.scrollIntoView({ block: "nearest" });
+    return wrap;
+  }
+
+  function addAssistant(html, chips, empty) {
+    var wrap = document.createElement("div");
+    wrap.className = "chat-msg assistant";
+    wrap.innerHTML = "<p class=\"who\">" + names[chat.getAttribute("data-provider")] + " · Dnmcs context</p><div class=\"chat-bubble\"><div class=\"body\"></div></div>";
+    if (!empty) {
+      wrap.querySelector(".body").innerHTML = html + chipsHtml(chips);
+    }
+    thread.appendChild(wrap);
+    wrap.scrollIntoView({ block: "nearest" });
+    return wrap;
+  }
+
+  function renderAll() {
+    thread.innerHTML = "";
+    SCRIPT.forEach(function (step) {
+      if (step.role === "user") addUser(step.who, step.text, false);
+      else addAssistant(step.html, step.chips, false);
+    });
+  }
+
+  function typeText(el, text, done) {
+    var i = 0;
+    function tick() {
+      if (!playing) return;
+      i += 1;
+      el.textContent = text.slice(0, i);
+      thread.lastElementChild && thread.lastElementChild.scrollIntoView({ block: "nearest" });
+      if (i >= text.length) done();
+      else later(tick, 16 + (text[i - 1] === " " ? 8 : 0));
+    }
+    tick();
+  }
+
+  function streamHtml(el, html, chips, done) {
+    var tmp = document.createElement("div");
+    tmp.innerHTML = html;
+    var nodes = Array.prototype.slice.call(tmp.childNodes);
+    var n = 0;
+
+    function nextNode() {
+      if (!playing) return;
+      if (n >= nodes.length) {
+        el.insertAdjacentHTML("beforeend", chipsHtml(chips));
+        done();
+        return;
+      }
+      var node = nodes[n++];
+      if (node.nodeType === 1 && (node.tagName === "P" || node.tagName === "OL")) {
+        var target = document.createElement(node.tagName.toLowerCase());
+        el.appendChild(target);
+        if (node.tagName === "OL") {
+          var items = Array.prototype.slice.call(node.children);
+          var j = 0;
+          function nextItem() {
+            if (!playing) return;
+            if (j >= items.length) {
+              later(nextNode, 220);
+              return;
+            }
+            var li = document.createElement("li");
+            target.appendChild(li);
+            typeText(li, items[j++].textContent, function () { later(nextItem, 160); });
+          }
+          nextItem();
+        } else {
+          typeText(target, node.textContent, function () { later(nextNode, 280); });
+        }
+      } else {
+        nextNode();
+      }
+    }
+    nextNode();
+  }
+
+  function playFrom(index, token) {
+    if (index >= SCRIPT.length) {
+      later(function () {
+        if (token !== run || !playing) return;
+        startLoop();
+      }, 4200);
+      return;
+    }
+    var step = SCRIPT[index];
+    if (step.role === "user") {
+      var box = addUser(step.who, "", true);
+      var body = box.querySelector(".body");
+      var caret = box.querySelector(".caret");
+      typeText(body, step.text, function () {
+        if (caret) caret.remove();
+        later(function () { playFrom(index + 1, token); }, 700);
+      });
+    } else {
+      var box = addAssistant("", step.chips, true);
+      streamHtml(box.querySelector(".body"), step.html, step.chips, function () {
+        later(function () { playFrom(index + 1, token); }, 1100);
+      });
+    }
+  }
+
+  function startLoop() {
+    stopTimers();
+    run += 1;
+    thread.innerHTML = "";
+    if (reduced || !playing) {
+      renderAll();
+      return;
+    }
+    later(function () { playFrom(0, run); }, 400);
+  }
+
+  function setPlaying(on) {
+    playing = on && !reduced;
+    playBtn.textContent = playing ? "Pause" : (reduced ? "Static" : "Play");
+    playBtn.setAttribute("aria-pressed", playing ? "true" : "false");
+    if (playing) startLoop();
+    else {
+      stopTimers();
+      renderAll();
+    }
+  }
+
+  chat.querySelectorAll(".chat-providers [data-provider]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var p = btn.getAttribute("data-provider");
+      chat.setAttribute("data-provider", p);
+      brand.textContent = names[p];
+      chat.querySelectorAll(".chat-providers [data-provider]").forEach(function (b) {
+        b.setAttribute("aria-selected", b === btn ? "true" : "false");
+      });
+      thread.querySelectorAll(".chat-msg.assistant .who").forEach(function (el) {
+        el.textContent = names[p] + " · Dnmcs context";
+      });
+    });
+  });
+
+  playBtn.addEventListener("click", function () {
+    if (reduced) return;
+    setPlaying(!playing);
+  });
+
+  if (reduced) {
+    playBtn.textContent = "Static";
+    playBtn.setAttribute("aria-pressed", "false");
+    renderAll();
+  } else {
+    startLoop();
+  }
 })();
 </script>
 </body>
