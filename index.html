@@ -806,6 +806,76 @@ h3 { font-size: 1.35rem; }
 }
 .fact a { color: var(--teal); }
 .fact.wide { grid-column: 1 / -1; }
+.fact-quote {
+  margin-top: 0.9rem;
+  padding: 0.85rem 0.95rem;
+  background: #1C1A17;
+  color: #F4F2ED;
+  border-radius: 10px;
+}
+.fact-quote p {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: #F4F2ED;
+}
+.fact-quote .who {
+  margin-top: 0.55rem;
+  font-size: 0.72rem;
+  color: rgba(244,242,237,0.62);
+  line-height: 1.45;
+}
+.fact-quote a { color: #E8B39A; }
+
+/* ── Quoted voices (problem, not endorsement) ── */
+.quotes-band {
+  background: #12110E;
+  color: #F4F2ED;
+  padding: 5.25rem 0;
+  border-top: 1px solid #2A2622;
+}
+.quotes-band .kicker { color: #E8B39A; }
+.quotes-band h2 { color: #F4F2ED; }
+.quotes-band .lede { color: rgba(244,242,237,0.68); }
+.quotes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+.pull {
+  background: #1C1A17;
+  border: 1px solid rgba(244,242,237,0.12);
+  border-radius: 16px;
+  padding: 1.45rem 1.35rem 1.3rem;
+}
+.pull blockquote {
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.pull .aside {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: rgba(244,242,237,0.72);
+  line-height: 1.5;
+}
+.pull figcaption {
+  padding: 1rem 0 0;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(244,242,237,0.1);
+  font-size: 0.78rem;
+  color: rgba(244,242,237,0.58);
+  line-height: 1.45;
+}
+.pull strong {
+  display: block;
+  color: #F4F2ED;
+  font-size: 0.88rem;
+  font-weight: 650;
+  margin-bottom: 0.15rem;
+}
+.pull a { color: #E8B39A; text-underline-offset: 2px; }
 
 /* ── Complement ── */
 .echo {
@@ -963,7 +1033,7 @@ footer {
 @media (max-width: 900px) {
   .hero-grid, .metrics, .reveal-grid, .facts, .echo, .check-grid,
   .privacy-grid, .split, .pricing-layout, .two-col, .pair-people,
-  .radar-wrap, .room {
+  .radar-wrap, .room, .quotes-grid {
     grid-template-columns: 1fr;
   }
   .metrics { grid-template-columns: 1fr 1fr; }
@@ -975,7 +1045,7 @@ footer {
 @media (max-width: 800px) {
   .wrap { width: min(var(--page), calc(100% - 1.6rem)); }
   .hero { padding: 3.4rem 0 1.6rem; }
-  .section, .close { padding: 3.4rem 0; }
+  .section, .close, .quotes-band { padding: 3.4rem 0; }
   .demo { padding-bottom: 3.1rem; }
   .nav-toggle { display: inline-flex; }
   .nav-links {
@@ -1027,6 +1097,7 @@ footer {
     <button class="nav-toggle" type="button" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#samples">Samples</a></li>
+      <li><a href="#quotes">Quotes</a></li>
       <li><a href="#why">Why</a></li>
       <li><a href="#plan">The plan</a></li>
       <li><a href="#pricing">Pricing</a></li>
@@ -1490,6 +1561,64 @@ footer {
     </div>
   </section>
 
+  <section class="quotes-band" id="quotes" aria-labelledby="quotes-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">On the problem — not an endorsement</p>
+        <h2 id="quotes-title">Operators who have seen the most teams name the same failure.</h2>
+        <p class="lede">Public remarks about founding-team blowups and shared command. These people are describing the problem. They are not Dnmcs customers, and this is not a testimonial.</p>
+      </div>
+      <div class="quotes-grid">
+        <figure class="pull">
+          <blockquote>
+            <p>“Cofounder relationships are among the most important in the entire company.”</p>
+          </blockquote>
+          <p class="aside">Same lecture: talk about tension early — “don’t let it sit there and fester.”</p>
+          <figcaption>
+            <strong>Sam Altman · Y Combinator · 2014</strong>
+            How to Start a Startup, Stanford lecture 2, 25 Sep 2014.
+            <a href="https://genius.com/Sam-altman-lecture-2-ideas-products-teams-and-execution-part-ii-annotated">Transcript</a>
+            ·
+            <a href="https://www.youtube.com/watch?v=CVfnkM44Urs">Video</a>
+          </figcaption>
+        </figure>
+        <figure class="pull">
+          <blockquote>
+            <p>“This relationship has to be built of top quality materials and carefully maintained. It’s the basis of everything.”</p>
+          </blockquote>
+          <p class="aside">Graham’s own line, after surveying YC founders — cofounder relationship was the #1 surprise.</p>
+          <figcaption>
+            <strong>Paul Graham · Y Combinator · 2009</strong>
+            “What Startups Are Really Like,” Oct 2009.
+            <a href="https://paulgraham.com/really.html">Essay</a>
+          </figcaption>
+        </figure>
+        <figure class="pull">
+          <blockquote>
+            <p>“You haven’t seen someone’s true colors unless you’ve worked with them on a startup.”</p>
+          </blockquote>
+          <p class="aside">A YC founder in Graham’s survey — not Graham’s line.</p>
+          <figcaption>
+            <strong>A YC founder · via Paul Graham · 2009</strong>
+            Quoted in “What Startups Are Really Like.”
+            <a href="https://paulgraham.com/really.html">Essay</a>
+          </figcaption>
+        </figure>
+        <figure class="pull">
+          <blockquote>
+            <p>“If two people are in charge, this variance will cause conflict and delay.”</p>
+          </blockquote>
+          <p class="aside">Same essay: “Often any decision, even the wrong decision, is better than no decision.”</p>
+          <figcaption>
+            <strong>Ben Horowitz · Andreessen Horowitz · 2013</strong>
+            “Shared Command,” 3 Jul 2013.
+            <a href="https://a16z.com/shared-command/">Essay</a>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="why">
     <div class="wrap">
       <div class="section-head">
@@ -1503,14 +1632,22 @@ footer {
           <h3>High-potential startups fail on people problems</h3>
           <p>About 65% of high-potential startups fail because of people problems on the founding team — not because the market simply vanished.</p>
           <p class="impl">The operating risk is the team already at the table. See how they decide before the next fight, raise, or hire — not after the room has already split.</p>
-          <p class="src">Noam Wasserman, <cite>The Founder’s Dilemmas</cite> (Princeton University Press, 2012). Research on ~10,000 founders, Harvard Business School. Founder-team / people problems — not a recycled “#1 cause is co-founder conflict” chart.</p>
+          <blockquote class="fact-quote">
+            <p>“In YC’s case, the number one cause of early death for startups is cofounder blowups.”</p>
+            <p class="who">Sam Altman, How to Start a Startup, Stanford lecture 2, 2014. <a href="https://genius.com/Sam-altman-lecture-2-ideas-products-teams-and-execution-part-ii-annotated">Transcript</a></p>
+          </blockquote>
+          <p class="src">Finding: Noam Wasserman, <cite>The Founder’s Dilemmas</cite> (Princeton University Press, 2012). Research on ~10,000 founders, Harvard Business School. Founder-team / people problems — not a recycled “#1 cause is co-founder conflict” chart. Altman is a spoken observation from YC, not that paper.</p>
         </article>
         <article class="fact">
           <p class="fact-num">1st $</p>
           <h3>Turnover risk rises at first outside financing</h3>
           <p>Founding-team turnover risk rises when the first outside money arrives. The raise is when unspoken decision rights get stress-tested.</p>
           <p class="impl">Walk into that process already knowing who closes, who waits, and who owns the call. Do not discover it in the partner meeting.</p>
-          <p class="src">Wasserman, <cite>The Founder’s Dilemmas</cite> (2012).</p>
+          <blockquote class="fact-quote">
+            <p>When two people cannot decide who runs the company, “every single decision that the company makes from this day forward will be slower.”</p>
+            <p class="who">Ben Horowitz, “Shared Command,” Andreessen Horowitz, 3 Jul 2013. Context in the essay: the people in charge cannot decide who should run the company, so they compromise. <a href="https://a16z.com/shared-command/">Essay</a></p>
+          </blockquote>
+          <p class="src">Finding: Wasserman, <cite>The Founder’s Dilemmas</cite> (2012). Horowitz is about shared command, not Wasserman’s financing data.</p>
         </article>
         <article class="fact">
           <p class="fact-num">~73%</p>
