@@ -2153,7 +2153,7 @@ footer {
       if (show) p.removeAttribute("hidden");
       else p.setAttribute("hidden", "");
     });
-    if (moveFocus) tab.focus();
+    if (moveFocus) tab.focus({ preventScroll: true });
 
     var card = tab.closest(".ui-card");
     if (card) {
@@ -2255,13 +2255,17 @@ footer {
     }).join("") + "</div>";
   }
 
+  function pinThread() {
+    thread.scrollTop = thread.scrollHeight;
+  }
+
   function addUser(who, text, caret) {
     var wrap = document.createElement("div");
     wrap.className = "chat-msg user";
     wrap.innerHTML = "<p class=\"who\">" + who + "</p><div class=\"chat-bubble\"><span class=\"body\"></span>" + (caret ? "<span class=\"caret\" aria-hidden=\"true\"></span>" : "") + "</div>";
     if (!caret) wrap.querySelector(".body").textContent = text;
     thread.appendChild(wrap);
-    wrap.scrollIntoView({ block: "nearest" });
+    pinThread();
     return wrap;
   }
 
@@ -2273,7 +2277,7 @@ footer {
       wrap.querySelector(".body").innerHTML = html + chipsHtml(chips);
     }
     thread.appendChild(wrap);
-    wrap.scrollIntoView({ block: "nearest" });
+    pinThread();
     return wrap;
   }
 
@@ -2291,7 +2295,7 @@ footer {
       if (!playing) return;
       i += 1;
       el.textContent = text.slice(0, i);
-      thread.lastElementChild && thread.lastElementChild.scrollIntoView({ block: "nearest" });
+      pinThread();
       if (i >= text.length) done();
       else later(tick, 16 + (text[i - 1] === " " ? 8 : 0));
     }
