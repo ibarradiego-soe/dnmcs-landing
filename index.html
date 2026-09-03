@@ -1212,14 +1212,6 @@ footer {
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
             <dt>Sam · CFO</dt><dd>Owns the cost. The room hears him after Maya has already closed.</dd>
           </div>
-          <div class="stat">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="8" cy="10" r="3"/><circle cx="16" cy="10" r="3"/></svg>
-            <dt>Control</dt><dd>Sits with the CEO. Second chair is unassigned.</dd>
-          </div>
-          <div class="stat">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
-            <dt>Open call</dt><dd>Who is second when Maya is on the raise.</dd>
-          </div>
         </dl>
       </aside>
     </div>
@@ -2082,6 +2074,15 @@ footer {
     });
   }
 
+  function charDelay(ch, next) {
+    if (ch === " ") return 78;
+    if (ch === "," || ch === ";" || ch === ":") return 95;
+    if (ch === "." || ch === "!" || ch === "?") {
+      return (!next || next === " ") ? 560 : 70;
+    }
+    return 52;
+  }
+
   function typeText(el, text, done) {
     var i = 0;
     function tick() {
@@ -2090,7 +2091,7 @@ footer {
       el.textContent = text.slice(0, i);
       pinThread();
       if (i >= text.length) done();
-      else later(tick, 16 + (text[i - 1] === " " ? 8 : 0));
+      else later(tick, charDelay(text[i - 1], text[i]));
     }
     tick();
   }
@@ -2118,16 +2119,16 @@ footer {
           function nextItem() {
             if (!playing) return;
             if (j >= items.length) {
-              later(nextNode, 220);
+              later(nextNode, 520);
               return;
             }
             var li = document.createElement("li");
             target.appendChild(li);
-            typeText(li, items[j++].textContent, function () { later(nextItem, 160); });
+            typeText(li, items[j++].textContent, function () { later(nextItem, 480); });
           }
           nextItem();
         } else {
-          typeText(target, node.textContent, function () { later(nextNode, 280); });
+          typeText(target, node.textContent, function () { later(nextNode, 560); });
         }
       } else {
         nextNode();
@@ -2151,12 +2152,12 @@ footer {
       var caret = box.querySelector(".caret");
       typeText(body, step.text, function () {
         if (caret) caret.remove();
-        later(function () { playFrom(index + 1, token); }, 700);
+        later(function () { playFrom(index + 1, token); }, 1500);
       });
     } else {
       var box = addAssistant("", step.chips, true);
       streamHtml(box.querySelector(".body"), step.html, step.chips, function () {
-        later(function () { playFrom(index + 1, token); }, 1100);
+        later(function () { playFrom(index + 1, token); }, 1600);
       });
     }
   }
