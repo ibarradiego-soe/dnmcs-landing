@@ -264,11 +264,17 @@ h3 { font-size: 1.35rem; }
 }
 .stat {
   display: grid;
-  grid-template-columns: 8.4rem 1fr;
-  gap: 0.7rem;
+  grid-template-columns: 1.15rem 7.4rem 1fr;
+  gap: 0.55rem;
   align-items: start;
   padding-bottom: 0.65rem;
   border-bottom: 1px solid var(--line);
+}
+.stat svg {
+  width: 14px;
+  height: 14px;
+  margin-top: 0.15rem;
+  color: var(--accent);
 }
 .stat:last-child { padding-bottom: 0; border-bottom: none; }
 .stat dt {
@@ -769,12 +775,13 @@ h3 { font-size: 1.35rem; }
   box-shadow: var(--shadow);
 }
 .fact-num {
-  font-family: var(--display);
-  font-size: clamp(2.8rem, 5vw, 3.6rem);
-  letter-spacing: -0.04em;
-  line-height: 0.95;
+  font-family: var(--sans);
+  font-size: clamp(3.1rem, 6vw, 4.25rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
   color: var(--accent);
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.75rem;
 }
 .fact h3 {
   font-family: var(--sans);
@@ -996,7 +1003,8 @@ footer {
     margin-top: 0.8rem;
     border-bottom: none;
   }
-  .stat { grid-template-columns: 1fr; gap: 0.15rem; }
+  .stat { grid-template-columns: 1.15rem 1fr; gap: 0.4rem 0.55rem; }
+  .stat dd { grid-column: 2; }
   .ui-head { flex-direction: column; }
   .rights { display: block; overflow-x: auto; }
 }
@@ -1044,12 +1052,30 @@ footer {
       <aside class="hero-aside" aria-label="Sample team overview">
         <h2>Sample team overview · Northwind</h2>
         <dl class="stat-row">
-          <div class="stat"><dt>Decision pace</dt><dd>Fast once a customer is named. Stalls on people-risk.</dd></div>
-          <div class="stat"><dt>Conflict</dt><dd>Uneven. Two enter. Two wait and reopen later.</dd></div>
-          <div class="stat"><dt>Evidence</dt><dd>Split: conviction versus model. Neither side has said so.</dd></div>
-          <div class="stat"><dt>Control</dt><dd>Concentrated at the CEO seat. Second chair is unassigned.</dd></div>
-          <div class="stat"><dt>Complement</dt><dd>Strong on close versus market-true. Thin on people-risk.</dd></div>
-          <div class="stat"><dt>Room gap</dt><dd>Who is second when Maya is on the raise.</dd></div>
+          <div class="stat">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h16M16 6l6 6-6 6"/></svg>
+            <dt>Decision pace</dt><dd>Fast once a customer is named. Stalls on people-risk.</dd>
+          </div>
+          <div class="stat">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg>
+            <dt>Conflict</dt><dd>Uneven. Two enter. Two wait and reopen later.</dd>
+          </div>
+          <div class="stat">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 19V5h4l2 4 2-4h8v14H4z"/></svg>
+            <dt>Evidence</dt><dd>Split: conviction versus model. Neither side has said so.</dd>
+          </div>
+          <div class="stat">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+            <dt>Control</dt><dd>Concentrated at the CEO seat. Second chair is unassigned.</dd>
+          </div>
+          <div class="stat">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="8" cy="10" r="3"/><circle cx="16" cy="10" r="3"/></svg>
+            <dt>Complement</dt><dd>Strong on close versus market-true. Thin on people-risk.</dd>
+          </div>
+          <div class="stat">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+            <dt>Room gap</dt><dd>Who is second when Maya is on the raise.</dd>
+          </div>
         </dl>
       </aside>
     </div>
@@ -1480,7 +1506,7 @@ footer {
           <p class="src">Noam Wasserman, <cite>The Founder’s Dilemmas</cite> (Princeton University Press, 2012). Research on ~10,000 founders, Harvard Business School. Founder-team / people problems — not a recycled “#1 cause is co-founder conflict” chart.</p>
         </article>
         <article class="fact">
-          <p class="fact-num">First check</p>
+          <p class="fact-num">1st $</p>
           <h3>Turnover risk rises at first outside financing</h3>
           <p>Founding-team turnover risk rises when the first outside money arrives. The raise is when unspoken decision rights get stress-tested.</p>
           <p class="impl">Walk into that process already knowing who closes, who waits, and who owns the call. Do not discover it in the partner meeting.</p>
