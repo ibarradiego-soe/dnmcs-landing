@@ -3,42 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dnmcs — See how your team decides under pressure</title>
-<meta name="description" content="A one-time assessment for executive teams. Working With Me cards, pair reports, and a one-page team map. $999 a year. Raw answers are never shared.">
+<title>Dnmcs — Walk in knowing how the room decides</title>
+<meta name="description" content="A one-time assessment for the executive team already at the table. Working With Me cards, pair reports, and a team dynamics map. $999 a year. Raw answers never shared.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://dnmcs.ai/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dnmcs.ai/">
-<meta property="og:title" content="Dnmcs — See how your team decides under pressure">
-<meta property="og:description" content="A one-time assessment for executive teams. Working With Me cards, pair reports, and a one-page team map. $999 a year. Raw answers are never shared.">
+<meta property="og:title" content="Dnmcs — Walk in knowing how the room decides">
+<meta property="og:description" content="Working With Me cards, pair reports, and a team map for the people who already sit at the table. $999 a year. Raw answers never shared.">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dnmcs — See how your team decides under pressure">
-<meta name="twitter:description" content="A one-time assessment for executive teams. $999 a year. Raw answers are never shared.">
+<meta name="twitter:title" content="Dnmcs — Walk in knowing how the room decides">
+<meta name="twitter:description" content="A one-time assessment for executive teams. $999 a year. Raw answers never shared.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --paper: #F4F0E8;
-  --paper-deep: #EBE6DB;
-  --card: #FBF8F2;
-  --ink: #1B1814;
-  --muted: #4E4A43;
-  --quiet: #6A655C;
-  --rule: #D3CDC2;
-  --rule-strong: #B7B0A3;
-  --accent: #6E2E22;
-  --accent-hover: #542318;
-  --stamp: #8A3A2C;
-  --focus: #1B1814;
-  --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --sans: "IBM Plex Sans", "Source Sans 3", "Segoe UI", system-ui, sans-serif;
-  --measure: 40rem;
-  --page: 68rem;
+  --bg: #F3F1EB;
+  --bg-deep: #E7E3DA;
+  --card: #FFFFFF;
+  --ink: #12110E;
+  --muted: #534F48;
+  --quiet: #6F6A62;
+  --line: #D8D2C7;
+  --line-strong: #C2BBB0;
+  --accent: #C2410C;
+  --accent-hover: #9A3309;
+  --accent-soft: #F8E6DC;
+  --teal: #1A4A47;
+  --teal-soft: #DCE8E6;
+  --navy: #2C3A6E;
+  --navy-soft: #E0E4F0;
+  --clay: #6B4F3A;
+  --clay-soft: #EDE4DB;
+  --good: #1F6B45;
+  --warn: #9A4A12;
+  --focus: #12110E;
+  --maya: #C2410C;
+  --jordan: #1A4A47;
+  --priya: #2C3A6E;
+  --sam: #6B4F3A;
+  --sans: "DM Sans", "Segoe UI", system-ui, sans-serif;
+  --display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --page: 72rem;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(18,17,14,0.04), 0 12px 32px rgba(18,17,14,0.05);
 }
 
 html {
@@ -57,12 +70,11 @@ html {
 }
 
 body {
-  background: var(--paper);
+  background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
   font-size: 1.0625rem;
-  line-height: 1.65;
-  font-weight: 400;
+  line-height: 1.6;
 }
 
 a { color: inherit; }
@@ -78,11 +90,12 @@ a { color: inherit; }
   top: -4rem;
   z-index: 200;
   background: var(--ink);
-  color: var(--paper);
+  color: var(--bg);
   padding: 0.6rem 1rem;
   font-size: 0.875rem;
   font-weight: 500;
   text-decoration: none;
+  border-radius: 8px;
 }
 .skip-link:focus { top: 1rem; }
 
@@ -90,20 +103,18 @@ a { color: inherit; }
   width: min(var(--page), calc(100% - 2.5rem));
   margin: 0 auto;
 }
-
-.narrow { max-width: var(--measure); }
+.narrow { max-width: 40rem; }
 
 /* ── Nav ── */
-header.site-header {
+.site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--paper) 92%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
 }
-
 .nav {
   display: flex;
   align-items: center;
@@ -111,151 +122,183 @@ header.site-header {
   height: 4rem;
   gap: 1.5rem;
 }
-
 .logo {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.65rem;
   letter-spacing: -0.02em;
   text-decoration: none;
   color: var(--ink);
 }
-
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1.35rem;
   list-style: none;
 }
-
 .nav-links a {
   font-size: 0.875rem;
+  font-weight: 500;
   color: var(--muted);
   text-decoration: none;
 }
 .nav-links a:hover { color: var(--ink); }
-
 .nav-cta {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--paper) !important;
+  color: #fff !important;
   background: var(--accent);
   padding: 0.5rem 0.95rem;
-  text-decoration: none;
+  border-radius: 9px;
 }
 .nav-cta:hover { background: var(--accent-hover); }
-
 .nav-toggle {
   display: none;
-  background: none;
-  border: 1px solid var(--rule-strong);
+  background: var(--card);
+  border: 1px solid var(--line-strong);
   color: var(--ink);
-  padding: 0.4rem 0.55rem;
+  padding: 0.4rem 0.65rem;
   cursor: pointer;
   font-family: var(--sans);
   font-size: 0.75rem;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  border-radius: 8px;
 }
 
-/* ── Shared type ── */
+/* ── Type ── */
 .kicker {
-  font-family: var(--sans);
   font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.75rem;
 }
-
-h1, h2, h3, h4 {
-  font-family: var(--serif);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
   color: var(--ink);
 }
-
-h1 { font-size: clamp(2.25rem, 5vw, 3.65rem); }
-h2 { font-size: clamp(1.75rem, 3.4vw, 2.45rem); }
+h1 { font-size: clamp(2.35rem, 5.4vw, 3.85rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
 h3 { font-size: 1.35rem; }
-
 .lede {
   font-size: 1.125rem;
   color: var(--muted);
-  line-height: 1.7;
-  margin-top: 1.25rem;
+  line-height: 1.65;
+  margin-top: 1.15rem;
 }
-
 .section {
-  padding: 5.5rem 0;
-  border-top: 1px solid var(--rule);
+  padding: 5.25rem 0;
+  border-top: 1px solid var(--line);
 }
-
-.section-head { margin-bottom: 2.5rem; }
-.section-head .lede { max-width: 38rem; }
+.section-head { margin-bottom: 2.25rem; }
+.section-head .lede { max-width: 40rem; }
+.artifact-title { margin-bottom: 0.85rem; }
 
 /* ── Buttons ── */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.45rem;
   font-family: var(--sans);
-  font-size: 0.975rem;
-  font-weight: 500;
+  font-size: 0.95rem;
+  font-weight: 600;
   text-decoration: none;
-  padding: 0.85rem 1.35rem;
+  padding: 0.85rem 1.25rem;
   border: 1px solid transparent;
+  border-radius: 10px;
   cursor: pointer;
   line-height: 1.2;
 }
-.btn-primary {
-  background: var(--accent);
-  color: #FBF8F2;
-}
+.btn-primary { background: var(--accent); color: #fff; }
 .btn-primary:hover { background: var(--accent-hover); }
 .btn-secondary {
-  background: transparent;
+  background: var(--card);
   color: var(--ink);
-  border-color: var(--rule-strong);
+  border-color: var(--line-strong);
 }
 .btn-secondary:hover { border-color: var(--ink); }
 .cta-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 2rem;
+  gap: 0.7rem;
+  margin-top: 1.85rem;
 }
 
 /* ── Hero ── */
-.hero {
-  padding: 5.5rem 0 4rem;
+.hero { padding: 5.25rem 0 2.25rem; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: end;
 }
-.hero .price-line {
-  margin-top: 1.35rem;
+.price-line {
+  margin-top: 1.2rem;
   font-size: 0.95rem;
   color: var(--quiet);
 }
-
-/* ── Video placeholder ── */
-.demo {
-  padding-bottom: 5rem;
+.hero-aside {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.15rem 1.2rem 1.2rem;
 }
+.hero-aside h2 {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--quiet);
+  margin-bottom: 0.85rem;
+}
+.stat-row {
+  display: grid;
+  gap: 0.65rem;
+}
+.stat {
+  display: grid;
+  grid-template-columns: 1.15rem 7.4rem 1fr;
+  gap: 0.55rem;
+  align-items: start;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--line);
+}
+.stat svg {
+  width: 14px;
+  height: 14px;
+  margin-top: 0.15rem;
+  color: var(--accent);
+}
+.stat:last-child { padding-bottom: 0; border-bottom: none; }
+.stat dt {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.stat dd {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* ── Video ── */
+.demo { padding: 0 0 4.75rem; }
 .demo-frame {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: var(--paper-deep);
-  border: 1px solid var(--rule-strong);
+  background: linear-gradient(180deg, #1C1A17 0%, #2A2622 100%);
+  border: 1px solid #2F2B26;
+  border-radius: 16px;
   overflow: hidden;
-}
-.demo-frame::before {
-  content: "";
-  position: absolute;
-  inset: 1.25rem;
-  border: 1px dashed var(--rule-strong);
-  pointer-events: none;
+  color: #F4F2ED;
 }
 .demo-inner {
   position: absolute;
@@ -266,237 +309,883 @@ h3 { font-size: 1.35rem; }
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  gap: 0.65rem;
+  gap: 0.55rem;
 }
-.demo-label {
-  font-family: var(--serif);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 500;
-}
-.demo-sub {
-  max-width: 28rem;
-  color: var(--muted);
-  font-size: 0.975rem;
-}
-.demo-note {
-  margin-top: 0.85rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--quiet);
-}
-
-/* ── How it works ── */
-.steps {
+.play-glyph {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid rgba(244,242,237,0.28);
   display: grid;
-  gap: 0;
-  border-top: 1px solid var(--rule);
-}
-.step {
-  display: grid;
-  grid-template-columns: 5.5rem 1fr;
-  gap: 1.5rem;
-  padding: 1.75rem 0;
-  border-bottom: 1px solid var(--rule);
-}
-.step-num {
-  font-family: var(--serif);
-  font-size: 1.25rem;
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
-}
-.step h3 { margin-bottom: 0.45rem; }
-.step p { color: var(--muted); max-width: 40rem; }
-
-/* ── Artifacts ── */
-.example-banner {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--stamp);
-  border: 1px solid color-mix(in srgb, var(--stamp) 45%, var(--rule));
-  padding: 0.22rem 0.5rem;
-  margin-bottom: 0.85rem;
-}
-
-.artifact {
-  background: var(--card);
-  border: 1px solid var(--rule-strong);
-  margin-bottom: 2rem;
-}
-.artifact:last-child { margin-bottom: 0; }
-.artifact-head {
-  padding: 1.35rem 1.6rem 1.15rem;
-  border-bottom: 1px solid var(--rule);
-}
-.artifact-kind {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--quiet);
-  margin-bottom: 0.35rem;
-}
-.artifact-head h3 { font-size: 1.55rem; }
-.artifact-meta {
-  color: var(--muted);
-  font-size: 0.95rem;
-  margin-top: 0.3rem;
-}
-.artifact-body { padding: 1.5rem 1.6rem 1.7rem; }
-
-.card-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem 2rem;
-}
-.field h4 {
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 0.4rem;
-}
-.field p, .field li { color: var(--muted); font-size: 0.975rem; }
-.field ul { padding-left: 1.1rem; }
-.field li + li { margin-top: 0.4rem; }
-.field-wide { grid-column: 1 / -1; }
-
-.pair-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-  margin-bottom: 1.4rem;
-}
-.person {
-  border-left: 2px solid var(--accent);
-  padding-left: 0.9rem;
-}
-.person .role {
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--quiet);
-}
-.person .name {
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  margin: 0.15rem 0 0.35rem;
-}
-.person p { color: var(--muted); font-size: 0.95rem; }
-
-.map-block + .map-block {
-  margin-top: 1.35rem;
-  padding-top: 1.35rem;
-  border-top: 1px solid var(--rule);
-}
-.map-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.65rem;
-  margin: 0.85rem 0 0;
-}
-.map-seat {
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  padding: 0.75rem 0.7rem;
-}
-.map-seat strong {
-  display: block;
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: 1rem;
-}
-.map-seat span {
-  display: block;
-  font-size: 0.78rem;
-  color: var(--quiet);
-  margin-top: 0.15rem;
-}
-
-/* ── Privacy ── */
-.privacy-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-}
-.privacy-item {
-  padding: 1.4rem 1.45rem;
-  background: var(--card);
-  border: 1px solid var(--rule);
-}
-.privacy-item h3 {
-  font-size: 1.2rem;
+  place-items: center;
   margin-bottom: 0.55rem;
 }
-.privacy-item p { color: var(--muted); }
+.demo-label {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+}
+.demo-sub { max-width: 28rem; color: rgba(244,242,237,0.72); font-size: 0.95rem; }
+.demo-note {
+  margin-top: 0.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(244,242,237,0.48);
+}
 
-/* ── Pricing ── */
+/* ── Metric + reveal grids ── */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+.metric {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.15rem 1.15rem 1.2rem;
+  box-shadow: var(--shadow);
+}
+.metric .label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--quiet);
+  margin-bottom: 0.45rem;
+}
+.metric strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 0.35rem;
+}
+.metric p { font-size: 0.88rem; color: var(--muted); }
+
+.reveal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+.reveal {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.2rem 1.3rem;
+}
+.icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  margin-bottom: 0.85rem;
+}
+.icon-box svg { width: 18px; height: 18px; }
+.reveal h3 {
+  font-family: var(--sans);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
+}
+.reveal p { font-size: 0.92rem; color: var(--muted); }
+
+/* ── Product cards ── */
+.ui-card {
+  background: var(--card);
+  border: 1px solid var(--line-strong);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.ui-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.35rem 1.4rem 1.2rem;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, #FFFcf8 0%, #fff 100%);
+}
+.who-name {
+  font-family: var(--display);
+  font-size: 1.7rem;
+  letter-spacing: -0.02em;
+}
+.who-meta { color: var(--muted); font-size: 0.92rem; margin-top: 0.15rem; }
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: flex-end; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  background: var(--bg-deep);
+  color: var(--ink);
+}
+.chip-maya { background: var(--accent-soft); color: var(--accent-hover); }
+.chip-jordan { background: var(--teal-soft); color: var(--teal); }
+.chip-priya { background: var(--navy-soft); color: var(--navy); }
+.chip-sam { background: var(--clay-soft); color: var(--clay); }
+
+.ui-visual {
+  padding: 1.15rem 1.4rem 1.05rem;
+  background: #FBF9F5;
+  border-bottom: 1px solid var(--line);
+}
+.ui-body { padding: 1.15rem 1.4rem 1.45rem; }
+
+.seg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.15rem;
+  padding: 0.3rem;
+  background: var(--bg);
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+.seg [role="tab"] {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.55rem 0.85rem;
+  border-radius: 9px;
+  cursor: pointer;
+  line-height: 1.2;
+}
+.seg [role="tab"]:hover { color: var(--ink); }
+.seg [role="tab"][aria-selected="true"] {
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 1px 2px rgba(18,17,14,0.08);
+}
+.panel[hidden] { display: none; }
+.panel-title {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 650;
+  margin-bottom: 0.55rem;
+}
+.panel p, .panel li { color: var(--muted); font-size: 0.975rem; }
+.panel p + p, .panel ul + p, .panel p + ul { margin-top: 0.75rem; }
+.panel ul { padding-left: 1.15rem; }
+.panel li + li { margin-top: 0.4rem; }
+.quote-use {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  background: var(--accent-soft);
+  border-radius: 12px;
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+.quote-use span {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-hover);
+  margin-bottom: 0.3rem;
+}
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.9rem;
+}
+.callout {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+}
+.callout strong {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+/* Graphics */
+.ticks {
+  display: grid;
+  gap: 0.7rem;
+}
+.tick {
+  display: grid;
+  grid-template-columns: 7.2rem 1fr auto;
+  gap: 0.7rem;
+  align-items: center;
+}
+.tick span { font-size: 0.78rem; font-weight: 600; color: var(--ink); }
+.tick em {
+  font-style: normal;
+  font-size: 0.72rem;
+  color: var(--quiet);
+  min-width: 5.5rem;
+  text-align: right;
+}
+.track {
+  position: relative;
+  height: 8px;
+  background: #E7E2D8;
+  border-radius: 99px;
+}
+.track i {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #fff;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 1px rgba(194,65,12,0.25);
+}
+
+.radar-wrap {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1.1rem;
+  align-items: center;
+}
+.radar-legend { display: grid; gap: 0.4rem; font-size: 0.8rem; color: var(--muted); }
+.radar-legend b { color: var(--ink); font-weight: 600; }
+
+.compare {
+  display: grid;
+  gap: 0.85rem;
+}
+.compare-head {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr 1fr;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--quiet);
+}
+.axis {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr 1fr;
+  gap: 0.6rem;
+  align-items: center;
+}
+.axis .name { font-size: 0.8rem; font-weight: 600; }
+.bar {
+  height: 10px;
+  background: #E7E2D8;
+  border-radius: 99px;
+  overflow: hidden;
+}
+.bar > i { display: block; height: 100%; border-radius: 99px; }
+.bar-maya > i { background: var(--maya); }
+.bar-jordan > i { background: var(--jordan); }
+
+.pair-people {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.person-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  background: var(--card);
+}
+.person-card .role {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.person-card .name {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  margin: 0.1rem 0 0.3rem;
+}
+.person-card p { font-size: 0.88rem; color: var(--muted); }
+
+.rights {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 0.75rem;
+}
+.rights th, .rights td {
+  text-align: left;
+  padding: 0.65rem 0.55rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.rights th {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--quiet);
+  font-weight: 700;
+}
+.rights td { color: var(--muted); }
+.rights td:first-child { color: var(--ink); font-weight: 600; }
+
+/* Room map */
+.room {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.1rem;
+  align-items: center;
+}
+.table-wrap { display: grid; place-items: center; }
+.table {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+.table-core {
+  position: absolute;
+  inset: 48px;
+  border-radius: 18px;
+  background: #EFE8DC;
+  border: 1px solid var(--line-strong);
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--quiet);
+}
+.seat {
+  position: absolute;
+  appearance: none;
+  border: 2px solid var(--line-strong);
+  background: var(--card);
+  border-radius: 12px;
+  padding: 0.35rem 0.45rem;
+  cursor: pointer;
+  font-family: var(--sans);
+  min-width: 78px;
+  text-align: center;
+  line-height: 1.15;
+}
+.seat strong { display: block; font-size: 0.78rem; }
+.seat span { display: block; font-size: 0.65rem; color: var(--quiet); }
+.seat[aria-selected="true"] { border-color: var(--ink); box-shadow: 0 0 0 3px rgba(18,17,14,0.08); }
+.seat-maya { top: 0; left: 50%; transform: translateX(-50%); }
+.seat-jordan { right: 0; top: 50%; transform: translateY(-50%); }
+.seat-sam { bottom: 0; left: 50%; transform: translateX(-50%); }
+.seat-priya { left: 0; top: 50%; transform: translateY(-50%); }
+.seat-maya[aria-selected="true"] { border-color: var(--maya); background: var(--accent-soft); }
+.seat-jordan[aria-selected="true"] { border-color: var(--jordan); background: var(--teal-soft); }
+.seat-priya[aria-selected="true"] { border-color: var(--priya); background: var(--navy-soft); }
+.seat-sam[aria-selected="true"] { border-color: var(--sam); background: var(--clay-soft); }
+
+.room-read { display: grid; gap: 0.55rem; }
+.strip {
+  display: grid;
+  grid-template-columns: 6.2rem 1fr;
+  gap: 0.55rem;
+  align-items: center;
+}
+.strip .k { font-size: 0.75rem; font-weight: 700; color: var(--ink); }
+.pills { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.22rem 0.5rem;
+  border-radius: 999px;
+  background: var(--bg-deep);
+}
+.pill-fast { background: var(--accent-soft); color: var(--accent-hover); }
+.pill-slow { background: var(--navy-soft); color: var(--navy); }
+.pill-mid { background: var(--teal-soft); color: var(--teal); }
+
+.seat-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 1rem;
+}
+.seat-switch [role="tab"] {
+  appearance: none;
+  border: 1px solid var(--line-strong);
+  background: var(--card);
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--muted);
+}
+.seat-switch [role="tab"][aria-selected="true"] {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.use-before {
+  margin-top: 1rem;
+  padding: 1rem 1.05rem;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #F4F2ED;
+}
+.use-before span {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #E8B39A;
+  margin-bottom: 0.35rem;
+}
+
+/* ── Facts ── */
+.facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+.fact {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.35rem 1.35rem;
+  box-shadow: var(--shadow);
+}
+.fact-num {
+  font-family: var(--sans);
+  font-size: clamp(3.1rem, 6vw, 4.25rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+.fact h3 {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+.fact p { color: var(--muted); font-size: 0.95rem; }
+.fact .impl {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+.fact .src {
+  margin-top: 0.7rem;
+  font-size: 0.75rem;
+  color: var(--quiet);
+  line-height: 1.45;
+}
+.fact a { color: var(--teal); }
+.fact.wide { grid-column: 1 / -1; }
+.fact-quote {
+  margin-top: 0.9rem;
+  padding: 0.85rem 0.95rem;
+  background: #1C1A17;
+  color: #F4F2ED;
+  border-radius: 10px;
+}
+.fact-quote p {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: #F4F2ED;
+}
+.fact-quote .who {
+  margin-top: 0.55rem;
+  font-size: 0.72rem;
+  color: rgba(244,242,237,0.62);
+  line-height: 1.45;
+}
+.fact-quote a { color: #E8B39A; }
+
+/* ── Quoted voices (problem, not endorsement) ── */
+.quotes-band {
+  background: #12110E;
+  color: #F4F2ED;
+  padding: 5.25rem 0;
+  border-top: 1px solid #2A2622;
+}
+.quotes-band .kicker { color: #E8B39A; }
+.quotes-band h2 { color: #F4F2ED; }
+.quotes-band .lede { color: rgba(244,242,237,0.68); }
+.quotes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+.pull {
+  background: #1C1A17;
+  border: 1px solid rgba(244,242,237,0.12);
+  border-radius: 16px;
+  padding: 1.45rem 1.35rem 1.3rem;
+}
+.pull blockquote {
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.pull .aside {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: rgba(244,242,237,0.72);
+  line-height: 1.5;
+}
+.pull figcaption {
+  padding: 1rem 0 0;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(244,242,237,0.1);
+  font-size: 0.78rem;
+  color: rgba(244,242,237,0.58);
+  line-height: 1.45;
+}
+.pull strong {
+  display: block;
+  color: #F4F2ED;
+  font-size: 0.88rem;
+  font-weight: 650;
+  margin-bottom: 0.15rem;
+}
+.pull a { color: #E8B39A; text-underline-offset: 2px; }
+
+/* ── Complement ── */
+.echo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+.echo article {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.3rem;
+}
+.echo h3 { margin-bottom: 0.55rem; }
+.echo p, .echo li { color: var(--muted); font-size: 0.95rem; }
+.echo ul { margin-top: 0.75rem; padding-left: 1.1rem; }
+.echo li + li { margin-top: 0.4rem; }
+
+/* ── Ask your AI / MCP chat ── */
+.ask-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 1.4rem;
+  align-items: start;
+}
+.ask-points { display: grid; gap: 0.75rem; }
+.ask-point {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+}
+.ask-point h3 {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 650;
+  margin-bottom: 0.3rem;
+}
+.ask-point p { font-size: 0.88rem; color: var(--muted); }
+
+.chat {
+  --chat-bg: #F7F3EC;
+  --chat-ink: #1A1612;
+  --chat-muted: #6A6258;
+  --chat-line: #E4D9CC;
+  --chat-user: #EDE6DB;
+  --chat-accent: #D97757;
+  --chat-bar: #FFFCF7;
+  border: 1px solid #D7CBBE;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--chat-bg);
+  color: var(--chat-ink);
+  min-height: 34rem;
+  display: flex;
+  flex-direction: column;
+}
+.chat[data-provider="chatgpt"] {
+  --chat-bg: #F7F7F8;
+  --chat-ink: #0D0D0D;
+  --chat-muted: #6B6B6B;
+  --chat-line: #E5E5E5;
+  --chat-user: #ECECEC;
+  --chat-accent: #10A37F;
+  --chat-bar: #FFFFFF;
+  border-color: #D8D8D8;
+}
+.chat[data-provider="grok"] {
+  --chat-bg: #111111;
+  --chat-ink: #F4F4F5;
+  --chat-muted: #A1A1AA;
+  --chat-line: #2A2A2A;
+  --chat-user: #1C1C1C;
+  --chat-accent: #F4F4F5;
+  --chat-bar: #0A0A0A;
+  border-color: #2A2A2A;
+}
+.chat-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.75rem 0.85rem;
+  background: var(--chat-bar);
+  border-bottom: 1px solid var(--chat-line);
+}
+.chat-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+.chat-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--chat-accent);
+}
+.chat-providers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.chat-providers button {
+  appearance: none;
+  border: 1px solid var(--chat-line);
+  background: transparent;
+  color: var(--chat-muted);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 650;
+  padding: 0.32rem 0.55rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chat-providers button[aria-selected="true"] {
+  background: var(--chat-ink);
+  color: var(--chat-bg);
+  border-color: var(--chat-ink);
+}
+.chat[data-provider="grok"] .chat-providers button[aria-selected="true"] {
+  color: #111;
+}
+.chat-thread {
+  flex: 1;
+  padding: 1rem 1.05rem 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  min-height: 22rem;
+  max-height: 32rem;
+  overflow-y: auto;
+}
+.chat-msg { max-width: 92%; }
+.chat-msg.user { align-self: flex-end; }
+.chat-msg .who {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--chat-muted);
+  margin-bottom: 0.3rem;
+}
+.chat-bubble {
+  padding: 0.75rem 0.85rem;
+  border-radius: 14px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.chat-msg.user .chat-bubble { background: var(--chat-user); }
+.chat-msg.assistant .chat-bubble { background: transparent; padding-left: 0; }
+.chat-bubble p + p { margin-top: 0.65rem; }
+.chat-bubble ol { margin: 0.55rem 0 0 1.1rem; }
+.chat-bubble li + li { margin-top: 0.35rem; }
+.src-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+}
+.src-chip {
+  font-size: 0.68rem;
+  font-weight: 650;
+  padding: 0.22rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--chat-line);
+  color: var(--chat-muted);
+}
+.chat-composer {
+  margin: 0.5rem 0.85rem 0.85rem;
+  border: 1px solid var(--chat-line);
+  background: var(--chat-bar);
+  border-radius: 14px;
+  padding: 0.7rem 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--chat-muted);
+  font-size: 0.85rem;
+}
+.chat-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.chat-controls button {
+  appearance: none;
+  border: 1px solid var(--chat-line);
+  background: var(--chat-bg);
+  color: var(--chat-ink);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 650;
+  padding: 0.4rem 0.65rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 0.9em;
+  background: var(--chat-accent);
+  margin-left: 1px;
+  vertical-align: text-bottom;
+}
+@media (prefers-reduced-motion: reduce) {
+  .caret { display: none; }
+}
+
+/* ── Checklist / how / privacy / pricing ── */
+.check-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem 1.5rem;
+}
+.check-grid li {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1.25rem 1fr;
+  gap: 0.55rem;
+  align-items: start;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+.check-grid li::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  margin-top: 0.2rem;
+  background: var(--accent-soft);
+  border: 1.5px solid var(--accent);
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 2px var(--accent-soft);
+}
+
+.steps { display: grid; gap: 0.75rem; }
+.step {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: 1rem;
+  padding: 1.15rem 1.2rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.step-num {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  color: var(--accent);
+}
+.step h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 650; margin-bottom: 0.3rem; }
+.step p { color: var(--muted); font-size: 0.95rem; }
+
+.privacy-grid, .split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+.privacy-item, .split article {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.3rem 1.25rem;
+}
+.privacy-item h3, .split h3 { margin-bottom: 0.45rem; }
+.privacy-item p, .split li { color: var(--muted); }
+.split ul { margin-top: 0.8rem; padding-left: 1.1rem; }
+.split li + li { margin-top: 0.45rem; }
+
 .pricing-layout {
   display: grid;
-  grid-template-columns: 1fr;
-  max-width: 28rem;
+  grid-template-columns: minmax(0, 36rem);
 }
 .price-card {
   background: var(--card);
-  border: 1px solid var(--rule-strong);
-  padding: 1.8rem 1.7rem 1.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 18px;
+  padding: 1.7rem 1.55rem;
+  box-shadow: var(--shadow);
 }
 .price-amount {
-  font-family: var(--serif);
-  font-size: 3rem;
-  letter-spacing: -0.03em;
+  font-family: var(--display);
+  font-size: 3.1rem;
+  letter-spacing: -0.04em;
   line-height: 1;
-  margin: 0.55rem 0 0.2rem;
+  margin: 0.4rem 0 0.15rem;
 }
-.price-amount span {
-  font-size: 1.1rem;
-  color: var(--muted);
-  letter-spacing: 0;
-}
-.price-card ul {
-  list-style: none;
-  margin: 1.3rem 0 1.5rem;
-}
+.price-amount span { font-size: 1.1rem; color: var(--muted); letter-spacing: 0; }
+.price-card ul { list-style: none; margin: 1.15rem 0 1.4rem; }
 .price-card li {
-  padding: 0.55rem 0;
-  border-top: 1px solid var(--rule);
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--line);
   color: var(--muted);
-  font-size: 0.975rem;
+  font-size: 0.95rem;
 }
 .price-card li:first-child { border-top: none; }
+.fine { font-size: 0.88rem; color: var(--quiet); margin-top: 0.9rem; }
 
-/* ── For / not for ── */
-.split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-}
-.split article {
-  padding: 1.5rem 1.5rem 1.6rem;
-  border: 1px solid var(--rule);
-  background: var(--card);
-}
-.split ul {
-  margin-top: 1rem;
-  padding-left: 1.15rem;
-  color: var(--muted);
-}
-.split li + li { margin-top: 0.55rem; }
-
-/* ── FAQ ── */
-.faq-list { border-top: 1px solid var(--rule); }
-.faq-list details {
-  border-bottom: 1px solid var(--rule);
-}
+.faq-list { border-top: 1px solid var(--line); }
+.faq-list details { border-bottom: 1px solid var(--line); }
 .faq-list summary {
   cursor: pointer;
-  padding: 1.15rem 0;
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  font-weight: 500;
+  padding: 1.1rem 0;
+  font-family: var(--display);
+  font-size: 1.25rem;
   list-style: none;
 }
 .faq-list summary::-webkit-details-marker { display: none; }
@@ -504,26 +1193,19 @@ h3 { font-size: 1.35rem; }
   content: "+";
   float: right;
   font-family: var(--sans);
-  font-weight: 400;
   color: var(--quiet);
 }
 .faq-list details[open] summary::after { content: "–"; }
 .faq-list details p {
-  padding: 0 0 1.25rem;
+  padding: 0 0 1.2rem;
   color: var(--muted);
-  max-width: 40rem;
+  max-width: 42rem;
 }
 
-/* ── Close ── */
-.close {
-  padding: 5.5rem 0;
-  border-top: 1px solid var(--rule);
-}
-.close .lede { max-width: 34rem; }
+.close { padding: 5.25rem 0; border-top: 1px solid var(--line); }
 
-/* ── Footer ── */
 footer {
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--line);
   padding: 2rem 0 2.4rem;
   color: var(--quiet);
   font-size: 0.85rem;
@@ -535,28 +1217,28 @@ footer {
   flex-wrap: wrap;
   align-items: baseline;
 }
-.footer-links {
-  display: flex;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-}
-.footer-links a {
-  color: var(--muted);
-  text-decoration: none;
-}
+.footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.footer-links a { color: var(--muted); text-decoration: none; }
 .footer-links a:hover { color: var(--ink); text-decoration: underline; }
-.footer-note {
-  margin-top: 1.1rem;
-  max-width: 36rem;
-  color: var(--quiet);
+.footer-note { margin-top: 1rem; max-width: 36rem; }
+
+@media (max-width: 900px) {
+  .hero-grid, .metrics, .reveal-grid, .facts, .echo, .check-grid,
+  .privacy-grid, .split, .pricing-layout, .two-col, .pair-people,
+  .radar-wrap, .room, .quotes-grid, .ask-layout {
+    grid-template-columns: 1fr;
+  }
+  .metrics { grid-template-columns: 1fr 1fr; }
+  .fact.wide { grid-column: auto; }
+  .room { justify-items: center; }
+  .chip-row { justify-content: flex-start; }
 }
 
-/* ── Mobile ── */
 @media (max-width: 800px) {
-  .wrap { width: min(var(--page), calc(100% - 1.75rem)); }
-  .hero { padding: 3.5rem 0 2.75rem; }
-  .section, .close { padding: 3.5rem 0; }
-  .demo { padding-bottom: 3.25rem; }
+  .wrap { width: min(var(--page), calc(100% - 1.6rem)); }
+  .hero { padding: 3.4rem 0 1.6rem; }
+  .section, .close, .quotes-band { padding: 3.4rem 0; }
+  .demo { padding-bottom: 3.1rem; }
   .nav-toggle { display: inline-flex; }
   .nav-links {
     display: none;
@@ -567,33 +1249,34 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    background: var(--paper);
-    border-bottom: 1px solid var(--rule);
-    padding: 0.5rem 1.25rem 1.15rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 0.5rem 1.25rem 1.1rem;
   }
   .nav-links.open { display: flex; }
   .nav-links li { width: 100%; }
   .nav-links a {
     display: block;
     padding: 0.7rem 0;
-    border-bottom: 1px solid var(--rule);
+    border-bottom: 1px solid var(--line);
   }
   .nav-links .nav-cta {
     display: inline-block;
-    margin-top: 0.85rem;
+    margin-top: 0.8rem;
     border-bottom: none;
   }
-  .step { grid-template-columns: 3rem 1fr; gap: 0.75rem; }
-  .card-grid, .pair-split, .privacy-grid, .pricing-layout, .split, .map-row {
-    grid-template-columns: 1fr;
-  }
-  .map-row { grid-template-columns: 1fr 1fr; }
-  .field-wide { grid-column: auto; }
+  .stat { grid-template-columns: 1.15rem 1fr; gap: 0.4rem 0.55rem; }
+  .stat dd { grid-column: 2; }
+  .ui-head { flex-direction: column; }
+  .rights { display: block; overflow-x: auto; }
 }
 
-@media (max-width: 480px) {
-  .map-row { grid-template-columns: 1fr; }
-  .artifact-head, .artifact-body { padding-left: 1.15rem; padding-right: 1.15rem; }
+@media (max-width: 560px) {
+  .metrics { grid-template-columns: 1fr; }
+  .tick { grid-template-columns: 1fr; }
+  .tick em { text-align: left; }
+  .compare-head, .axis { grid-template-columns: 1fr; }
+  .table { transform: scale(0.92); }
 }
 </style>
 </head>
@@ -605,9 +1288,11 @@ footer {
     <a class="logo" href="#top">Dnmcs</a>
     <button class="nav-toggle" type="button" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#how-it-works">How it works</a></li>
-      <li><a href="#reports">Reports</a></li>
-      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#samples">Samples</a></li>
+      <li><a href="#ask">Ask your AI</a></li>
+      <li><a href="#quotes">Quotes</a></li>
+      <li><a href="#why">Why</a></li>
+      <li><a href="#plan">The plan</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a class="nav-cta" href="https://app.dnmcs.ai">Start the team plan</a></li>
@@ -617,15 +1302,46 @@ footer {
 
 <main id="main">
   <section class="hero" id="top">
-    <div class="wrap narrow">
-      <p class="kicker">Dnmcs Teams</p>
-      <h1>See how the people around the table decide under pressure.</h1>
-      <p class="lede">Dnmcs is a one-time assessment for executive teams. Each person consents, completes it in private, and gets a Working With Me card. You get pair reports for the relationships that matter, and a one-page map of the room. Read them before the next hard conversation.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="https://app.dnmcs.ai">Start the team plan</a>
-        <a class="btn btn-secondary" href="#reports">See a sample report</a>
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">Dnmcs Teams</p>
+        <h1>Walk into the next hard call already knowing how the room decides.</h1>
+        <p class="lede">A one-time assessment for the executive team that already sits at the table. Each person consents, completes it in private, and the team gets three live working surfaces: how each person operates, where pairs collide, and what to do before the next fight, raise, or hire.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://app.dnmcs.ai">Start the team plan</a>
+          <a class="btn btn-secondary" href="#samples">See the sample cards</a>
+        </div>
+        <p class="price-line">$999 a year for the team. English only.</p>
       </div>
-      <p class="price-line">$999 a year for the team.</p>
+      <aside class="hero-aside" aria-label="Sample team overview">
+        <h2>Sample team overview · Northwind</h2>
+        <dl class="stat-row">
+          <div class="stat">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h16M16 6l6 6-6 6"/></svg>
+            <dt>Decision pace</dt><dd>Fast once a customer is named. Stalls on people-risk.</dd>
+          </div>
+          <div class="stat">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg>
+            <dt>Conflict</dt><dd>Uneven. Two enter. Two wait and reopen later.</dd>
+          </div>
+          <div class="stat">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 19V5h4l2 4 2-4h8v14H4z"/></svg>
+            <dt>Evidence</dt><dd>Split: conviction versus model. Neither side has said so.</dd>
+          </div>
+          <div class="stat">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+            <dt>Control</dt><dd>Concentrated at the CEO seat. Second chair is unassigned.</dd>
+          </div>
+          <div class="stat">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="8" cy="10" r="3"/><circle cx="16" cy="10" r="3"/></svg>
+            <dt>Complement</dt><dd>Strong on close versus market-true. Thin on people-risk.</dd>
+          </div>
+          <div class="stat">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+            <dt>Room gap</dt><dd>Who is second when Maya is on the raise.</dd>
+          </div>
+        </dl>
+      </aside>
     </div>
   </section>
 
@@ -633,11 +1349,588 @@ footer {
     <div class="wrap">
       <div class="demo-frame">
         <div class="demo-inner">
+          <div class="play-glyph" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#F4F2ED"><path d="M8 5.5v13l11-6.5L8 5.5z"/></svg>
+          </div>
           <p class="demo-label" id="demo-title">Product walkthrough coming soon</p>
-          <p class="demo-sub">A short look at inviting the team, consent, and the reports. No video is embedded on this page yet.</p>
+          <p class="demo-sub">A short look at inviting the team, consent, and the working surfaces. No video is embedded on this page yet.</p>
           <p class="demo-note">16:9 placeholder · not a live demo</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="shows" aria-labelledby="shows-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">What the analysis shows</p>
+        <h2 id="shows-title">The intelligence already in the room, made usable.</h2>
+        <p class="lede">Not a type. Not a feed. A read of how this specific team decides, where pairs complement or collide, and what to open before the next hard date.</p>
+      </div>
+      <div class="reveal-grid">
+        <article class="reveal">
+          <div class="icon-box" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3"/><path d="M5 19c.8-3 3.2-5 7-5s6.2 2 7 5"/></svg>
+          </div>
+          <h3>How each person decides</h3>
+          <p>Pace, evidence habit, and whether they enter conflict — written so a colleague can use it on Monday.</p>
+        </article>
+        <article class="reveal">
+          <div class="icon-box" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="10" r="3"/><circle cx="16" cy="10" r="3"/><path d="M4 19c.6-2.4 2.4-4 5-4M15 15c2.6 0 4.4 1.6 5 4"/></svg>
+          </div>
+          <h3>Where a pair complements</h3>
+          <p>Who closes, who keeps the story honest, and the move the pair only makes together.</p>
+        </article>
+        <article class="reveal">
+          <div class="icon-box" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 4v16M5 9l7-5 7 5M5 15l7 5 7-5"/></svg>
+          </div>
+          <h3>Where the same pair breaks</h3>
+          <p>The loop you are already in — date versus story, model versus conviction — named without a personality lecture.</p>
+        </article>
+        <article class="reveal">
+          <div class="icon-box" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 12h5M8 15h3"/></svg>
+          </div>
+          <h3>Decision rights</h3>
+          <p>Who owns the final call, who can refuse once, and the date rule — before the partner meeting writes it for you.</p>
+        </article>
+        <article class="reveal">
+          <div class="icon-box" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2"/></svg>
+          </div>
+          <h3>Where control sits</h3>
+          <p>Who is fast, who waits, who actually holds the close, and whether a second chair exists.</p>
+        </article>
+        <article class="reveal">
+          <div class="icon-box" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M5 19V8l7-4 7 4v11"/><path d="M9 19v-6h6v6"/></svg>
+          </div>
+          <h3>The conversation you are avoiding</h3>
+          <p>The question the org chart cannot answer, plus a “use this before” prompt for the next hard date.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="samples">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Sample working surfaces</p>
+        <h2>Use the intelligence in the room before the next hard call.</h2>
+        <p class="lede">How the team decides. Where pairs collide. What to do before the fight, the raise, or the hire. Click through the cards — they are live surfaces, not printouts. Northwind is a sample team.</p>
+      </div>
+
+      <article class="artifact-block" aria-labelledby="wwm-heading" style="margin-bottom:3.25rem">
+        <h2 class="artifact-title" id="wwm-heading">Working With Me card</h2>
+        <p class="lede" style="margin:0 0 1.35rem">A colleague should be able to open this and brief you, push you, or stop you — without guessing.</p>
+
+        <div class="ui-card" data-tabs>
+          <div class="ui-head">
+            <div>
+              <p class="who-name">Maya Chen</p>
+              <p class="who-meta">CEO · Northwind · sample team</p>
+            </div>
+            <div class="chip-row">
+              <span class="chip chip-maya">Fast closer</span>
+              <span class="chip">Customer over model</span>
+              <span class="chip">Enters late, then hard</span>
+            </div>
+          </div>
+
+          <div class="ui-visual">
+            <div class="radar-wrap">
+              <svg viewBox="0 0 160 140" width="160" height="140" role="img" aria-label="Maya's operating ticks: fast pace, low model-evidence, mid conflict entry">
+                <polygon points="80,18 138,118 22,118" fill="none" stroke="#D8D2C7" stroke-width="1.5"/>
+                <polygon points="80,36 118,108 42,108" fill="#F8E6DC" stroke="#C2410C" stroke-width="1.8"/>
+                <circle cx="80" cy="36" r="4" fill="#C2410C"/>
+                <circle cx="118" cy="108" r="4" fill="#C2410C"/>
+                <circle cx="42" cy="108" r="4" fill="#C2410C"/>
+                <text x="80" y="12" text-anchor="middle" font-size="10" font-family="DM Sans, sans-serif" fill="#12110E" font-weight="600">Pace</text>
+                <text x="142" y="132" text-anchor="middle" font-size="10" font-family="DM Sans, sans-serif" fill="#12110E" font-weight="600">Conflict</text>
+                <text x="18" y="132" text-anchor="middle" font-size="10" font-family="DM Sans, sans-serif" fill="#12110E" font-weight="600">Evidence</text>
+              </svg>
+              <div>
+                <div class="ticks" aria-hidden="true">
+                  <div class="tick"><span>Pace</span><div class="track"><i style="left:86%"></i></div><em>Closes fast</em></div>
+                  <div class="tick"><span>Evidence</span><div class="track"><i style="left:28%"></i></div><em>Customer, not model</em></div>
+                  <div class="tick"><span>Conflict</span><div class="track"><i style="left:62%"></i></div><em>Late, then hard</em></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-body">
+            <div class="seg" role="tablist" aria-label="Working With Me panes">
+              <button type="button" role="tab" id="tab-decide" aria-controls="pane-decide" aria-selected="true" tabindex="0">Decide</button>
+              <button type="button" role="tab" id="tab-pressure" aria-controls="pane-pressure" aria-selected="false" tabindex="-1">Pressure</button>
+              <button type="button" role="tab" id="tab-brief" aria-controls="pane-brief" aria-selected="false" tabindex="-1">Brief me</button>
+              <button type="button" role="tab" id="tab-dont" aria-controls="pane-dont" aria-selected="false" tabindex="-1">Don’t do this</button>
+            </div>
+
+            <div class="panel" id="pane-decide" role="tabpanel" aria-labelledby="tab-decide">
+              <p class="panel-title">How Maya actually closes</p>
+              <p>A named customer is a green light. Once she can point at a person who will pay, she wants a date, an owner, and a sentence the board can repeat. Market risk she will take. People-risk she will rename as timing and park.</p>
+              <p>Do not bring a tour of options. Bring one recommendation, the cost of being wrong, and who is on the hook. Three equal paths and she will pick the fastest one — then you will spend a month unsaying it.</p>
+              <ul>
+                <li>She hears extra research as delay unless it is attached to a customer name.</li>
+                <li>She will override a slow pair if the raise narrative needs a locked story.</li>
+                <li>She decides in the meeting. If you needed another night, say so before she starts.</li>
+              </ul>
+              <p class="quote-use"><span>Say this Monday</span>“Maya, I need a no on the enterprise SKU this week. Recommendation: kill it. Cost of being wrong: two design-partner conversations. Owner: me. Date: Friday.”</p>
+            </div>
+
+            <div class="panel" id="pane-pressure" role="tabpanel" aria-labelledby="tab-pressure" hidden>
+              <p class="panel-title">When the room tightens</p>
+              <p>Under pressure she narrows. Three options become one. The whiteboard gets a date. That is how Northwind ships. It is also how Priya’s model and Jordan’s “the story isn’t true yet” get treated as friction instead of signal.</p>
+              <div class="two-col">
+                <div class="callout">
+                  <strong>Watch for</strong>
+                  <p>She skips the person who needed another day. She treats silence as agreement. She takes the people-decision last, then makes it in one sitting.</p>
+                </div>
+                <div class="callout">
+                  <strong>What works</strong>
+                  <p>Name the people-risk in a sentence she can refuse. She will engage with a written cost. She will not engage with a vibe.</p>
+                </div>
+              </div>
+              <p class="quote-use"><span>Say this Monday</span>“We’re about to close because you’re uncomfortable, not because the customer is named. Give the room until Thursday. I’ll come back with one recommendation.”</p>
+            </div>
+
+            <div class="panel" id="pane-brief" role="tabpanel" aria-labelledby="tab-brief" hidden>
+              <p class="panel-title">How to put work in front of her</p>
+              <p>First sentence is the ask. Second is the recommendation. Third is the date. Do not lead with context. Do not send a long memo the night before a board meeting and expect a careful no.</p>
+              <p>She hears dissent after a direction is on the page. Put a straw direction down, then argue. If you wait to be invited, the meeting ends with a date and you become the person who “never said anything.”</p>
+              <ul>
+                <li>Ask → recommendation → what we lose if we’re wrong → who owns the next step.</li>
+                <li>Name the one thing you need her to stop doing.</li>
+                <li>Do not ask her to “weigh in” without a recommendation. Do not soften people-risk into “alignment.”</li>
+              </ul>
+              <p class="quote-use"><span>Say this Monday</span>“Ask: approve Jordan’s pause on the launch narrative. Recommendation: yes, until he can name two customers who would repeat it. I need you not to lock the date in Tuesday’s staff meeting.”</p>
+            </div>
+
+            <div class="panel" id="pane-dont" role="tabpanel" aria-labelledby="tab-dont" hidden>
+              <p class="panel-title">The moves that waste this seat</p>
+              <ul>
+                <li>Do not surprise her with a people-problem in a group setting. She will close it to end the discomfort, and you will own the wreckage.</li>
+                <li>Do not treat her speed as a quirk. It is how she reduces risk she can see. If you need time, buy it with a customer name or a written cost of being wrong.</li>
+                <li>Do not send “thoughts?” She will reply with a date.</li>
+                <li>Do not let Sam and Priya build a model she never asked for, then drop it the morning of the raise. Bring the model while the bet is still a bet.</li>
+                <li>Do not assume she knows she is skipping you. Write the sentence.</li>
+              </ul>
+              <p class="quote-use"><span>The hard line</span>If the risk is a person, say the person’s name. Maya will not infer it from your tone.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="artifact-block" aria-labelledby="pair-heading" style="margin-bottom:3.25rem">
+        <h2 class="artifact-title" id="pair-heading">Strategic pair report</h2>
+        <p class="lede" style="margin:0 0 1.35rem">Two people, one operating loop. Complement, friction, who owns the call, and the sentence to say next.</p>
+
+        <div class="ui-card" data-tabs>
+          <div class="ui-head">
+            <div>
+              <p class="who-name">CEO × CMO</p>
+              <p class="who-meta">Maya Chen and Jordan Hale · how this pair decides together</p>
+            </div>
+            <div class="chip-row">
+              <span class="chip chip-maya">Maya · close</span>
+              <span class="chip chip-jordan">Jordan · market-true</span>
+              <span class="chip">Pricing is the stress point</span>
+            </div>
+          </div>
+
+          <div class="ui-visual">
+            <div class="pair-people">
+              <div class="person-card">
+                <p class="role" style="color:var(--maya)">CEO</p>
+                <p class="name">Maya Chen</p>
+                <p>Wants a date and an owner. Hears extra market work as delay.</p>
+              </div>
+              <div class="person-card">
+                <p class="role" style="color:var(--jordan)">CMO</p>
+                <p class="name">Jordan Hale</p>
+                <p>Wants the story true in the market. Hears a locked date as being overruled.</p>
+              </div>
+            </div>
+            <div class="compare" aria-label="Two-person comparison of operating habits">
+              <div class="compare-head"><span></span><span>Maya</span><span>Jordan</span></div>
+              <div class="axis"><span class="name">Closes the date</span><div class="bar bar-maya"><i style="width:92%"></i></div><div class="bar bar-jordan"><i style="width:34%"></i></div></div>
+              <div class="axis"><span class="name">Needs market-true</span><div class="bar bar-maya"><i style="width:38%"></i></div><div class="bar bar-jordan"><i style="width:90%"></i></div></div>
+              <div class="axis"><span class="name">Enters in the room</span><div class="bar bar-maya"><i style="width:70%"></i></div><div class="bar bar-jordan"><i style="width:32%"></i></div></div>
+              <div class="axis"><span class="name">Reopens in writing</span><div class="bar bar-maya"><i style="width:18%"></i></div><div class="bar bar-jordan"><i style="width:86%"></i></div></div>
+            </div>
+          </div>
+
+          <div class="ui-body">
+            <div class="seg" role="tablist" aria-label="Strategic pair panes">
+              <button type="button" role="tab" id="tab-comp" aria-controls="pane-comp" aria-selected="true" tabindex="0">Complement</button>
+              <button type="button" role="tab" id="tab-fric" aria-controls="pane-fric" aria-selected="false" tabindex="-1">Friction</button>
+              <button type="button" role="tab" id="tab-rights" aria-controls="pane-rights" aria-selected="false" tabindex="-1">Decision rights</button>
+              <button type="button" role="tab" id="tab-say" aria-controls="pane-say" aria-selected="false" tabindex="-1">What to say next</button>
+            </div>
+
+            <div class="panel" id="pane-comp" role="tabpanel" aria-labelledby="tab-comp">
+              <p class="panel-title">What this pair only does together</p>
+              <p>Maya closes. Jordan keeps the story honest in the market. Together they are fast once a customer is named. He walks in with the sentence a buyer would actually say. She puts a date on it so the launch does not stay a debate.</p>
+              <div class="two-col">
+                <div class="callout"><strong>Use them for</strong><p>Naming the next beachhead. Killing a feature nobody would pay to keep. Drafting a raise narrative a partner can retell.</p></div>
+                <div class="callout"><strong>The gift</strong><p>Conviction plus a market that can repeat it. Neither person does that alone without drifting — Maya into a locked fiction, Jordan into an endless draft.</p></div>
+              </div>
+            </div>
+
+            <div class="panel" id="pane-fric" role="tabpanel" aria-labelledby="tab-fric" hidden>
+              <p class="panel-title">Pricing and positioning</p>
+              <p>Maya hears “I need another week on the story” as avoidance. Jordan hears “lock it Friday” as a sentence the company will have to unsay in six months. Neither is wrong. Neither has said the decision-rights sentence out loud.</p>
+              <ul>
+                <li>Jordan brings market doubt.</li>
+                <li>Maya hears delay and sets a date.</li>
+                <li>Jordan complies in the room and reopens it in Slack.</li>
+                <li>The team learns that “decided” means “until Jordan writes again.”</li>
+              </ul>
+              <p>This is not a chemistry problem. It is an unowned call.</p>
+            </div>
+
+            <div class="panel" id="pane-rights" role="tabpanel" aria-labelledby="tab-rights" hidden>
+              <p class="panel-title">Write who owns the final call, and by when</p>
+              <table class="rights">
+                <thead>
+                  <tr><th>Call</th><th>Owner</th><th>Maya</th><th>Jordan</th><th>Date rule</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Positioning</td><td>Jordan</td><td>Can refuse once, in writing</td><td>Must name two customers</td><td>Before the narrative is drafted</td></tr>
+                  <tr><td>Launch date</td><td>Maya</td><td>Sets the date</td><td>Can move it with a named customer</td><td>Not during the partner meeting</td></tr>
+                  <tr><td>Pricing floor</td><td>Shared · Sam holds the model</td><td>Closes if a customer is named</td><td>Blocks if the story is untrue</td><td>Five days before the raise</td></tr>
+                </tbody>
+              </table>
+              <p class="quote-use"><span>The missing sentence</span>Jordan owns positioning. Maya owns the date. If they conflict, Sam puts the cost on one page and they decide by Thursday — not in the partner meeting.</p>
+            </div>
+
+            <div class="panel" id="pane-say" role="tabpanel" aria-labelledby="tab-say" hidden>
+              <p class="panel-title">Scripts for the next staff meeting</p>
+              <div class="two-col">
+                <div class="callout"><strong>Maya to Jordan</strong><p>“I will not lock a date until you give me one sentence a customer would repeat. You have until Thursday. After that I own the close.”</p></div>
+                <div class="callout"><strong>Jordan to Maya</strong><p>“If we lock Friday, we unsay this in the partner meeting. Two named customers or give me the week. I will not reopen it in Slack.”</p></div>
+              </div>
+              <p class="quote-use"><span>The pair to the room</span>“Positioning is Jordan’s. The date is Maya’s. Dissent goes on the page before Thursday. Silence is not a later veto.”</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="artifact-block" aria-labelledby="map-heading">
+        <h2 class="artifact-title" id="map-heading">Team dynamics map</h2>
+        <p class="lede" style="margin:0 0 1.35rem">The room on one surface: who is fast, who enters conflict, where control sits, and the conversation nobody has put on a calendar.</p>
+
+        <div class="ui-card" data-tabs>
+          <div class="ui-head">
+            <div>
+              <p class="who-name">Northwind · four seats</p>
+              <p class="who-meta">Executive table · sample team</p>
+            </div>
+            <div class="chip-row">
+              <span class="chip">Control at CEO</span>
+              <span class="chip">Second chair open</span>
+              <span class="chip">Split evidence habit</span>
+            </div>
+          </div>
+
+          <div class="ui-visual">
+            <div class="room">
+              <div class="table-wrap">
+                <div class="table" aria-hidden="true">
+                  <div class="table-core">The room</div>
+                  <button type="button" class="seat seat-maya" tabindex="-1" data-jump="tab-room-maya"><strong>Maya</strong><span>CEO · fast</span></button>
+                  <button type="button" class="seat seat-jordan" tabindex="-1" data-jump="tab-room-jordan"><strong>Jordan</strong><span>CMO · market</span></button>
+                  <button type="button" class="seat seat-priya" tabindex="-1" data-jump="tab-room-priya"><strong>Priya</strong><span>CTO · model</span></button>
+                  <button type="button" class="seat seat-sam" tabindex="-1" data-jump="tab-room-sam"><strong>Sam</strong><span>CFO · brake</span></button>
+                </div>
+              </div>
+              <div class="room-read">
+                <div class="strip"><span class="k">Pace</span><div class="pills"><span class="pill pill-fast">Maya fast</span><span class="pill pill-mid">Jordan once true</span><span class="pill pill-slow">Priya model-first</span><span class="pill pill-slow">Sam after the date</span></div></div>
+                <div class="strip"><span class="k">Conflict</span><div class="pills"><span class="pill pill-fast">Maya late, then hard</span><span class="pill pill-mid">Jordan in writing</span><span class="pill">Priya in the architecture</span><span class="pill">Sam in the numbers</span></div></div>
+                <div class="strip"><span class="k">Control</span><div class="pills"><span class="pill pill-fast">Close sits with Maya</span><span class="pill">No named second</span></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui-body">
+            <div class="seat-switch" role="tablist" aria-label="Seats at the table">
+              <button type="button" role="tab" id="tab-room-all" aria-controls="pane-room-all" aria-selected="true" tabindex="0">The room</button>
+              <button type="button" role="tab" id="tab-room-maya" aria-controls="pane-room-maya" aria-selected="false" tabindex="-1">Maya</button>
+              <button type="button" role="tab" id="tab-room-jordan" aria-controls="pane-room-jordan" aria-selected="false" tabindex="-1">Jordan</button>
+              <button type="button" role="tab" id="tab-room-priya" aria-controls="pane-room-priya" aria-selected="false" tabindex="-1">Priya</button>
+              <button type="button" role="tab" id="tab-room-sam" aria-controls="pane-room-sam" aria-selected="false" tabindex="-1">Sam</button>
+            </div>
+
+            <div class="panel" id="pane-room-all" role="tabpanel" aria-labelledby="tab-room-all">
+              <p class="panel-title">How this room actually moves</p>
+              <p>Once a customer is named, Maya and Jordan accelerate. Priya and Sam want a model first. Nobody has said this out loud, so every pricing review feels like a personality clash. It is a pace split plus an unowned close.</p>
+              <div class="two-col">
+                <div class="callout"><strong>Aligned</strong><p>Nobody here is waiting for a perfect plan once a buyer is real. That shared pace is the company’s advantage — and its blind spot on people-risk.</p></div>
+                <div class="callout"><strong>Structural friction</strong><p>Conviction seats (Maya, Jordan) versus model seats (Priya, Sam). The model arrives after the date is already set, so it reads as resistance.</p></div>
+              </div>
+              <p style="margin-top:0.85rem"><strong style="color:var(--ink)">The conversation this room is avoiding:</strong> who is actually second when Maya is on the raise. The org chart does not answer it. The pair reports will not either, until someone puts the question on a calendar.</p>
+              <div class="use-before"><span>Use this before</span>Drafting the raise narrative. Hiring a C-level onto this table. Locking pricing. The fight you already had once and scheduled again.</div>
+            </div>
+
+            <div class="panel" id="pane-room-maya" role="tabpanel" aria-labelledby="tab-room-maya" hidden>
+              <p class="panel-title">Maya · CEO · the close</p>
+              <p>Fast once a customer is named. Control seat. Treats people-risk as timing. Enters conflict late, then ends it.</p>
+              <ul>
+                <li>Pace: customer name = green light.</li>
+                <li>Conflict: silence reads as yes.</li>
+                <li>Control: holds the close. Has not named a second chair.</li>
+              </ul>
+              <p class="quote-use"><span>Ask her</span>“Who decides if you are on the raise — and by which Friday is that written down?”</p>
+            </div>
+
+            <div class="panel" id="pane-room-jordan" role="tabpanel" aria-labelledby="tab-room-jordan" hidden>
+              <p class="panel-title">Jordan · CMO · market-true</p>
+              <p>Fast once the story is true in the market. Slow if it is not. Writes the dissent he does not say in the meeting.</p>
+              <ul>
+                <li>Pace: story-true first, date second.</li>
+                <li>Conflict: in Slack and in drafts, rarely in the room.</li>
+                <li>Control: owns positioning only if someone writes that down. Today, nobody has.</li>
+              </ul>
+              <p class="quote-use"><span>Ask him</span>“Name two customers who would repeat this sentence. If you cannot, say so before Maya locks Friday.”</p>
+            </div>
+
+            <div class="panel" id="pane-room-priya" role="tabpanel" aria-labelledby="tab-room-priya" hidden>
+              <p class="panel-title">Priya · CTO · the model</p>
+              <p>Will stall the build rather than argue. The room reads her silence as agreement. It is not.</p>
+              <ul>
+                <li>Pace: slow until the model holds.</li>
+                <li>Conflict: enters in the architecture, not at the table.</li>
+                <li>Control: owns the system, not the date.</li>
+              </ul>
+              <p class="quote-use"><span>Ask her</span>“What would have to be true in the model for you to ship Friday — say it in the meeting, not in the pull request.”</p>
+            </div>
+
+            <div class="panel" id="pane-room-sam" role="tabpanel" aria-labelledby="tab-room-sam" hidden>
+              <p class="panel-title">Sam · CFO · the brake</p>
+              <p>Holds the cost. Rarely first voice. The room uses him as a veto after Maya has already closed — which is too late.</p>
+              <ul>
+                <li>Pace: speaks after the date is set.</li>
+                <li>Conflict: in the numbers.</li>
+                <li>Control: holds cost, not the call.</li>
+              </ul>
+              <p class="quote-use"><span>Ask him</span>“Put the cost of locking Friday on one page before the staff meeting. If you wait until after, you are decorating a decision.”</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="ask" aria-labelledby="ask-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Your AI · private MCP</p>
+        <h2 id="ask-title">Ask your own AI about this team. Dnmcs is the source of truth it is allowed to see.</h2>
+        <p class="lede">Connect Claude, ChatGPT, or Grok through a private MCP. The model reasons on your credits. Dnmcs only serves authorized Working With Me cards, pair reports, and the team map — never raw answers. OAuth-style connect. Granular scopes. Consent before anything is read.</p>
+      </div>
+      <div class="ask-layout">
+        <div class="ask-points">
+          <article class="ask-point">
+            <h3>Your model. Your credits.</h3>
+            <p>Dnmcs does not host Claude, ChatGPT, or Grok, and it does not bill tokens. The customer’s AI does the reasoning.</p>
+          </article>
+          <article class="ask-point">
+            <h3>Authorized context only</h3>
+            <p>Scopes are per artifact. A connected model can read a card or a pair report you have already previewed and shared. Raw answers stay private.</p>
+          </article>
+          <article class="ask-point">
+            <h3>OAuth-style connect</h3>
+            <p>Grant, narrow, or revoke. A new audience or a wider scope needs a new yes. The mock below is the product’s AI layer on this page — same Northwind sample, not a customer testimonial.</p>
+          </article>
+        </div>
+
+        <div class="chat" id="mcpChat" data-provider="claude">
+          <div class="chat-top">
+            <div class="chat-brand"><span class="chat-dot" aria-hidden="true"></span><span id="mcpBrand">Claude</span></div>
+            <div class="chat-providers" role="tablist" aria-label="Connected model">
+              <button type="button" role="tab" aria-selected="true" data-provider="claude">Claude</button>
+              <button type="button" role="tab" aria-selected="false" data-provider="chatgpt">ChatGPT</button>
+              <button type="button" role="tab" aria-selected="false" data-provider="grok">Grok</button>
+            </div>
+          </div>
+          <div class="chat-thread" id="mcpThread" aria-live="polite"></div>
+          <div class="chat-composer">
+            <span>Ask about this team — Dnmcs context only</span>
+            <div class="chat-controls">
+              <button type="button" id="mcpPlay" aria-pressed="true">Pause</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="complement">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Complement versus echo</p>
+        <h2>A room that covers the missing move — or a room that repeats itself.</h2>
+        <p class="lede">Dnmcs does not assign personality badges. It shows decision pace, appetite for conflict, evidence habit, and where control sits. That is enough to see whether the table covers itself.</p>
+      </div>
+      <div class="echo">
+        <article>
+          <h3>Complement</h3>
+          <p>Different paces. Different appetites for conflict. Different evidence habits. A split in who holds the close. One person dates the bet; another keeps the story honest; a third wants the model before the date. The tension is usable once you name it.</p>
+          <ul>
+            <li>The close and the market-true check sit in different seats.</li>
+            <li>Someone will enter the fight; someone will hold the cost.</li>
+            <li>Delegation is real — control is not piled on one name.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Echo chamber</h3>
+          <p>Four people who decide the same way: same pace, same avoidance, same need for more evidence, same grip on control. Fast rooms get faster. Slow rooms stall. Nobody covers the missing move, and the next hard call feels unanimous until it breaks.</p>
+          <ul>
+            <li>Everyone closes — or everyone waits.</li>
+            <li>Dissent happens after the meeting, if at all.</li>
+            <li>The org chart has titles. The room has one decision style.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="quotes-band" id="quotes" aria-labelledby="quotes-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">On the problem — not an endorsement</p>
+        <h2 id="quotes-title">Operators who have seen the most teams name the same failure.</h2>
+        <p class="lede">Public remarks about founding-team blowups and shared command. These people are describing the problem. They are not Dnmcs customers, and this is not a testimonial.</p>
+      </div>
+      <div class="quotes-grid">
+        <figure class="pull">
+          <blockquote>
+            <p>“Cofounder relationships are among the most important in the entire company.”</p>
+          </blockquote>
+          <p class="aside">Same lecture: talk about tension early — “don’t let it sit there and fester.”</p>
+          <figcaption>
+            <strong>Sam Altman · Y Combinator · 2014</strong>
+            How to Start a Startup, Stanford lecture 2, 25 Sep 2014.
+            <a href="https://genius.com/Sam-altman-lecture-2-ideas-products-teams-and-execution-part-ii-annotated">Transcript</a>
+            ·
+            <a href="https://www.youtube.com/watch?v=CVfnkM44Urs">Video</a>
+          </figcaption>
+        </figure>
+        <figure class="pull">
+          <blockquote>
+            <p>“This relationship has to be built of top quality materials and carefully maintained. It’s the basis of everything.”</p>
+          </blockquote>
+          <p class="aside">Graham’s own line, after surveying YC founders — cofounder relationship was the #1 surprise.</p>
+          <figcaption>
+            <strong>Paul Graham · Y Combinator · 2009</strong>
+            “What Startups Are Really Like,” Oct 2009.
+            <a href="https://paulgraham.com/really.html">Essay</a>
+          </figcaption>
+        </figure>
+        <figure class="pull">
+          <blockquote>
+            <p>“You haven’t seen someone’s true colors unless you’ve worked with them on a startup.”</p>
+          </blockquote>
+          <p class="aside">A YC founder in Graham’s survey — not Graham’s line.</p>
+          <figcaption>
+            <strong>A YC founder · via Paul Graham · 2009</strong>
+            Quoted in “What Startups Are Really Like.”
+            <a href="https://paulgraham.com/really.html">Essay</a>
+          </figcaption>
+        </figure>
+        <figure class="pull">
+          <blockquote>
+            <p>“If two people are in charge, this variance will cause conflict and delay.”</p>
+          </blockquote>
+          <p class="aside">Same essay: “Often any decision, even the wrong decision, is better than no decision.”</p>
+          <figcaption>
+            <strong>Ben Horowitz · Andreessen Horowitz · 2013</strong>
+            “Shared Command,” 3 Jul 2013.
+            <a href="https://a16z.com/shared-command/">Essay</a>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Why this matters</p>
+        <h2>People problems on the founding team are not a soft risk.</h2>
+        <p class="lede">Hard facts from research on founders — not Dnmcs conversion math, and not someone else’s M&amp;A scorecard. Use them to decide whether the table you already have can take the next hard call.</p>
+      </div>
+      <div class="facts">
+        <article class="fact">
+          <p class="fact-num">~65%</p>
+          <h3>High-potential startups fail on people problems</h3>
+          <p>About 65% of high-potential startups fail because of people problems on the founding team — not because the market simply vanished.</p>
+          <p class="impl">The operating risk is the team already at the table. See how they decide before the next fight, raise, or hire — not after the room has already split.</p>
+          <blockquote class="fact-quote">
+            <p>“In YC’s case, the number one cause of early death for startups is cofounder blowups.”</p>
+            <p class="who">Sam Altman, How to Start a Startup, Stanford lecture 2, 2014. <a href="https://genius.com/Sam-altman-lecture-2-ideas-products-teams-and-execution-part-ii-annotated">Transcript</a></p>
+          </blockquote>
+          <p class="src">Finding: Noam Wasserman, <cite>The Founder’s Dilemmas</cite> (Princeton University Press, 2012). Research on ~10,000 founders, Harvard Business School. Founder-team / people problems — not a recycled “#1 cause is co-founder conflict” chart. Altman is a spoken observation from YC, not that paper.</p>
+        </article>
+        <article class="fact">
+          <p class="fact-num">1st $</p>
+          <h3>Turnover risk rises at first outside financing</h3>
+          <p>Founding-team turnover risk rises when the first outside money arrives. The raise is when unspoken decision rights get stress-tested.</p>
+          <p class="impl">Walk into that process already knowing who closes, who waits, and who owns the call. Do not discover it in the partner meeting.</p>
+          <blockquote class="fact-quote">
+            <p>When two people cannot decide who runs the company, “every single decision that the company makes from this day forward will be slower.”</p>
+            <p class="who">Ben Horowitz, “Shared Command,” Andreessen Horowitz, 3 Jul 2013. Context in the essay: the people in charge cannot decide who should run the company, so they compromise. <a href="https://a16z.com/shared-command/">Essay</a></p>
+          </blockquote>
+          <p class="src">Finding: Wasserman, <cite>The Founder’s Dilemmas</cite> (2012). Horowitz is about shared command, not Wasserman’s financing data.</p>
+        </article>
+        <article class="fact">
+          <p class="fact-num">~73%</p>
+          <h3>Founder-CEO replacements were fired</h3>
+          <p>About 73% of founder-CEO replacements were fired rather than stepped down. The succession conversation is rarely voluntary.</p>
+          <p class="impl">Better to see where control concentrates — and whether a second chair exists — while the team is still intact.</p>
+          <p class="src">Wasserman, <cite>The Founder’s Dilemmas</cite> (2012); widely cited from that research.</p>
+        </article>
+        <article class="fact">
+          <p class="fact-num">~29%</p>
+          <h3>Prior friendship, later turnover</h3>
+          <p>Each prior friendship on a founding team is associated with higher later founder turnover — about 29% in Wasserman’s data.</p>
+          <p class="impl">History is not a working agreement. Friends still need decision rights in writing before the next hard call.</p>
+          <p class="src">Wasserman, <cite>The Founder’s Dilemmas</cite> (2012).</p>
+        </article>
+        <article class="fact wide">
+          <h3>Personality diversity on founding teams relates to outcomes</h3>
+          <p>Founder personality — and the diversity of it on the team — relates to startup outcomes. That is a research finding about founders, not a claim that Dnmcs predicted those outcomes or that you should hire from a test.</p>
+          <p class="impl">Dnmcs is for the team that already sits at the table. It does not screen candidates and it does not score people for a firing decision.</p>
+          <p class="src">McCarthy et al., 2023, <cite>Scientific Reports</cite>. <a href="https://www.nature.com/articles/s41598-023-41980-y">Journal article</a>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="plan">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">What’s in the plan</p>
+        <h2>One annual plan. The surfaces you open when it counts.</h2>
+        <p class="lede">No seat tiers. No daily product. You buy the team plan once and use the cards, the pair reports, and the map when the next hard conversation arrives.</p>
+      </div>
+      <ul class="check-grid">
+        <li>One-time assessment per person, completed in private</li>
+        <li>Explicit consent before anything derived is shared</li>
+        <li>Working With Me card for every seat at the table</li>
+        <li>Strategic pair reports — CEO–CMO, co-founders, other pairs that matter</li>
+        <li>Team dynamics map of the room</li>
+        <li>Read of decision pace, conflict, evidence habit, and control</li>
+        <li>Complement versus echo-chamber read of the table</li>
+        <li>“Use this before” prompts on the live surfaces</li>
+        <li>Onboarding of later members on the same annual plan</li>
+        <li>Raw answers never shared — not with the CEO, not in a pair report</li>
+        <li>English only</li>
+        <li>Ask your own AI about authorized cards through a private MCP</li>
+      </ul>
     </div>
   </section>
 
@@ -645,14 +1938,14 @@ footer {
     <div class="wrap">
       <div class="section-head narrow">
         <p class="kicker">How it works</p>
-        <h2>Invite the table. Then you have the documents.</h2>
-        <p class="lede">There is no daily product to log into. The work is one sitting per person, then the reports.</p>
+        <h2>Invite the table. Then use what you already have in the room.</h2>
+        <p class="lede">There is no daily product to log into. One sitting per person, then the working surfaces — opened before the next hard conversation, not browsed like a feed.</p>
       </div>
       <ol class="steps">
         <li class="step">
           <span class="step-num" aria-hidden="true">01</span>
           <div>
-            <h3>Invite the people who sit at the table</h3>
+            <h3>Invite the people who already sit there</h3>
             <p>Co-founders, the C-suite, the pair that keeps missing each other. You send the invites. This is for the team you already have — not a screen for candidates.</p>
           </div>
         </li>
@@ -666,128 +1959,18 @@ footer {
         <li class="step">
           <span class="step-num" aria-hidden="true">03</span>
           <div>
-            <h3>Cards and pair reports appear</h3>
-            <p>Each person gets a Working With Me card. Strategic pairs — CEO and CMO, co-founders — get a report. The team gets a one-page dynamics map. Later hires can be onboarded on the same plan.</p>
+            <h3>The three surfaces appear</h3>
+            <p>Each person gets a Working With Me card. Strategic pairs get a report. The team gets a dynamics map. Later hires can be onboarded on the same plan.</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num" aria-hidden="true">04</span>
           <div>
-            <h3>Use them before the next hard conversation</h3>
-            <p>Open the documents before the hire, the raise, or the conversation you have been postponing. The point is to walk in already knowing how the room decides.</p>
+            <h3>Open them before the next hard conversation</h3>
+            <p>Use the card, the pair, and the map before the hire, the raise, or the fight you have been postponing. Walk in already knowing how the room decides.</p>
           </div>
         </li>
       </ol>
-    </div>
-  </section>
-
-  <section class="section" id="reports">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">What you get</p>
-        <h2>The reports are the product.</h2>
-        <p class="lede">Not a dashboard of icons. Three documents you can put on the table. The samples below are invented for a fictional team. They are not from a real company, and they are not testimonials.</p>
-      </div>
-
-      <article class="artifact" aria-labelledby="wwm-title">
-        <div class="artifact-head">
-          <p class="example-banner">Example · fictional team</p>
-          <p class="artifact-kind">Working With Me card</p>
-          <h3 id="wwm-title">Maya Chen</h3>
-          <p class="artifact-meta">CEO · Northwind Sample Co.</p>
-        </div>
-        <div class="artifact-body card-grid">
-          <div class="field">
-            <h4>How I decide</h4>
-            <p>I close fast when I have a customer signal. I stall when the risk is a person, not a market. If you need a no from me, bring it as a recommendation, not a tour of options.</p>
-          </div>
-          <div class="field">
-            <h4>How to work with me</h4>
-            <p>Put the ask in the first sentence. I will hear dissent after a direction is on the page, not before. Do not send a long memo the night before a board meeting and expect a careful no.</p>
-          </div>
-          <div class="field">
-            <h4>Under pressure</h4>
-            <p>I narrow the choices and pick. That keeps the company moving. It can also skip the person who needed another day to say what they actually think.</p>
-          </div>
-          <div class="field">
-            <h4>What I need from the room</h4>
-            <p>Someone who will name the people-risk I am treating as a timing problem. Write it down. I will engage with a sentence I can agree or refuse.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="artifact" aria-labelledby="pair-title">
-        <div class="artifact-head">
-          <p class="example-banner">Example · fictional pair</p>
-          <p class="artifact-kind">Strategic pair report</p>
-          <h3 id="pair-title">CEO × CMO</h3>
-          <p class="artifact-meta">Maya Chen and Jordan Hale · how this pair decides together</p>
-        </div>
-        <div class="artifact-body">
-          <div class="pair-split">
-            <div class="person">
-              <p class="role">CEO</p>
-              <p class="name">Maya Chen</p>
-              <p>Wants a date and an owner. Hears extra market work as delay.</p>
-            </div>
-            <div class="person">
-              <p class="role">CMO</p>
-              <p class="name">Jordan Hale</p>
-              <p>Wants the story to be true in the market. Hears a locked date as being overruled.</p>
-            </div>
-          </div>
-          <div class="card-grid">
-            <div class="field">
-              <h4>Where this pair works</h4>
-              <p>Jordan brings the market before Maya locks a bet. Maya forces a date so the launch does not stay a debate. Together they are fast once a customer is named.</p>
-            </div>
-            <div class="field">
-              <h4>Where it breaks</h4>
-              <p>Pricing and positioning. Maya treats a pause as avoidance. Jordan treats a forced close as a story the company will have to unsay in six months.</p>
-            </div>
-            <div class="field field-wide">
-              <h4>Before the next hard conversation</h4>
-              <p>Decide in writing who owns the final call on positioning — and by which date. Do it before the raise narrative is drafted, not during the partner meeting.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="artifact" aria-labelledby="map-title">
-        <div class="artifact-head">
-          <p class="example-banner">Example · fictional team</p>
-          <p class="artifact-kind">Team dynamics map</p>
-          <h3 id="map-title">One page on the room</h3>
-          <p class="artifact-meta">Northwind Sample Co. · founding team of four</p>
-        </div>
-        <div class="artifact-body">
-          <div class="map-block">
-            <div class="field">
-              <h4>Who is at the table</h4>
-              <div class="map-row">
-                <div class="map-seat"><strong>Maya Chen</strong><span>CEO</span></div>
-                <div class="map-seat"><strong>Priya Shah</strong><span>Co-founder, CTO</span></div>
-                <div class="map-seat"><strong>Jordan Hale</strong><span>CMO</span></div>
-                <div class="map-seat"><strong>Sam Okonkwo</strong><span>CFO</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="map-block card-grid">
-            <div class="field">
-              <h4>Where the team is aligned</h4>
-              <p>Once a customer is named, the room moves. Nobody here is waiting for a perfect plan. That is the company’s pace, and it is shared.</p>
-            </div>
-            <div class="field">
-              <h4>Structural friction</h4>
-              <p>Maya and Jordan decide from conviction. Priya and Sam want a model first. Neither side has said this out loud, so every pricing review feels like a personality clash.</p>
-            </div>
-            <div class="field field-wide">
-              <h4>The conversation this room is avoiding</h4>
-              <p>Who is actually second-in-command when Maya is on the raise. The org chart does not answer it. The pair reports will not either, until someone puts the question on a calendar.</p>
-            </div>
-          </div>
-        </div>
-      </article>
     </div>
   </section>
 
@@ -796,7 +1979,7 @@ footer {
       <div class="section-head narrow">
         <p class="kicker">Privacy and consent</p>
         <h2>Raw answers stay private. Sharing is a yes, not a default.</h2>
-        <p class="lede">This only works if people can be honest. So the assessment is private, and nothing derived is visible to teammates until the person has previewed it and agreed.</p>
+        <p class="lede">This only works if people can be honest. The assessment is private, and nothing derived is visible to teammates until the person has previewed it and agreed.</p>
       </div>
       <div class="privacy-grid">
         <article class="privacy-item">
@@ -824,17 +2007,17 @@ footer {
       <div class="section-head narrow">
         <p class="kicker">Pricing</p>
         <h2>One plan. $999 a year.</h2>
-        <p class="lede">No seat tiers. No monthly SKU. You buy the team plan once and use the documents when the next hard conversation arrives.</p>
+        <p class="lede">No seat tiers. No monthly SKU. You buy the team plan once and use the cards, the pair reports, and the map when the next hard conversation arrives.</p>
       </div>
       <div class="pricing-layout">
         <article class="price-card">
           <p class="kicker">The team plan</p>
           <p class="price-amount">$999 <span>/ year</span></p>
           <ul>
-            <li>Assessments for the team</li>
+            <li>Assessments for the people who already sit at the table</li>
             <li>A Working With Me card for each person</li>
             <li>Strategic pair reports — CEO–CMO, co-founders, and other pairs that matter</li>
-            <li>A one-page team dynamics map</li>
+            <li>A team dynamics map of the room</li>
             <li>Onboarding of later members on the same plan</li>
           </ul>
           <a class="btn btn-primary" href="https://app.dnmcs.ai">Start the team plan</a>
@@ -853,7 +2036,7 @@ footer {
         <article>
           <h3>This is for</h3>
           <ul>
-            <li>A founder or CEO who just had a fight with a co-founder and needs the working relationship in writing, not in lore</li>
+            <li>A CEO who just had a fight with a co-founder and needs the working relationship in writing, not in lore</li>
             <li>An executive team hiring a C-level and wanting the table to be honest on day one</li>
             <li>A digital-first startup or SME heading into a raise, a pivot, or a call the room keeps postponing</li>
           </ul>
@@ -880,7 +2063,7 @@ footer {
       <div class="faq-list">
         <details>
           <summary>How long does this take?</summary>
-          <p>Each person completes one assessment in a single sitting. There is nothing to do every day after that. The value is the documents, used when the next hard conversation arrives.</p>
+          <p>Each person completes one assessment in a single sitting. There is nothing to do every day after that. The value is the Working With Me card, the pair reports, and the map — opened when the next hard conversation arrives.</p>
         </details>
         <details>
           <summary>Will my CEO see my raw answers?</summary>
@@ -888,7 +2071,11 @@ footer {
         </details>
         <details>
           <summary>Is this MBTI?</summary>
-          <p>No. Dnmcs does not assign you a type. It produces documents about how this specific team decides under pressure: how you work, how a pair collides, and how the room is put together.</p>
+          <p>No. Dnmcs does not assign you a type. It shows how this specific team decides under pressure: how you work, how a pair collides, and how the room is put together.</p>
+        </details>
+        <details>
+          <summary>Does Dnmcs run Claude or ChatGPT?</summary>
+          <p>No. You connect the model you already use. It reasons on your credits. Dnmcs only serves the cards, pair reports, and map you have authorized — never raw answers.</p>
         </details>
         <details>
           <summary>Who can see my card?</summary>
@@ -918,7 +2105,7 @@ footer {
         <a class="btn btn-primary" href="https://app.dnmcs.ai">Start the team plan</a>
         <a class="btn btn-secondary" href="#pricing">See pricing</a>
       </div>
-      <p class="price-line" style="margin-top:1.25rem;color:var(--quiet);font-size:0.95rem;">$999 a year.</p>
+      <p class="price-line">$999 a year.</p>
     </div>
   </section>
 </main>
@@ -933,7 +2120,7 @@ footer {
         <a href="https://app.dnmcs.ai">App</a>
       </nav>
     </div>
-    <p class="footer-note">A later chapter will open an API and MCP connection for teams that want this in their own tools.</p>
+    <p class="footer-note">Connect the model you already use through MCP when you want Dnmcs in your own tools. Dnmcs does not host the model or bill tokens.</p>
   </div>
 </footer>
 
@@ -941,21 +2128,290 @@ footer {
 (function () {
   var toggle = document.getElementById("navToggle");
   var links = document.getElementById("navLinks");
-  if (!toggle || !links) return;
-
-  function setOpen(open) {
-    links.classList.toggle("open", open);
-    toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    toggle.textContent = open ? "Close" : "Menu";
+  if (toggle && links) {
+    function setOpen(open) {
+      links.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.textContent = open ? "Close" : "Menu";
+    }
+    toggle.addEventListener("click", function () {
+      setOpen(!links.classList.contains("open"));
+    });
+    links.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () { setOpen(false); });
+    });
   }
 
-  toggle.addEventListener("click", function () {
-    setOpen(!links.classList.contains("open"));
+  function activate(tab, tabs, panels, moveFocus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+    });
+    panels.forEach(function (p) {
+      var show = p.id === tab.getAttribute("aria-controls");
+      if (show) p.removeAttribute("hidden");
+      else p.setAttribute("hidden", "");
+    });
+    if (moveFocus) tab.focus();
+
+    var card = tab.closest(".ui-card");
+    if (card) {
+      card.querySelectorAll(".seat").forEach(function (seat) {
+        var jump = seat.getAttribute("data-jump");
+        seat.setAttribute("aria-selected", jump === tab.id ? "true" : "false");
+      });
+    }
+  }
+
+  document.querySelectorAll("[data-tabs]").forEach(function (card) {
+    var lists = card.querySelectorAll('[role="tablist"]');
+    lists.forEach(function (list) {
+      var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+      var panels = tabs.map(function (t) {
+        return document.getElementById(t.getAttribute("aria-controls"));
+      }).filter(Boolean);
+
+      list.addEventListener("keydown", function (e) {
+        var i = tabs.indexOf(document.activeElement);
+        if (i < 0) return;
+        var next = i;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") next = (i + 1) % tabs.length;
+        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === "Home") next = 0;
+        else if (e.key === "End") next = tabs.length - 1;
+        else return;
+        e.preventDefault();
+        activate(tabs[next], tabs, panels, true);
+      });
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          activate(tab, tabs, panels, false);
+        });
+      });
+    });
+
+    card.querySelectorAll(".seat[data-jump]").forEach(function (seat) {
+      seat.addEventListener("click", function () {
+        var target = document.getElementById(seat.getAttribute("data-jump"));
+        if (target) target.click();
+      });
+    });
+  });
+})();
+
+(function () {
+  var chat = document.getElementById("mcpChat");
+  var thread = document.getElementById("mcpThread");
+  var playBtn = document.getElementById("mcpPlay");
+  var brand = document.getElementById("mcpBrand");
+  if (!chat || !thread || !playBtn) return;
+
+  var names = { claude: "Claude", chatgpt: "ChatGPT", grok: "Grok" };
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var playing = !reduced;
+  var timers = [];
+  var run = 0;
+
+  var SCRIPT = [
+    {
+      role: "user",
+      who: "Jordan Hale · CMO",
+      text: "I need to lock pricing and positioning with Maya this week. How do we take that decision together — without the same fight? She wants a date. I want the story true in the market."
+    },
+    {
+      role: "assistant",
+      html: "<p>Use Maya’s Working With Me card and the CEO × CMO pair report. Not a type. The pair already names the loop.</p><p>Maya closes when a customer is named. She wants a date and an owner. You want a sentence a buyer would repeat. She hears extra market work as delay. You hear a locked Friday as being overruled.</p><p>Decision-rights sentence for Tuesday: Jordan owns positioning. Maya owns the date. If they conflict, Sam puts the cost on one page and they decide by Thursday — not in the partner meeting.</p><p>Twenty-four hours: today you name two customers who would repeat the sentence, or you say you cannot. Tomorrow by 16:00 Maya sets the date or gives you the week. After Thursday, do not reopen it in Slack.</p>",
+      chips: ["Maya Chen · Working With Me", "CEO × CMO pair"]
+    },
+    {
+      role: "user",
+      who: "Jordan Hale · CMO",
+      text: "What actually motivates Priya when we need her to slip a date — and how do I use that to get an agreement instead of a standoff?"
+    },
+    {
+      role: "assistant",
+      html: "<p>Priya does not enter the fight at the table. She stalls the build. The room treats silence as agreement. Her card says it is not.</p><p>What moves her is craft — a model she owns — not a Friday she inherited. She will slip a date when the system is true. She will not move when the date is a box someone else drew.</p><p>Three lines Maya can say in the room:</p><ol><li>What would have to be true in the model for you to ship Friday — say it here, not in the pull request.</li><li>You own the architecture. I own the date. If the model does not hold, put the slip on one page by Thursday and I will take the board.</li><li>I am not asking you to agree in silence. I am asking you to name the constraint I am not seeing.</li></ol>",
+      chips: ["Priya Shah · Working With Me", "Team dynamics map"]
+    }
+  ];
+
+  function later(fn, ms) {
+    var id = setTimeout(fn, ms);
+    timers.push(id);
+    return id;
+  }
+
+  function stopTimers() {
+    timers.forEach(clearTimeout);
+    timers = [];
+  }
+
+  function chipsHtml(chips) {
+    if (!chips || !chips.length) return "";
+    return "<div class=\"src-chips\">" + chips.map(function (c) {
+      return "<span class=\"src-chip\">" + c + "</span>";
+    }).join("") + "</div>";
+  }
+
+  function addUser(who, text, caret) {
+    var wrap = document.createElement("div");
+    wrap.className = "chat-msg user";
+    wrap.innerHTML = "<p class=\"who\">" + who + "</p><div class=\"chat-bubble\"><span class=\"body\"></span>" + (caret ? "<span class=\"caret\" aria-hidden=\"true\"></span>" : "") + "</div>";
+    if (!caret) wrap.querySelector(".body").textContent = text;
+    thread.appendChild(wrap);
+    wrap.scrollIntoView({ block: "nearest" });
+    return wrap;
+  }
+
+  function addAssistant(html, chips, empty) {
+    var wrap = document.createElement("div");
+    wrap.className = "chat-msg assistant";
+    wrap.innerHTML = "<p class=\"who\">" + names[chat.getAttribute("data-provider")] + " · Dnmcs context</p><div class=\"chat-bubble\"><div class=\"body\"></div></div>";
+    if (!empty) {
+      wrap.querySelector(".body").innerHTML = html + chipsHtml(chips);
+    }
+    thread.appendChild(wrap);
+    wrap.scrollIntoView({ block: "nearest" });
+    return wrap;
+  }
+
+  function renderAll() {
+    thread.innerHTML = "";
+    SCRIPT.forEach(function (step) {
+      if (step.role === "user") addUser(step.who, step.text, false);
+      else addAssistant(step.html, step.chips, false);
+    });
+  }
+
+  function typeText(el, text, done) {
+    var i = 0;
+    function tick() {
+      if (!playing) return;
+      i += 1;
+      el.textContent = text.slice(0, i);
+      thread.lastElementChild && thread.lastElementChild.scrollIntoView({ block: "nearest" });
+      if (i >= text.length) done();
+      else later(tick, 16 + (text[i - 1] === " " ? 8 : 0));
+    }
+    tick();
+  }
+
+  function streamHtml(el, html, chips, done) {
+    var tmp = document.createElement("div");
+    tmp.innerHTML = html;
+    var nodes = Array.prototype.slice.call(tmp.childNodes);
+    var n = 0;
+
+    function nextNode() {
+      if (!playing) return;
+      if (n >= nodes.length) {
+        el.insertAdjacentHTML("beforeend", chipsHtml(chips));
+        done();
+        return;
+      }
+      var node = nodes[n++];
+      if (node.nodeType === 1 && (node.tagName === "P" || node.tagName === "OL")) {
+        var target = document.createElement(node.tagName.toLowerCase());
+        el.appendChild(target);
+        if (node.tagName === "OL") {
+          var items = Array.prototype.slice.call(node.children);
+          var j = 0;
+          function nextItem() {
+            if (!playing) return;
+            if (j >= items.length) {
+              later(nextNode, 220);
+              return;
+            }
+            var li = document.createElement("li");
+            target.appendChild(li);
+            typeText(li, items[j++].textContent, function () { later(nextItem, 160); });
+          }
+          nextItem();
+        } else {
+          typeText(target, node.textContent, function () { later(nextNode, 280); });
+        }
+      } else {
+        nextNode();
+      }
+    }
+    nextNode();
+  }
+
+  function playFrom(index, token) {
+    if (index >= SCRIPT.length) {
+      later(function () {
+        if (token !== run || !playing) return;
+        startLoop();
+      }, 4200);
+      return;
+    }
+    var step = SCRIPT[index];
+    if (step.role === "user") {
+      var box = addUser(step.who, "", true);
+      var body = box.querySelector(".body");
+      var caret = box.querySelector(".caret");
+      typeText(body, step.text, function () {
+        if (caret) caret.remove();
+        later(function () { playFrom(index + 1, token); }, 700);
+      });
+    } else {
+      var box = addAssistant("", step.chips, true);
+      streamHtml(box.querySelector(".body"), step.html, step.chips, function () {
+        later(function () { playFrom(index + 1, token); }, 1100);
+      });
+    }
+  }
+
+  function startLoop() {
+    stopTimers();
+    run += 1;
+    thread.innerHTML = "";
+    if (reduced || !playing) {
+      renderAll();
+      return;
+    }
+    later(function () { playFrom(0, run); }, 400);
+  }
+
+  function setPlaying(on) {
+    playing = on && !reduced;
+    playBtn.textContent = playing ? "Pause" : (reduced ? "Static" : "Play");
+    playBtn.setAttribute("aria-pressed", playing ? "true" : "false");
+    if (playing) startLoop();
+    else {
+      stopTimers();
+      renderAll();
+    }
+  }
+
+  chat.querySelectorAll(".chat-providers [data-provider]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var p = btn.getAttribute("data-provider");
+      chat.setAttribute("data-provider", p);
+      brand.textContent = names[p];
+      chat.querySelectorAll(".chat-providers [data-provider]").forEach(function (b) {
+        b.setAttribute("aria-selected", b === btn ? "true" : "false");
+      });
+      thread.querySelectorAll(".chat-msg.assistant .who").forEach(function (el) {
+        el.textContent = names[p] + " · Dnmcs context";
+      });
+    });
   });
 
-  links.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () { setOpen(false); });
+  playBtn.addEventListener("click", function () {
+    if (reduced) return;
+    setPlaying(!playing);
   });
+
+  if (reduced) {
+    playBtn.textContent = "Static";
+    playBtn.setAttribute("aria-pressed", "false");
+    renderAll();
+  } else {
+    startLoop();
+  }
 })();
 </script>
 </body>
